@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main_nav.xml"
+    app:startDestination="@id/loginFragment">
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.kma.myapplication.ui.login.LoginFragment"
+        android:label="LoginFragment" >
+        <action
+            android:id="@+id/action_loginFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.kma.myapplication.ui.main.MainFragment"
+        android:label="MainFragment" >
+        <action
+            android:id="@+id/action_mainFragment_to_bookFragment"
+            app:destination="@id/bookFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_educationProgramFragment"
+            app:destination="@id/educationProgramFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_prizeFragment"
+            app:destination="@id/prizeFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_scientificArticleFragment"
+            app:destination="@id/scientificArticleFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_scientificResearchFragment"
+            app:destination="@id/scientificResearchFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_staffFragment"
+            app:destination="@id/staffFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_classFragment"
+            app:destination="@id/classFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_examFragment"
+            app:destination="@id/examFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_markExamFragment"
+            app:destination="@id/markExamFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_monotorExamFragment"
+            app:destination="@id/monotorExamFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_subjectFragment"
+            app:destination="@id/subjectFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_policyAndTermFragment"
+            app:destination="@id/policyAndTermFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/bookFragment"
+        android:name="com.kma.myapplication.ui.sach.BookFragment"
+        android:label="BookFragment" />
+    <fragment
+        android:id="@+id/educationProgramFragment"
+        android:name="com.kma.myapplication.ui.chuongtrinh.EducationProgramFragment"
+        android:label="EducationProgramFragment" />
+    <fragment
+        android:id="@+id/prizeFragment"
+        android:name="com.kma.myapplication.ui.giaithuong.PrizeFragment"
+        android:label="PrizeFragment" />
+    <fragment
+        android:id="@+id/scientificArticleFragment"
+        android:name="com.kma.myapplication.ui.baibaokhoahoc.ScientificArticleFragment"
+        android:label="ScientificArticleFragment" />
+    <fragment
+        android:id="@+id/scientificResearchFragment"
+        android:name="com.kma.myapplication.ui.nghiencuukhoahoc.ScientificResearchFragment"
+        android:label="ScientificResearchFragment" />
+    <fragment
+        android:id="@+id/staffFragment"
+        android:name="com.kma.myapplication.ui.staff.StaffFragment"
+        android:label="StaffFragment" />
+    <fragment
+        android:id="@+id/classFragment"
+        android:name="com.kma.myapplication.ui.quanlylophoc.ClassFragment"
+        android:label="ClassFragment" />
+    <fragment
+        android:id="@+id/examFragment"
+        android:name="com.kma.myapplication.ui.quanlydethi.ExamFragment"
+        android:label="ExamFragment" />
+    <fragment
+        android:id="@+id/markExamFragment"
+        android:name="com.kma.myapplication.ui.quanlychamthi.MarkExamFragment"
+        android:label="MarkExamFragment" />
+    <fragment
+        android:id="@+id/monotorExamFragment"
+        android:name="com.kma.myapplication.ui.quanlycoithi.MonotorExamFragment"
+        android:label="MonotorExamFragment" />
+    <fragment
+        android:id="@+id/subjectFragment"
+        android:name="com.kma.myapplication.ui.quanlymonhoc.SubjectFragment"
+        android:label="SubjectFragment" />
+    <fragment
+        android:id="@+id/policyAndTermFragment"
+        android:name="com.kma.myapplication.ui.splash.PolicyAndTermFragment"
+        android:label="PolicyAndTermFragment" >
+        <argument
+            android:name="param"
+            app:argType="integer"
+            android:defaultValue="0" />
+    </fragment>
+
+</navigation>

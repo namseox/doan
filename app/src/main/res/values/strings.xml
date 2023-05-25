@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">My Application</string>
+    <string name="updateStaff">updateStaff</string>
+    <string name="txt_username">User Name</string>
+    <string name="ico_user"><![CDATA[&#xf007]]></string>
+    <string name="txt_password">Password</string>
+    <string name="ico_lock"><![CDATA[&#xf023;]]></string>
+    <string name="txt_submit">Login</string>
+    <string name="test">test</string>
+    <string name="login_success">login_success</string>
+</resources>
