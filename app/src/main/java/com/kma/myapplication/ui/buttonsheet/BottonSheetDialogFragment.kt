@@ -18,10 +18,15 @@ import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.kma.myapplication.R
 import com.kma.myapplication.data.model.StaffItem
+import com.kma.myapplication.data.model.UserX
 import com.kma.myapplication.databinding.FragmentBottomSheetDialogStaffBinding
 
 
-class BottonSheetDialogFragment(var onClick: onClickBottomSheet, var status: String, var staff : StaffItem) :
+class BottonSheetDialogFragment(
+    var onClick: onClickBottomSheet,
+    var status: String,
+    var staff: StaffItem
+) :
     BottomSheetDialogFragment(), AdapterView.OnItemSelectedListener {
     lateinit var binding: FragmentBottomSheetDialogStaffBinding
     var departmet_it = arrayOf("1", "2", "3", "4", "5", "6")
@@ -78,6 +83,7 @@ class BottonSheetDialogFragment(var onClick: onClickBottomSheet, var status: Str
         spinner.id = NEW_SPINNER_ID
         when (status) {
             "UpdateStaff" -> {
+
                 binding.clStaff.visibility = VISIBLE
 
             }
@@ -85,7 +91,8 @@ class BottonSheetDialogFragment(var onClick: onClickBottomSheet, var status: Str
             "Staff" -> {
                 binding.clStaffa.visibility = VISIBLE
             }
-            "AddStaff" ->{
+
+            "AddStaff" -> {
                 binding.clStaffb.visibility = VISIBLE
             }
         }
@@ -93,16 +100,55 @@ class BottonSheetDialogFragment(var onClick: onClickBottomSheet, var status: Str
             destroy()
         }
         binding.btnUpdate.setOnClickListener {
-            onClick.onClickText("updateStaff")
+            var staff = UserX(
+                "",
+                "11/11/2000",
+                binding.tvIdStaff.text.toString(),
+                "",
+                "",
+                "",
+                binding.spDepartment.selectedItem.toString().toInt(),
+                binding.tvEmailStaff.text.toString(),
+                0,
+                binding.tvSalaryStaff.text.toString().toInt(),
+                binding.tvNameStaff.text.toString(),
+                binding.tvStepSalary.text.toString().toInt(),
+                "1",
+                binding.spPositionStaff.selectedItem.toString(),
+                "",
+                0,
+                0,
+                ""
+            )
+            onClick.onClickText("updateStaff",staff)
             destroy()
         }
         binding.btnAdd.setOnClickListener {
-            onClick.onClickText("addStaff")
+            var staff = UserX(
+                "",
+                "11/11/2000",
+                binding.tvIdStaffb.text.toString(),
+                "",
+                "",
+                "",
+                binding.spDepartmentb.selectedItem.toString().toInt(),
+                binding.tvEmailStaffb.text.toString(),
+                0,
+                binding.tvSalaryStaffb.text.toString().toInt(),
+                binding.tvNameStaffb.text.toString(),
+                binding.tvStepSalaryb.text.toString().toInt(),
+                "1",
+                binding.spPositionStaffb.selectedItem.toString(),
+                "",
+                0,
+                0,
+                ""
+            )
+            onClick.onClickText("addStaff",staff)
             destroy()
         }
         return binding.root
     }
-
 
 
     private fun destroy() {
@@ -114,7 +160,8 @@ class BottonSheetDialogFragment(var onClick: onClickBottomSheet, var status: Str
             1 -> {
 
             }
-            else ->{
+
+            else -> {
 
             }
         }
@@ -128,5 +175,6 @@ class BottonSheetDialogFragment(var onClick: onClickBottomSheet, var status: Str
 }
 
 interface onClickBottomSheet {
-    fun onClickText(text: String)
+    fun onClickText(text: String, staff: UserX)
+
 }

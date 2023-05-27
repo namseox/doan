@@ -1,6 +1,7 @@
 package com.kma.myapplication.data.api.retrofit.apihelper
 
 import android.content.Context
+import android.util.Log
 import com.google.gson.GsonBuilder
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import com.kma.myapplication.data.api.base.BaseRetrofitHelper
@@ -13,7 +14,7 @@ import retrofit2.create
 
 class ApiHelper private constructor(context: Context) : BaseRetrofitHelper(context) {
     //    private val BASE_URL = "http://192.130.15.106//:8001/"
-    private val BASE_URL = "http://192.130.15.105:8001"
+    private val BASE_URL = "http://192.168.1.22:8001"
     var loginApi: LoginApi
     var staffApi: StaffApi
 
@@ -26,6 +27,7 @@ class ApiHelper private constructor(context: Context) : BaseRetrofitHelper(conte
             ).client(okHttpClient!!).build()
         loginApi = retrofit.create(LoginApi::class.java)
         staffApi = retrofit.create(StaffApi::class.java)
+
     }
 
     companion object : SingletonHolder<ApiHelper, Context>(::ApiHelper)

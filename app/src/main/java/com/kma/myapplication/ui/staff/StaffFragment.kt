@@ -5,6 +5,7 @@ import ListActionPopup
 import android.app.Application
 import android.os.Handler
 import android.os.Looper
+import android.util.Log
 import android.view.View.GONE
 import android.view.View.VISIBLE
 import android.widget.Toast
@@ -65,7 +66,9 @@ class StaffFragment : AbsBaseFragment<FragmentStaffBinding>(), onCLick, onClickB
                         binding.cpiLoading.visibility = GONE
                         binding.tvStatus.visibility = GONE
                         listStaff = body as List<StaffItem>
-                        handler.postDelayed(Runnable { setAudioRecycleView() }, 200)
+                        handler.postDelayed(Runnable {
+                            setAudioRecycleView()
+                        }, 200)
                     } else {
                         binding.tvStatus.visibility = VISIBLE
                         binding.tvStatus.text = "Không có nhân viên"
@@ -79,66 +82,122 @@ class StaffFragment : AbsBaseFragment<FragmentStaffBinding>(), onCLick, onClickB
                 }
             }
         }
+        viewModelStaff.value_delete.observe(this) {
+            it?.let {
+                if(it==1){
+                    adapterStaff.deleteStaff(viewModelStaff.staffItem)
+                    Toast.makeText(requireContext(), "Xoá thành công", Toast.LENGTH_SHORT).show()
+                }
+
+            }
+        }
+        viewModelStaff.value_creat.observe(this){
+            it?.let {
+                if (it.success) {
+                    viewModelStaff.checkUpdate = true
+                    viewModelStaff.getListStaff()
+                    Toast.makeText(requireContext(), "Tạo thành công", Toast.LENGTH_SHORT).show()
+                }
+            }
+        }
+        viewModelStaff.value_updtae.observe(this){
+            it?.let {
+                Log.d("TAG", "upData00: ")
+                if (it.id==viewModelStaff.staffItem.id) {
+                    adapterStaff.updateStaff(it)
+                    Toast.makeText(requireContext(), "Cập nhật thành công", Toast.LENGTH_SHORT).show()
+                }
+            }
+        }
     }
 
     private fun setAudioRecycleView() {
-        adapterStaff.getData(listStaff)
+        if(viewModelStaff.checkUpdate){
+            adapterStaff.getData(true,listStaff)
+            viewModelStaff.checkUpdate = false
+        }else{
+            adapterStaff.getData(false,listStaff)
+        }
         binding.rcvStaff.adapter = adapterStaff
         var manager = GridLayoutManager(requireContext(), 1, RecyclerView.VERTICAL, false)
         binding.rcvStaff.layoutManager = manager
     }
 
-    private val actions = arrayListOf<String>("Add","Edit","Delete")
+    private val actions = arrayListOf<String>("Add", "Edit", "Delete")
 
     override fun click3Dot(staff: StaffItem, binding: ItemStaffBinding) {
-        listActionPopup.showPopup(binding.iv3dot,actions,object :ActionAdapter.OnActionClickListener{
-            override fun onItemActionClick(position: Int) {
-                when(position){
-                    0->{
-                        showButtonSheetAdd(staff)
-                    }
-                    1->{
-                        showButtonSheetUpdate(staff)
-                    }
-                    else->{
-                        var myFileDialog = StaffDialog.create(object : StaffDialog.IListener {
-                            override fun delete() {
+        listActionPopup.showPopup(
+            binding.iv3dot,
+            actions,
+            object : ActionAdapter.OnActionClickListener {
+                override fun onItemActionClick(position: Int) {
+                    viewModelStaff.staffItem = staff
+                    when (position) {
+                        0 -> {
+                            showButtonSheetAdd(staff)
+                        }
 
-                                Toast.makeText(requireContext(),"Xoá thành công",Toast.LENGTH_SHORT).show()
-                            }
-                        })
-                        myFileDialog.show(childFragmentManager, "myfileDialog")
+                        1 -> {
+                            showButtonSheetUpdate(staff)
+                        }
 
+                        else -> {
+                            var myFileDialog = StaffDialog.create(object : StaffDialog.IListener {
+                                override fun delete() {
+                                    try {
+                                        viewModelStaff.deleteStaff(staff.id)
+                                    } catch (e: Exception) {
+                                        Toast.makeText(
+                                            requireContext(),
+                                            "Xoá không thành công",
+                                            Toast.LENGTH_SHORT
+                                        ).show()
+                                    }
+
+                                }
+                            })
+                            myFileDialog.show(childFragmentManager, "myfileDialog")
+
+                        }
                     }
                 }
-            }
 
-        })
+            })
     }
 
     private fun showButtonSheetAdd(staff: StaffItem) {
-        val bottomSheetActionDialog = BottonSheetDialogFragment(this,"AddStaff",staff)
-        bottomSheetActionDialog.show(requireActivity().supportFragmentManager, BottonSheetDialogFragment.TAG)
+        val bottomSheetActionDialog = BottonSheetDialogFragment(this, "AddStaff", staff)
+        bottomSheetActionDialog.show(
+            requireActivity().supportFragmentManager,
+            BottonSheetDialogFragment.TAG
+        )
     }
 
     private fun showButtonSheetUpdate(staff: StaffItem) {
-        val bottomSheetActionDialog = BottonSheetDialogFragment(this,"UpdateStaff",staff)
-        bottomSheetActionDialog.show(requireActivity().supportFragmentManager, BottonSheetDialogFragment.TAG)
+        val bottomSheetActionDialog = BottonSheetDialogFragment(this, "UpdateStaff", staff)
+        bottomSheetActionDialog.show(
+            requireActivity().supportFragmentManager,
+            BottonSheetDialogFragment.TAG
+        )
 
     }
 
     override fun clickItem(staff: StaffItem, binding: ItemStaffBinding) {
-        val bottomSheetActionDialog = BottonSheetDialogFragment(this,"Staff",staff)
-        bottomSheetActionDialog.show(requireActivity().supportFragmentManager, BottonSheetDialogFragment.TAG)
+        val bottomSheetActionDialog = BottonSheetDialogFragment(this, "Staff", staff)
+        bottomSheetActionDialog.show(
+            requireActivity().supportFragmentManager,
+            BottonSheetDialogFragment.TAG
+        )
     }
 
-    override fun onClickText(text: String) {
-        when(text){
-            "updateStaff"->{
-
+    override fun onClickText(text: String,staff: UserX) {
+        when (text) {
+            "updateStaff" -> {
+                viewModelStaff.updateStaff(viewModelStaff.staffItem.id,staff)
             }
-            "addStaff"->{
 
+            "addStaff" -> {
+                viewModelStaff.creatStaff(staff)
             }
         }
 

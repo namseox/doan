@@ -17,6 +17,5 @@ data class StaffItem(
     val position: String,
     val salt: String,
     val time_per_year: Int,
-    val time_reserve: Int,
-    val updatedAt: String
+    val time_reserve: Int
 )
