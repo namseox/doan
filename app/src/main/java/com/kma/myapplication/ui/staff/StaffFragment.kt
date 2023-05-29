@@ -15,7 +15,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.hola360.m3uplayer.data.response.DataResponse
 import com.hola360.m3uplayer.data.response.LoadingStatus
 import com.kma.myapplication.R
-import com.kma.myapplication.data.model.Staff
 import com.kma.myapplication.data.model.StaffItem
 import com.kma.myapplication.data.model.UserX
 import com.kma.myapplication.databinding.FragmentStaffBinding
@@ -27,14 +26,14 @@ import com.kma.myapplication.ui.buttonsheet.onClickBottomSheet
 
 class StaffFragment : AbsBaseFragment<FragmentStaffBinding>(), onCLick, onClickBottomSheet {
     private val listActionPopup by lazy { ListActionPopup(requireActivity()) }
-    lateinit var viewModelStaff: ViewModelStaff
+    lateinit var viewModelStaff: ViewModelStaffFragment
     lateinit var adapterStaff: AdapterStaff
     var listStaff = listOf<StaffItem>()
     val handler = Handler(Looper.myLooper()!!)
     override fun getLayout(): Int = R.layout.fragment_staff
 
     override fun initView() {
-        viewModelStaff = ViewModelStaff(Application())
+        viewModelStaff = ViewModelStaffFragment(Application())
 
         handler.postDelayed(runnable, 1000)
         binding.toolbar.setOnClickListener {

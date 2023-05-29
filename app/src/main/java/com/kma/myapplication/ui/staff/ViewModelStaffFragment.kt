@@ -10,12 +10,12 @@ import com.hola360.m3uplayer.data.response.LoadingStatus
 import com.kma.myapplication.data.model.CreateUser
 import com.kma.myapplication.data.model.StaffItem
 import com.kma.myapplication.data.model.UserX
-import com.kma.myapplication.data.reponstory.StaffReponstory
+import com.kma.myapplication.data.repository.StaffRepository
 import kotlinx.coroutines.launch
 
-class ViewModelStaff(app:Application) : ViewModel() {
+class ViewModelStaffFragment(app:Application) : ViewModel() {
     var listStaffItem = MutableLiveData<DataResponse<List<StaffItem?>>>(DataResponse.DataIdle())
-    val repository = StaffReponstory(app)
+    val repository = StaffRepository(app)
     var value_delete = MutableLiveData<Int>()
     var value_creat = MutableLiveData<CreateUser>()
     var value_updtae = MutableLiveData<StaffItem>()

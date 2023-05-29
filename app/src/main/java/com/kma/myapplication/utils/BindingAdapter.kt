@@ -19,9 +19,16 @@ fun ImageView.setImage(name: String){
 
 @BindingAdapter("setText")
 fun TextView.setText(id: Int){
-    this.text = id.toString()
+    this.text = "id: "+id.toString()
 }
-
+@BindingAdapter("setNameBook")
+fun TextView.setNameBook(name: String){
+    this.text = "Tên sách: "+name
+}
+@BindingAdapter("setTimeCreatBook")
+fun TextView.setTimeCreatBook(time:String){
+    this.text = "Ngày phát hành:" +time.substring(0,10)
+}
 @BindingAdapter("setTextDepartment")
 fun TextView.setTextDepartment(id: Int){
     this.text = id.toString()

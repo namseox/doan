@@ -1,4 +1,4 @@
-package com.kma.myapplication.data.reponstory
+package com.kma.myapplication.data.repository
 
 import android.content.Context
 import android.util.Log
@@ -9,7 +9,7 @@ import com.kma.myapplication.data.model.UserX
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
-class StaffReponstory(val context: Context) {
+class StaffRepository(val context: Context) {
     private var apiHelper = ApiHelper.getInstance(context)
     suspend fun getListStaff(): List<StaffItem>? = withContext(Dispatchers.Default){
         try {

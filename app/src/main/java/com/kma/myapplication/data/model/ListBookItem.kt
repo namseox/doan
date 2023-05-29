@@ -1,6 +1,6 @@
 package com.kma.myapplication.data.model
 
-data class Book(
+data class ListBookItem(
     val code: String,
     val createdAt: String,
     val deletedAt: Any,
@@ -12,7 +12,6 @@ data class Book(
     val total_time: Int,
     val type: Int,
     val updatedAt: String,
-    val users: List<Any>,
-    val year: Any,
-    val year_id: Int
+    val year_id: Int,
+    val role:String="-1"
 )

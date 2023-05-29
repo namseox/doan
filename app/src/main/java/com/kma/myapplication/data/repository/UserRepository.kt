@@ -1,4 +1,4 @@
-package com.kma.myapplication.data.reponstory
+package com.kma.myapplication.data.repository
 
 import android.content.Context
 import android.util.Log
@@ -8,7 +8,7 @@ import com.kma.myapplication.data.model.User
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
-class UserReponstory(val context: Context) {
+class UserRepository(val context: Context) {
     private var loginApiHelper = ApiHelper.getInstance(context)
     suspend fun userLogin( userName: String, password: String):User? = withContext(Dispatchers.Default) {
         try {

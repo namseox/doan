@@ -6,11 +6,11 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.kma.myapplication.data.model.User
-import com.kma.myapplication.data.reponstory.UserReponstory
+import com.kma.myapplication.data.repository.UserRepository
 import kotlinx.coroutines.launch
 
 class LoginViewModel(app: Application) : ViewModel() {
-    val repository = UserReponstory(app)
+    val repository = UserRepository(app)
     val user = MutableLiveData<User?>()
 
     fun getUser(userName: String, password: String) {
