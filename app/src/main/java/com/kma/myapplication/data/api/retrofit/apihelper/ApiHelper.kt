@@ -5,6 +5,7 @@ import android.util.Log
 import com.google.gson.GsonBuilder
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import com.kma.myapplication.data.api.base.BaseRetrofitHelper
+import com.kma.myapplication.data.api.retrofit.book.BookApi
 import com.kma.myapplication.data.api.retrofit.staff.StaffApi
 import com.kma.myapplication.data.api.retrofit.user.LoginApi
 import com.kma.myapplication.utils.SingletonHolder
@@ -17,6 +18,7 @@ class ApiHelper private constructor(context: Context) : BaseRetrofitHelper(conte
     private val BASE_URL = "http://192.168.1.22:8001"
     var loginApi: LoginApi
     var staffApi: StaffApi
+    var bookApi:BookApi
 
     init {
         GsonBuilder().setLenient().create()
@@ -27,6 +29,7 @@ class ApiHelper private constructor(context: Context) : BaseRetrofitHelper(conte
             ).client(okHttpClient!!).build()
         loginApi = retrofit.create(LoginApi::class.java)
         staffApi = retrofit.create(StaffApi::class.java)
+        bookApi = retrofit.create(BookApi::class.java)
 
     }
 

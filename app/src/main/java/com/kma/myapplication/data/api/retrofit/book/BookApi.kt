@@ -1,5 +1,6 @@
 package com.kma.myapplication.data.api.retrofit.book
 
+import com.kma.myapplication.data.model.Book
 import com.kma.myapplication.data.model.CreateUser
 import com.kma.myapplication.data.model.ListBookItem
 import com.kma.myapplication.data.model.StaffItem
@@ -17,7 +18,7 @@ interface BookApi {
     ): List<ListBookItem>
 
     @GET("/book/{id}")
-    suspend fun getItemBook(@Path("id") i: Int): Int
+    suspend fun getItemBook(@Path("id") i: Int): Book
 
     @DELETE("/book/{id}")
     suspend fun deleteBook(@Path("id") i: Int): Int

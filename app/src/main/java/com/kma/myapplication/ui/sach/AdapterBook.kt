@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.kma.myapplication.data.model.Book
+import com.kma.myapplication.data.model.ListBook
 import com.kma.myapplication.data.model.ListBookItem
 import com.kma.myapplication.data.model.StaffItem
 import com.kma.myapplication.databinding.ItemBookBinding
@@ -12,6 +13,23 @@ import com.kma.myapplication.ui.staff.AdapterStaff
 
 class AdapterBook(var onCLick: onCLickBook) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     var data = mutableListOf<ListBookItem>()
+    fun getData(listBook: ListBook) {
+        data.clear()
+        data = listBook
+        notifyDataSetChanged()
+    }
+
+    fun updateBook() {
+
+    }
+
+    fun deleteBook() {
+
+    }
+
+    fun creatBook() {
+
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         val binding = ItemBookBinding.inflate(LayoutInflater.from(parent.context), parent, false)
@@ -27,10 +45,11 @@ class AdapterBook(var onCLick: onCLickBook) : RecyclerView.Adapter<RecyclerView.
                 onCLick.click3Dot(data[position], holder.binding)
             }
             holder.binding.clStaff.setOnClickListener {
-                onCLick.clickItem(data[position], holder.binding)
+                onCLick.clickItem(data[position].id, holder.binding)
             }
         }
     }
+
     inner class ViewHolder(val binding: ItemBookBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(position: Int) {
             binding.bookModel = data[position]
@@ -41,5 +60,5 @@ class AdapterBook(var onCLick: onCLickBook) : RecyclerView.Adapter<RecyclerView.
 
 interface onCLickBook {
     fun click3Dot(book: ListBookItem, binding: ItemBookBinding)
-    fun clickItem(book: Book, binding: ItemBookBinding)
+    fun clickItem(id: Int, binding: ItemBookBinding)
 }
