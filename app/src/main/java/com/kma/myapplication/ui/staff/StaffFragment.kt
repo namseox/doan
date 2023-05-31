@@ -21,8 +21,8 @@ import com.kma.myapplication.databinding.FragmentStaffBinding
 import com.kma.myapplication.databinding.ItemStaffBinding
 
 import com.kma.myapplication.ui.base.AbsBaseFragment
-import com.kma.myapplication.ui.buttonsheet.BottonSheetDialogFragment
-import com.kma.myapplication.ui.buttonsheet.onClickBottomSheet
+import com.kma.myapplication.utils.SharedPreferenceUtils
+import com.kma.myapplication.utils.Utils.actions
 
 class StaffFragment : AbsBaseFragment<FragmentStaffBinding>(), onCLick, onClickBottomSheet {
     private val listActionPopup by lazy { ListActionPopup(requireActivity()) }
@@ -65,6 +65,7 @@ class StaffFragment : AbsBaseFragment<FragmentStaffBinding>(), onCLick, onClickB
                         binding.cpiLoading.visibility = GONE
                         binding.tvStatus.visibility = GONE
                         listStaff = body as List<StaffItem>
+                        SharedPreferenceUtils.getInstance(requireContext()).setObjModel(listStaff)
                         handler.postDelayed(Runnable {
                             setAudioRecycleView()
                         }, 200)
@@ -122,7 +123,7 @@ class StaffFragment : AbsBaseFragment<FragmentStaffBinding>(), onCLick, onClickB
         binding.rcvStaff.layoutManager = manager
     }
 
-    private val actions = arrayListOf<String>("Add", "Edit", "Delete")
+
 
     override fun click3Dot(staff: StaffItem, binding: ItemStaffBinding) {
         listActionPopup.showPopup(
@@ -165,27 +166,27 @@ class StaffFragment : AbsBaseFragment<FragmentStaffBinding>(), onCLick, onClickB
     }
 
     private fun showButtonSheetAdd(staff: StaffItem) {
-        val bottomSheetActionDialog = BottonSheetDialogFragment(this, "AddStaff", staff)
+        val bottomSheetActionDialog = StaffBottonSheetDialogFragment(this, "AddStaff", staff)
         bottomSheetActionDialog.show(
             requireActivity().supportFragmentManager,
-            BottonSheetDialogFragment.TAG
+            StaffBottonSheetDialogFragment.TAG
         )
     }
 
     private fun showButtonSheetUpdate(staff: StaffItem) {
-        val bottomSheetActionDialog = BottonSheetDialogFragment(this, "UpdateStaff", staff)
+        val bottomSheetActionDialog = StaffBottonSheetDialogFragment(this, "UpdateStaff", staff)
         bottomSheetActionDialog.show(
             requireActivity().supportFragmentManager,
-            BottonSheetDialogFragment.TAG
+            StaffBottonSheetDialogFragment.TAG
         )
 
     }
 
     override fun clickItem(staff: StaffItem, binding: ItemStaffBinding) {
-        val bottomSheetActionDialog = BottonSheetDialogFragment(this, "Staff", staff)
+        val bottomSheetActionDialog = StaffBottonSheetDialogFragment(this, "Staff", staff)
         bottomSheetActionDialog.show(
             requireActivity().supportFragmentManager,
-            BottonSheetDialogFragment.TAG
+            StaffBottonSheetDialogFragment.TAG
         )
     }
 

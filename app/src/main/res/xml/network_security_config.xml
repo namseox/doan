@@ -3,8 +3,8 @@
     <domain-config cleartextTrafficPermitted="true">
         <domain includeSubdomains="false">localhost</domain>
         <domain includeSubdomains="false">192.130.15.105</domain>
-        <domain includeSubdomains="false">192.168.0.4</domain>
-        <domain includeSubdomains="false">192.168.1.163</domain>
+        <domain includeSubdomains="false">172.16.79.250</domain>
+        <domain includeSubdomains="false">127.0.0.1</domain>
         <domain includeSubdomains="false">192.168.1.22</domain>
         <domain includeSubdomains="false">192.130.15.112</domain>
         <domain includeSubdomains="false">192.130.15.106</domain>

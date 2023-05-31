@@ -35,7 +35,7 @@ import com.kma.myapplication.R
 import java.io.File
 
 object Utils {
-
+    val actions = arrayListOf<String>("Add", "Edit", "Delete")
     private var STORAGE_PERMISSION_UNDER_STORAGE_SCOPE = arrayOf(
         Manifest.permission.READ_EXTERNAL_STORAGE,
         Manifest.permission.WRITE_EXTERNAL_STORAGE,

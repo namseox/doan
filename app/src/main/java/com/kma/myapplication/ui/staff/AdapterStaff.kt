@@ -20,6 +20,7 @@ class AdapterStaff(var onCLick: onCLick) : RecyclerView.Adapter<RecyclerView.Vie
             data.clear()
             data.addAll(listStaff)
             Log.d("TAG", "getData: 2")
+//            notifyDataSetChanged()
             notifyDataSetChanged()
         }
 
@@ -36,14 +37,15 @@ class AdapterStaff(var onCLick: onCLick) : RecyclerView.Adapter<RecyclerView.Vie
             j++
         }
         data[position]=item
-        notifyItemChanged(position)
+//        notifyItemChanged(position)
+        notifyDataSetChanged()
     }
 
     fun deleteStaff(item: StaffItem) {
         var position = data.indexOf(item)
         data.remove(item)
-        notifyItemRemoved(position)
-
+//        notifyItemRemoved(position)
+        notifyDataSetChanged()
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {

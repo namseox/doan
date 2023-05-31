@@ -1,4 +1,4 @@
-package com.kma.myapplication.ui.buttonsheet
+package com.kma.myapplication.ui.staff
 
 
 import android.os.Bundle
@@ -7,7 +7,6 @@ import android.os.Looper
 import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
-import android.view.View.GONE
 import android.view.View.VISIBLE
 import android.view.ViewGroup
 import android.widget.AdapterView
@@ -16,13 +15,12 @@ import android.widget.Spinner
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
-import com.kma.myapplication.R
 import com.kma.myapplication.data.model.StaffItem
 import com.kma.myapplication.data.model.UserX
 import com.kma.myapplication.databinding.FragmentBottomSheetDialogStaffBinding
 
 
-class BottonSheetDialogFragment(
+class StaffBottonSheetDialogFragment(
     var onClick: onClickBottomSheet,
     var status: String,
     var staff: StaffItem
@@ -33,7 +31,7 @@ class BottonSheetDialogFragment(
     val NEW_SPINNER_ID = 1
 
     companion object {
-        const val TAG = "ModalBottomSheet"
+        const val TAG = "StaffBottomSheet"
     }
 
     override fun onCreateView(
@@ -54,28 +52,28 @@ class BottonSheetDialogFragment(
         with(binding.spDepartment) {
             adapter = aa
             setSelection(id_department, false)
-            onItemSelectedListener = this@BottonSheetDialogFragment
+            onItemSelectedListener = this@StaffBottonSheetDialogFragment
             prompt = "Select your favourite language"
             gravity = Gravity.CENTER
         }
         with(binding.spDepartmentb) {
             adapter = aa
             setSelection(0, false)
-            onItemSelectedListener = this@BottonSheetDialogFragment
+            onItemSelectedListener = this@StaffBottonSheetDialogFragment
             prompt = "Select your favourite language"
             gravity = Gravity.CENTER
         }
         with(binding.spPositionStaffb) {
             adapter = aa
             setSelection(0, false)
-            onItemSelectedListener = this@BottonSheetDialogFragment
+            onItemSelectedListener = this@StaffBottonSheetDialogFragment
             prompt = "Select your favourite language"
             gravity = Gravity.CENTER
         }
         with(binding.spPositionStaff) {
             adapter = aa
             setSelection(position_staff, false)
-            onItemSelectedListener = this@BottonSheetDialogFragment
+            onItemSelectedListener = this@StaffBottonSheetDialogFragment
             prompt = "Select your favourite language"
             gravity = Gravity.CENTER
         }
@@ -120,7 +118,7 @@ class BottonSheetDialogFragment(
                 0,
                 ""
             )
-            onClick.onClickText("updateStaff",staff)
+            onClick.onClickText("updateStaff", staff)
             destroy()
         }
         binding.btnAdd.setOnClickListener {
@@ -144,7 +142,7 @@ class BottonSheetDialogFragment(
                 0,
                 ""
             )
-            onClick.onClickText("addStaff",staff)
+            onClick.onClickText("addStaff", staff)
             destroy()
         }
         return binding.root
@@ -176,5 +174,4 @@ class BottonSheetDialogFragment(
 
 interface onClickBottomSheet {
     fun onClickText(text: String, staff: UserX)
-
 }

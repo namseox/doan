@@ -5,6 +5,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.databinding.BindingAdapter
 import com.amulyakhare.textdrawable.TextDrawable
+import com.kma.myapplication.data.model.Book
 
 
 @BindingAdapter("setImage")
@@ -46,5 +47,27 @@ fun TextView.setNumberSalary(id: Int){
 fun TextView.setSalaryStep(id: Int){
     this.text = id.toString()
 }
-
-
+@BindingAdapter("setTextId")
+fun TextView.setTextId(id: Int){
+    this.text = id.toString()
+}
+@BindingAdapter("setTextType")
+fun TextView.setTextType(id: Int){
+    this.text = id.toString()
+}
+@BindingAdapter("setTextNumPage")
+fun TextView.setTextNumPage(id: Int){
+    this.text = id.toString()
+}
+@BindingAdapter("setTextYear")
+fun TextView.setTextYear(id: Int){
+    this.text = id.toString()
+}
+@BindingAdapter("setTextAuthor")
+fun TextView.setTextAuthor(book: Book){
+    if (book.users.size==1){
+        this.text = book.users[0].toString()
+    }else{
+        this.text = book.users[0].toString() +", "+ book.users[1].toString()
+    }
+}

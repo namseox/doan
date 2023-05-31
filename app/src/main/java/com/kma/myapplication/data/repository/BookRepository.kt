@@ -5,8 +5,6 @@ import android.util.Log
 import com.kma.myapplication.data.api.retrofit.apihelper.ApiHelper
 import com.kma.myapplication.data.model.Book
 import com.kma.myapplication.data.model.ListBookItem
-import com.kma.myapplication.data.model.Login
-import com.kma.myapplication.data.model.User
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
@@ -17,7 +15,7 @@ class BookRepository(val context: Context) {
             apiHelper.bookApi.getListBook()
 
         }catch (ex: Exception){
-            Log.d("TAG", "userLogin: "+ex)
+            Log.d("TAG", "getListBook: "+ex)
             null
         }
     }
@@ -27,7 +25,7 @@ class BookRepository(val context: Context) {
             apiHelper.bookApi.creatBook(itemBook)
 
         }catch (ex: Exception){
-            Log.d("TAG", "userLogin: "+ex)
+            Log.d("TAG", "creatBook: "+ex)
             null
         }
     }
@@ -36,7 +34,7 @@ class BookRepository(val context: Context) {
             apiHelper.bookApi.getItemBook(id)
 
         }catch (ex: Exception){
-            Log.d("TAG", "userLogin: "+ex)
+            Log.d("TAG", "getItemBook: "+ex)
             null
         }
     }
@@ -45,7 +43,7 @@ class BookRepository(val context: Context) {
             apiHelper.bookApi.deleteBook(id)
 
         }catch (ex: Exception){
-            Log.d("TAG", "userLogin: "+ex)
+            Log.d("TAG", "delete: "+ex)
             null
         }
     }
@@ -54,7 +52,7 @@ class BookRepository(val context: Context) {
             apiHelper.bookApi.updateBook(id,itemBook)
 
         }catch (ex: Exception){
-            Log.d("TAG", "userLogin: "+ex)
+            Log.d("TAG", "updateBook: "+ex)
             null
         }
     }

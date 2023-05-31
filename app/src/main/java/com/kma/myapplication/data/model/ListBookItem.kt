@@ -13,5 +13,6 @@ data class ListBookItem(
     val type: Int,
     val updatedAt: String,
     val year_id: Int,
-    val role:String="-1"
+    val role:String="-1",
+    val success: Boolean = false
 )

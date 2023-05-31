@@ -1,10 +1,7 @@
 package com.kma.myapplication.data.api.retrofit.book
 
 import com.kma.myapplication.data.model.Book
-import com.kma.myapplication.data.model.CreateUser
 import com.kma.myapplication.data.model.ListBookItem
-import com.kma.myapplication.data.model.StaffItem
-import com.kma.myapplication.data.model.UserX
 import retrofit2.http.Body
 import retrofit2.http.DELETE
 import retrofit2.http.GET
@@ -13,7 +10,7 @@ import retrofit2.http.PUT
 import retrofit2.http.Path
 
 interface BookApi {
-    @GET("/book=")
+    @GET("/book")
     suspend fun getListBook(
     ): List<ListBookItem>
 
