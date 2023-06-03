@@ -25,7 +25,7 @@
                 android:id="@+id/cl_Research"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:visibility="gone">
+                android:visibility="visible">
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/tv_title"
@@ -85,7 +85,7 @@
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/tv_idResearch"
-                        setIdResearch="@{researchModel.id}"
+                        android:text="@{researchModel.code}"
                         android:layout_width="260dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -140,7 +140,7 @@
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/tv_startDate"
-                        setIdResearch="@{researchModel.startDate}"
+                        setDateResearch="@{researchModel.startDate}"
                         android:layout_width="260dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -168,7 +168,7 @@
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/tv_endDate"
-                        setIdResearch="@{researchModel.endDate}"
+                        setDateResearch="@{researchModel.endDate}"
                         android:layout_width="260dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -196,7 +196,7 @@
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/tv_acceptDate"
-                        setIdResearch="@{researchModel.acceptDate}"
+                        setDateResearch="@{researchModel.acceptDate}"
                         android:layout_width="260dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"

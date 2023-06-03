@@ -71,3 +71,8 @@ fun TextView.setTextAuthor(book: Book){
         this.text = book.users[0].name +", "+ book.users[1].name
     }
 }
+@BindingAdapter("setDateResearch")
+fun TextView.setDateResearch(date: String){
+this.text = date.substring(0,10)
+}
+
