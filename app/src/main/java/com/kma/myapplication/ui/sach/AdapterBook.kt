@@ -1,5 +1,6 @@
 package com.kma.myapplication.ui.sach
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -25,9 +26,10 @@ class AdapterBook(var onCLick: onCLickBook) : RecyclerView.Adapter<RecyclerView.
             }
             j++
         }
+        Log.d("TAG", "updateBook000: "+position)
         data[position]=item
-//        notifyItemChanged(position)
-        notifyDataSetChanged()
+        notifyItemChanged(position)
+//        notifyDataSetChanged()
     }
 
     fun deleteBook(item: Book) {
@@ -41,8 +43,8 @@ class AdapterBook(var onCLick: onCLickBook) : RecyclerView.Adapter<RecyclerView.
             j++
         }
         data.removeAt(position)
-//        notifyItemRemoved(position)
-        notifyDataSetChanged()
+        notifyItemRemoved(position)
+//        notifyDataSetChanged()
     }
 
     fun creatBook(item:ListBookItem) {
@@ -63,7 +65,7 @@ class AdapterBook(var onCLick: onCLickBook) : RecyclerView.Adapter<RecyclerView.
             holder.binding.iv3dot.setOnClickListener {
                 onCLick.click3Dot(data[position].id, holder.binding)
             }
-            holder.binding.clBook.setOnClickListener {
+            holder.binding.llClickItem.setOnClickListener {
                 onCLick.clickItem(data[position].id, holder.binding)
             }
         }

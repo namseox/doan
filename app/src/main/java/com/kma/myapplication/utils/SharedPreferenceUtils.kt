@@ -3,8 +3,13 @@ package com.kma.myapplication.utils
 import android.content.Context
 import android.content.SharedPreferences
 import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
+import com.kma.myapplication.data.model.StaffItem
+import java.lang.reflect.Type
 import javax.inject.Inject
 import javax.inject.Singleton
+
+
 @Singleton
 class SharedPreferenceUtils @Inject constructor(context: Context) {
     private val MYAPPLICATION = "MY_APPLICATION"
@@ -13,20 +18,6 @@ class SharedPreferenceUtils @Inject constructor(context: Context) {
 
 
 
-    inline fun <reified T> getObjPlaylistOrigi(): T? {
-        val value = getStringValue("PlaylistOrigi_${T::class.java.name}")
-        return if (value != null && value.isNotEmpty()) {
-            Gson().fromJson(value, T::class.java)
-        } else {
-            null
-        }
-    }
-
-    inline fun <reified T> setObjPlaylistOrigi(value: T?) {
-        if (value != null) {
-            putStringValue("PlaylistOrigi_${T::class.java.name}", Gson().toJson(value))
-        }
-    }
     //lưu đối tượng
     inline fun <reified T> getObjModel(): T? {
         val value = getStringValue("Key_Obj_${T::class.java.name}")

@@ -1,3 +1,5 @@
 package com.kma.myapplication.data.model
 
-class Staff : ArrayList<StaffItem>()
+import java.util.ArrayList
+
+class Staff ( var a : ArrayList<StaffItem>)

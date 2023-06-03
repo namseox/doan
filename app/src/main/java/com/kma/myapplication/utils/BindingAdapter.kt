@@ -27,8 +27,8 @@ fun TextView.setNameBook(name: String){
     this.text = "Tên sách: "+name
 }
 @BindingAdapter("setTimeCreatBook")
-fun TextView.setTimeCreatBook(time:String){
-    this.text = "Ngày phát hành:" +time.substring(0,10)
+fun TextView.setTimeCreatBook(time:Int){
+    this.text = "Năm phát hành: " +time
 }
 @BindingAdapter("setTextDepartment")
 fun TextView.setTextDepartment(id: Int){
@@ -66,8 +66,8 @@ fun TextView.setTextYear(id: Int){
 @BindingAdapter("setTextAuthor")
 fun TextView.setTextAuthor(book: Book){
     if (book.users.size==1){
-        this.text = book.users[0].toString()
+        this.text = book.users[0].name
     }else{
-        this.text = book.users[0].toString() +", "+ book.users[1].toString()
+        this.text = book.users[0].name +", "+ book.users[1].name
     }
 }

@@ -17,20 +17,19 @@ import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.kma.myapplication.data.model.Book
 import com.kma.myapplication.data.model.ListBookItem
-import com.kma.myapplication.data.model.StaffItem
-import com.kma.myapplication.data.model.UserX
+import com.kma.myapplication.data.model.Staff
 import com.kma.myapplication.databinding.FragmentBottomSheetDialogBookBinding
 import com.kma.myapplication.utils.SharedPreferenceUtils
 
 class BookBottonSheetDialogFragment(
-    onClick: onClickBottomSheetBook,
+    var onClickl: onClickBottomSheetBook,
     var status: String,
     var itemBook: Book,
     var ct: Context
 ) :
     BottomSheetDialogFragment(), AdapterView.OnItemSelectedListener {
     lateinit var binding: FragmentBottomSheetDialogBookBinding
-    var a : List<StaffItem>? = SharedPreferenceUtils.getInstance(ct).getObjModel<List<StaffItem>>()
+    var a : Staff = SharedPreferenceUtils.getInstance(ct).getObjModel()!!
 
     var listAuthor = ArrayList<String>()
     val NEW_SPINNER_ID = 1
@@ -47,9 +46,10 @@ class BookBottonSheetDialogFragment(
         (dialog as BottomSheetDialog).behavior.state =
             BottomSheetBehavior.STATE_EXPANDED
         binding = FragmentBottomSheetDialogBookBinding.inflate(layoutInflater, container, false)
-        for (i in a!!) {
-            listAuthor.add(i.name)
+        (a.a ).forEach{
+            listAuthor.add(it.name)
         }
+
 
         var aa = ArrayAdapter(requireContext(), R.layout.simple_spinner_item, listAuthor)
         aa.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
@@ -100,71 +100,56 @@ class BookBottonSheetDialogFragment(
         spinner.id = NEW_SPINNER_ID
         binding.bookModel = itemBook
         when (status) {
-            "UpdateStaff" -> {
-
+            "UpdateBook" -> {
                 binding.standardBottomSheet.visibility = View.VISIBLE
 
             }
 
-            "Staff" -> {
+            "Book" -> {
                 binding.standardBottomSheetA.visibility = View.VISIBLE
             }
 
-            "AddStaff" -> {
+            "AddBook" -> {
                 binding.standardBottomSheetB.visibility = View.VISIBLE
             }
         }
         binding.btnCancel.setOnClickListener {
             destroy()
         }
-//        binding.btnUpdate.setOnClickListener {
-//            var staff = UserX(
-//                "",
-//                "11/11/2000",
-//                binding.tvIdStaff.text.toString(),
-//                "",
-//                "",
-//                "",
-//                binding.spDepartment.selectedItem.toString().toInt(),
-//                binding.tvEmailStaff.text.toString(),
-//                0,
-//                binding.tvSalaryStaff.text.toString().toInt(),
-//                binding.tvNameStaff.text.toString(),
-//                binding.tvStepSalary.text.toString().toInt(),
-//                "1",
-//                binding.spPositionStaff.selectedItem.toString(),
-//                "",
-//                0,
-//                0,
-//                ""
-//            )
-//            onClick.onClickText("updateStaff", staff)
-//            destroy()
-//        }
-//        binding.btnAdd.setOnClickListener {
-//            var staff = UserX(
-//                "",
-//                "11/11/2000",
-//                binding.tvIdStaffb.text.toString(),
-//                "",
-//                "",
-//                "",
-//                binding.spDepartmentb.selectedItem.toString().toInt(),
-//                binding.tvEmailStaffb.text.toString(),
-//                0,
-//                binding.tvSalaryStaffb.text.toString().toInt(),
-//                binding.tvNameStaffb.text.toString(),
-//                binding.tvStepSalaryb.text.toString().toInt(),
-//                "1",
-//                binding.spPositionStaffb.selectedItem.toString(),
-//                "",
-//                0,
-//                0,
-//                ""
-//            )
-//            onClick.onClickText("addStaff", staff)
-//            destroy()
-//        }
+        binding.btnUpdate.setOnClickListener {
+            var itemListBook = ListBookItem(
+                binding.rtCode.text.toString(),
+                0,
+                binding.tvNameBook.text.toString(),
+                binding.tvNumberPage.text.toString().toInt(),
+                2,
+                binding.tvYear.text.toString().toInt(),
+                0,
+                0,
+                1,
+                binding.spAuthor1.selectedItem.toString()+","+binding.spAuthor2.selectedItem.toString()
+            )
+
+            onClickl.onClickText("updateBook",itemListBook)
+            destroy()
+        }
+        binding.btnAdd.setOnClickListener {
+            var itemListBook = ListBookItem(
+                binding.rtCodeB.text.toString(),
+                0,
+                binding.tvNameBookB.text.toString(),
+                binding.tvNumberPageB.text.toString().toInt(),
+                2,
+                binding.tvYearB.text.toString().toInt(),
+                0,
+                0,
+                1,
+                binding.spAuthor1B.selectedItem.toString()+","+binding.spAuthor2B.selectedItem.toString()
+            )
+
+            onClickl.onClickText("addBook",itemListBook)
+            destroy()
+        }
         return binding.root
     }
 

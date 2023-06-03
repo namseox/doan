@@ -81,7 +81,7 @@ class BookFragment : AbsBaseFragment<FragmentBookBinding>(), onCLickBook, onClic
                 }
             }
         }
-        viewModelBook.value_delete.observe(this) {
+        viewModelBook.value_delete.observe(viewLifecycleOwner) {
             it?.let {
                 if (it == 1) {
                     adapterBook.deleteBook(viewModelBook.itemBook)
@@ -90,23 +90,19 @@ class BookFragment : AbsBaseFragment<FragmentBookBinding>(), onCLickBook, onClic
 
             }
         }
-        viewModelBook.value_creat.observe(this) {
-            it?.let {
+        viewModelBook.value_creat.observe(viewLifecycleOwner) {
                 if (it.success) {
                     adapterBook.creatBook(it)
                     Toast.makeText(requireContext(), "Tạo thành công", Toast.LENGTH_SHORT).show()
                 }
-            }
+
         }
-        viewModelBook.value_updtae.observe(this) {
-            it?.let {
-                Log.d("TAG", "upData00: ")
-                if (it.id == viewModelBook.itemBook.id) {
+        viewModelBook.value_updtae.observe(viewLifecycleOwner) {
+                Log.d("TAG", "upData000000: "+it)
                     adapterBook.updateBook(it)
                     Toast.makeText(requireContext(), "Cập nhật thành công", Toast.LENGTH_SHORT)
                         .show()
-                }
-            }
+
         }
     }
 
@@ -124,17 +120,20 @@ class BookFragment : AbsBaseFragment<FragmentBookBinding>(), onCLickBook, onClic
             actions,
             object : ActionAdapter.OnActionClickListener {
                 override fun onItemActionClick(position: Int) {
-                    viewModelBook.getItemBook(idBook)
-                    viewModelBook.book.observe(viewLifecycleOwner) {
-                        viewModelBook.itemBook = it
-
                         when (position) {
                             0 -> {
-                                showButtonSheetAdd(it)
+                                viewModelBook.getItemBook2(idBook)
+                                viewModelBook.book2.observe(viewLifecycleOwner) {
+                                    Log.d("TAG", "onItemActionClick: ...........")
+                                    showButtonSheetAdd(it)
+                                }
                             }
 
                             1 -> {
-                                showButtonSheetUpdate(it)
+                                viewModelBook.getItemBook3(idBook)
+                                viewModelBook.book3.observe(viewLifecycleOwner) {
+                                    showButtonSheetUpdate(it)
+                                }
                             }
 
                             else -> {
@@ -142,7 +141,7 @@ class BookFragment : AbsBaseFragment<FragmentBookBinding>(), onCLickBook, onClic
                                     StaffDialog.create(object : StaffDialog.IListener {
                                         override fun delete() {
                                             try {
-                                                viewModelBook.deleteBook(it.id)
+                                                viewModelBook.deleteBook(viewModelBook.itemBook.id)
                                             } catch (e: Exception) {
                                                 Toast.makeText(
                                                     requireContext(),
@@ -155,8 +154,8 @@ class BookFragment : AbsBaseFragment<FragmentBookBinding>(), onCLickBook, onClic
                                     })
                                 myFileDialog.show(childFragmentManager, "myfileDialog")
 
-                            }
                         }
+
                     }
                 }
             })
@@ -164,7 +163,8 @@ class BookFragment : AbsBaseFragment<FragmentBookBinding>(), onCLickBook, onClic
     }
 
     private fun showButtonSheetUpdate(book: Book) {
-        val bottomSheetActionDialog = BookBottonSheetDialogFragment(this, "UpdateStaff", book,requireContext())
+        val bottomSheetActionDialog =
+            BookBottonSheetDialogFragment(this, "UpdateBook", book, requireContext())
         bottomSheetActionDialog.show(
             requireActivity().supportFragmentManager,
             BookBottonSheetDialogFragment.TAG
@@ -172,7 +172,8 @@ class BookFragment : AbsBaseFragment<FragmentBookBinding>(), onCLickBook, onClic
     }
 
     private fun showButtonSheetAdd(book: Book) {
-        val bottomSheetActionDialog = BookBottonSheetDialogFragment(this, "AddStaff", book,requireContext())
+        val bottomSheetActionDialog =
+            BookBottonSheetDialogFragment(this, "AddBook", book, requireContext())
         bottomSheetActionDialog.show(
             requireActivity().supportFragmentManager,
             BookBottonSheetDialogFragment.TAG
@@ -182,7 +183,8 @@ class BookFragment : AbsBaseFragment<FragmentBookBinding>(), onCLickBook, onClic
     override fun clickItem(idBook: Int, binding: ItemBookBinding) {
         viewModelBook.getItemBook(idBook)
         viewModelBook.book.observe(this) {
-            val bottomSheetActionDialog = BookBottonSheetDialogFragment(this, "Book", it,requireContext())
+            val bottomSheetActionDialog =
+                BookBottonSheetDialogFragment(this, "Book", it, requireContext())
             SharedPreferenceUtils.getInstance(requireContext()).setObjModel(it)
             bottomSheetActionDialog.show(
                 requireActivity().supportFragmentManager,

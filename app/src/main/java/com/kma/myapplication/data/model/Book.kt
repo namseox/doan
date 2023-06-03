@@ -12,6 +12,6 @@ data class Book(
     val updatedAt: String = "",
     val users: List<UserXX>,
 //    val year: Int = -1,
-    val years: Int = 2011,
+
     val year_id: Int = -1
 )

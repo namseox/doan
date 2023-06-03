@@ -34,7 +34,7 @@ class BookRepository(val context: Context) {
             apiHelper.bookApi.getItemBook(id)
 
         }catch (ex: Exception){
-            Log.d("TAG", "getItemBook: "+ex)
+            Log.d("TAG", "getItemBook00: "+ex)
             null
         }
     }
@@ -49,6 +49,7 @@ class BookRepository(val context: Context) {
     }
     suspend fun updateBook(id:Int,itemBook: ListBookItem ): ListBookItem? = withContext(Dispatchers.Default) {
         try {
+            Log.d("TAG", "updateBook: "+itemBook)
             apiHelper.bookApi.updateBook(id,itemBook)
 
         }catch (ex: Exception){

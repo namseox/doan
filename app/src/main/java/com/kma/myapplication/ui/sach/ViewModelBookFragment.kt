@@ -20,6 +20,8 @@ class ViewModelBookFragment(app: Application):ViewModel() {
     var value_updtae = MutableLiveData<ListBookItem>()
     lateinit var itemBook : Book
     var book =MutableLiveData<Book>()
+    var book2 =MutableLiveData<Book>()
+    var book3 =MutableLiveData<Book>()
     fun getListBook() {
         listBookItem.value = DataResponse.DataLoading(LoadingStatus.Loading)
         viewModelScope.launch {
@@ -51,13 +53,30 @@ class ViewModelBookFragment(app: Application):ViewModel() {
     fun updateBook(id:Int,item: ListBookItem){
         viewModelScope.launch {
             value_updtae.postValue(repository.updateBook(id,item))
-            Log.d("TAG", "upData00: "+value_updtae)
+            Log.d("TAG", "upData0000: "+value_updtae)
         }
     }
     fun getItemBook(id:Int){
         viewModelScope.launch {
-            book.postValue(repository.getItemBook(id))
-            Log.d("TAG", "upData00: "+book)
+            itemBook = repository.getItemBook(id)!!
+            book.postValue(itemBook)
+            Log.d("TAG", "upData00: "+itemBook)
+        }
+    }
+    fun getItemBook2(id:Int){
+        viewModelScope.launch {
+
+            itemBook = repository.getItemBook(id)!!
+            book2.postValue(itemBook)
+            Log.d("TAG", "upData00: "+itemBook)
+        }
+    }
+    fun getItemBook3(id:Int){
+        viewModelScope.launch {
+
+            itemBook = repository.getItemBook(id)!!
+            book3.postValue(itemBook)
+            Log.d("TAG", "upData00: "+itemBook)
         }
     }
 }

@@ -209,7 +209,7 @@
                     android:layout_gravity="center"
                     android:ellipsize="middle"
                     android:singleLine="true"
-                    setTextYear="@{bookModel.years}"
+                    setTextYear="@{bookModel.num_publish}"
                     android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
             </LinearLayout>
 
@@ -254,7 +254,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/bg_bottom_sheet"
-            android:visibility="visible">
+            android:visibility="gone">
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/tv_title_a"
                 android:layout_width="match_parent"
@@ -435,7 +435,7 @@
                     android:layout_gravity="center"
                     android:ellipsize="middle"
                     android:singleLine="true"
-                    setTextYear="@{bookModel.years}"
+                    setTextYear="@{bookModel.num_publish}"
                     android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
             </LinearLayout>
 
@@ -500,7 +500,6 @@
                     android:layout_gravity="center"
                     android:ellipsize="end"
                     android:singleLine="true"
-                    android:text="@{bookModel.name}"
                     android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
             </LinearLayout>
 
@@ -593,7 +592,6 @@
                     android:layout_gravity="center"
                     android:ellipsize="middle"
                     android:singleLine="true"
-                    setTextType="@{bookModel.type}"
                     android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
             </LinearLayout>
 
@@ -622,7 +620,6 @@
                     android:layout_gravity="center"
                     android:ellipsize="middle"
                     android:singleLine="true"
-                    setTextNumPage="@{bookModel.num_page}"
                     android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
             </LinearLayout>
 
@@ -651,7 +648,6 @@
                     android:layout_gravity="center"
                     android:ellipsize="middle"
                     android:singleLine="true"
-                    setTextYear="@{bookModel.years}"
                     android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
             </LinearLayout>
 

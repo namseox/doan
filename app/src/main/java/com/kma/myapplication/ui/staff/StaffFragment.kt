@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.hola360.m3uplayer.data.response.DataResponse
 import com.hola360.m3uplayer.data.response.LoadingStatus
 import com.kma.myapplication.R
+import com.kma.myapplication.data.model.Staff
 import com.kma.myapplication.data.model.StaffItem
 import com.kma.myapplication.data.model.UserX
 import com.kma.myapplication.databinding.FragmentStaffBinding
@@ -23,6 +24,7 @@ import com.kma.myapplication.databinding.ItemStaffBinding
 import com.kma.myapplication.ui.base.AbsBaseFragment
 import com.kma.myapplication.utils.SharedPreferenceUtils
 import com.kma.myapplication.utils.Utils.actions
+import java.util.ArrayList
 
 class StaffFragment : AbsBaseFragment<FragmentStaffBinding>(), onCLick, onClickBottomSheet {
     private val listActionPopup by lazy { ListActionPopup(requireActivity()) }
@@ -65,7 +67,8 @@ class StaffFragment : AbsBaseFragment<FragmentStaffBinding>(), onCLick, onClickB
                         binding.cpiLoading.visibility = GONE
                         binding.tvStatus.visibility = GONE
                         listStaff = body as List<StaffItem>
-                        SharedPreferenceUtils.getInstance(requireContext()).setObjModel(listStaff)
+                        var a : Staff = Staff(listStaff as ArrayList<StaffItem>)
+                        SharedPreferenceUtils.getInstance(requireContext()).setObjModel(a)
                         handler.postDelayed(Runnable {
                             setAudioRecycleView()
                         }, 200)
