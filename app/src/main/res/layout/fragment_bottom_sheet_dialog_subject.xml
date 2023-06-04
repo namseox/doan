@@ -1,0 +1,338 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="subjectModel"
+            type="com.kma.myapplication.data.model.SubjectItem" />
+
+        <import type="android.view.View" />
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/standard_bottom_sheet"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_bottom_sheet">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cl_Subject"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="gone">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="12dp"
+                    android:gravity="center"
+                    android:text="THÊM MÔN HỌC"
+                    android:textSize="@dimen/dp_24"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <LinearLayout
+                    android:id="@+id/ll_1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginTop="@dimen/dp_32"
+                    android:layout_marginEnd="12dp"
+                    android:orientation="horizontal"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_title">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="120dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="Tên môn học:"
+                        android:textSize="@dimen/dp_16" />
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/tv_nameSubject"
+                        android:layout_width="260dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:ellipsize="middle"
+                        android:singleLine="true"
+                        android:text="@{subjectModel.name}"
+                        android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
+                </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/ll_2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginTop="@dimen/dp_16"
+                    android:layout_marginEnd="12dp"
+                    android:orientation="horizontal"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/ll_1">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="120dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="Mã môn học:"
+                        android:textSize="@dimen/dp_16" />
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/tv_idSubject"
+                        setIdSubject="@{subjectModel.code}"
+                        android:layout_width="260dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:ellipsize="middle"
+                        android:singleLine="true"
+                        android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
+                </LinearLayout>
+                
+                <LinearLayout
+                    android:id="@+id/ll_3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginTop="@dimen/dp_16"
+                    android:layout_marginEnd="12dp"
+                    android:orientation="horizontal"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/ll_2">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="120dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="Hình thức thi:"
+                        android:textSize="@dimen/dp_16" />
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/tv_indexSubject"
+                        setIdSubject="@{subjectModel.form_exam}"
+                        android:layout_width="260dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:ellipsize="middle"
+                        android:singleLine="true"
+                        android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
+                </LinearLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cl_Subjecta"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="gone">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    app:layout_constraintTop_toBottomOf="@id/ll_3a" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_titlea"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="12dp"
+                    android:gravity="center"
+                    android:text="THÔNG TIN MÔN HỌC"
+                    android:textSize="@dimen/dp_24"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <LinearLayout
+                    android:id="@+id/ll_1a"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginTop="@dimen/dp_32"
+                    android:layout_marginEnd="12dp"
+                    android:orientation="horizontal"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_titlea">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="120dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="Mã môn học:"
+                        android:textSize="@dimen/dp_16" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tv_nameSubjecta"
+                        android:layout_width="260dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:ellipsize="middle"
+                        android:singleLine="true"
+                        android:text="@{subjectModel.code}"
+                        android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ll_2a"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginTop="@dimen/dp_16"
+                    android:layout_marginEnd="12dp"
+                    android:orientation="horizontal"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/ll_1a">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="120dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="Tên môn học:"
+                        android:textSize="@dimen/dp_16" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tv_idSubjecta"
+                        android:text="@{subjectModel.name}"
+                        android:layout_width="260dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:ellipsize="middle"
+                        android:singleLine="true"
+                        android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ll_3a"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginTop="@dimen/dp_16"
+                    android:layout_marginEnd="12dp"
+                    android:orientation="horizontal"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/ll_2a">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="120dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="Hình thức thi:"
+                        android:textSize="@dimen/dp_16" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tv_indexSubjecta"
+                        android:layout_width="260dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:ellipsize="middle"
+                        android:singleLine="true"
+                        setIdSubject="@{subjectModel.form_exam}"
+                        android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
+                </LinearLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cl_Subjectb"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="gone">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_titleb"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="12dp"
+                    android:gravity="center"
+                    android:text="CẬP NHẬT MÔN HỌC"
+                    android:textSize="@dimen/dp_24"
+                    app:layout_constraintTop_toTopOf="parent" />
+                <LinearLayout
+                    android:id="@+id/ll_1b"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginTop="@dimen/dp_32"
+                    android:layout_marginEnd="12dp"
+                    android:orientation="horizontal"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_titleb">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="120dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="Tên môn học:"
+                        android:textSize="@dimen/dp_16" />
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/tv_nameSubjectb"
+                        android:layout_width="260dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:ellipsize="middle"
+                        android:singleLine="true"
+                        android:text="@{subjectModel.name}"
+                        android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
+                </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/ll_2b"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginTop="@dimen/dp_16"
+                    android:layout_marginEnd="12dp"
+                    android:orientation="horizontal"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/ll_1b">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="120dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="Mã môn học:"
+                        android:textSize="@dimen/dp_16" />
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/tv_idSubjectb"
+                        setIdSubject="@{subjectModel.code}"
+                        android:layout_width="260dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:ellipsize="middle"
+                        android:singleLine="true"
+                        android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ll_3b"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginTop="@dimen/dp_16"
+                    android:layout_marginEnd="12dp"
+                    android:orientation="horizontal"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/ll_2b">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="120dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="Hình thức thi:"
+                        android:textSize="@dimen/dp_16" />
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/tv_indexSubjectb"
+                        setIdSubject="@{subjectModel.form_exam}"
+                        android:layout_width="260dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:ellipsize="middle"
+                        android:singleLine="true"
+                        android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
+                </LinearLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+</layout>

@@ -354,7 +354,7 @@
                         android:layout_width="120dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:text="Chỉ số tạp chí/ hội nghị::"
+                        android:text="Chỉ số tạp chí/ hội nghị:"
                         android:textSize="@dimen/dp_16" />
 
                     <androidx.appcompat.widget.AppCompatTextView
@@ -467,7 +467,7 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="12dp"
                     android:gravity="center"
-                    android:text="CẬP NHẬT BÀI BÁO KHOA HC"
+                    android:text="CẬP NHẬT BÀI BÁO KHOA HỌC"
                     android:textSize="@dimen/dp_24"
                     app:layout_constraintTop_toTopOf="parent" />
                 <LinearLayout

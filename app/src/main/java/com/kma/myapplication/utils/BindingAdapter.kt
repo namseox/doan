@@ -87,3 +87,15 @@ fun TextView.setDateEducation(date: String){
 fun TextView.setDateScientific(date: String){
     this.text = date.substring(0,10)
 }
+@BindingAdapter("setDateClass")
+fun TextView.setDateClass(date: String){
+    this.text = date.substring(0,10)
+}
+@BindingAdapter("setDateMark")
+fun TextView.setDateMark(date: String){
+    this.text = date.substring(0,10)
+}
+@BindingAdapter("setDateRoom")
+fun TextView.setDateRoom(date: String){
+    this.text = date.substring(0,10)
+}
