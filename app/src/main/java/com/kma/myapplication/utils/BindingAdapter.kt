@@ -75,4 +75,15 @@ fun TextView.setTextAuthor(book: Book){
 fun TextView.setDateResearch(date: String){
 this.text = date.substring(0,10)
 }
-
+@BindingAdapter("setDateInvention")
+fun TextView.setDateInvention(date: String){
+    this.text = date.substring(0,10)
+}
+@BindingAdapter("setDateEducation")
+fun TextView.setDateEducation(date: String){
+    this.text = date.substring(0,10)
+}
+@BindingAdapter("setDateScientific")
+fun TextView.setDateScientific(date: String){
+    this.text = date.substring(0,10)
+}

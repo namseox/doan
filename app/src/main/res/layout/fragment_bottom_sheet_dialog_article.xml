@@ -85,7 +85,7 @@
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/tv_idArticle"
-                        setIdArticle="@{articleModel.id}"
+                        setIdArticle="@{articleModel.code}"
                         android:layout_width="260dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -277,7 +277,7 @@
                         android:layout_gravity="center"
                         android:ellipsize="middle"
                         android:singleLine="true"
-                        android:text="@{ArticleModel.id}"
+                        android:text="@{articleModel.code}"
                         android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
                 </LinearLayout>
 
@@ -301,7 +301,7 @@
 
                     <androidx.appcompat.widget.AppCompatTextView
                         android:id="@+id/tv_idArticlea"
-                        setTextDepartment="@{ArticleModel.name}"
+                        setTextDepartment="@{articleModel.name}"
                         android:layout_width="260dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -330,7 +330,7 @@
 
                     <androidx.appcompat.widget.AppCompatTextView
                         android:id="@+id/tv_typea"
-                        setIdArticle="@{ArticleModel.type}"
+                        setTextType="@{articleModel.type}"
                         android:layout_width="260dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -364,7 +364,7 @@
                         android:layout_gravity="center"
                         android:ellipsize="middle"
                         android:singleLine="true"
-                        android:text="@{ArticleModel.index_article}"
+                        android:text="@{articleModel.index_article}"
                         android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
                 </LinearLayout>
 
@@ -393,7 +393,7 @@
                         android:layout_gravity="center"
                         android:ellipsize="middle"
                         android:singleLine="true"
-                        android:text="@{ArticleModel.type_articlescientific}"
+                        setTextType="@{articleModel}"
                         android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
                 </LinearLayout>
 
@@ -422,7 +422,7 @@
                         android:layout_gravity="center"
                         android:ellipsize="middle"
                         android:singleLine="true"
-                        setSalaryStep="@{ArticleModel.user}"
+                        setTextType="@{articleModel.users}"
                         android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
                 </LinearLayout>
                 <LinearLayout
@@ -450,7 +450,7 @@
                         android:layout_gravity="center"
                         android:ellipsize="middle"
                         android:singleLine="true"
-                        setSalaryStep="@{ArticleModel.year}"
+                        setTextType="@{articleModel.year_id}"
                         android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
                 </LinearLayout>
             </androidx.constraintlayout.widget.ConstraintLayout>
@@ -518,7 +518,7 @@
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/tv_idArticleb"
-                        setIdArticle="@{articleModel.id}"
+                        setIdArticle="@{articleModel.code}"
                         android:layout_width="260dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"

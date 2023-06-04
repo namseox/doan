@@ -20,14 +20,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/bg_bottom_sheet"
-            android:visibility="visible">
+            android:visibility="gone">
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/tv_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="12dp"
                 android:gravity="center"
-                android:text="Sách"
+                android:text="THÊM SÁCH, GIÁO TRÌNH"
                 android:textSize="@dimen/dp_24"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -115,15 +115,6 @@
                     android:ellipsize="middle"
                     android:singleLine="true"
                     android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
-                <Spinner
-                    android:id="@+id/spAuthor_2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="@dimen/dp_36"
-                    android:layout_gravity="center"
-                    android:ellipsize="middle"
-                    android:singleLine="true"
-                    android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
-
             </LinearLayout>
 
             <LinearLayout
@@ -143,6 +134,15 @@
                     android:layout_gravity="center"
                     android:text="Loại sách:"
                     android:textSize="@dimen/dp_16" />
+                <Spinner
+                    android:id="@+id/spAuthor_2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/dp_36"
+                    android:layout_gravity="center"
+                    android:ellipsize="middle"
+                    android:singleLine="true"
+                    android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
+
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/tv_emailType"
@@ -261,7 +261,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="12dp"
                 android:gravity="center"
-                android:text="Sách"
+                android:text="THÔNG TIN SÁCH, GIÁO TRÌNH"
                 android:textSize="@dimen/dp_24"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -471,7 +471,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="12dp"
                 android:gravity="center"
-                android:text="Sách"
+                android:text="CẬP NHẬT THÔNG TIN SÁCH, GIÁO TRÌNH"
                 android:textSize="@dimen/dp_24"
                 app:layout_constraintTop_toTopOf="parent" />
 

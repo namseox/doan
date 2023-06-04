@@ -25,7 +25,7 @@
                 android:id="@+id/cl_Research"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:visibility="visible">
+                android:visibility="gone">
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/tv_title"
@@ -33,7 +33,7 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="12dp"
                     android:gravity="center"
-                    android:text="Thêm đề tài"
+                    android:text="THÊM ĐỀ TÀI"
                     android:textSize="@dimen/dp_24"
                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -259,6 +259,36 @@
                         android:singleLine="true"
                         android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
                 </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ll_9"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginTop="@dimen/dp_32"
+                    android:layout_marginEnd="12dp"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/ll_8">
+
+                    <Button
+                        android:id="@+id/btn_cancel"
+                        style="@style/Widget.Material3.Button.ElevatedButton"
+                        android:layout_width="124dp"
+                        android:layout_height="48dp"
+                        android:layout_margin="@dimen/dp_16"
+                        android:text="Hủy"
+                        android:textSize="@dimen/dp_16" />
+
+                    <Button
+                        android:id="@+id/btn_update"
+                        style="@style/Widget.Material3.Button.ElevatedButton"
+                        android:layout_width="124dp"
+                        android:layout_height="48dp"
+                        android:text="Cập nhật"
+                        android:textSize="@dimen/dp_16" />
+                </LinearLayout>
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -278,7 +308,7 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="12dp"
                     android:gravity="center"
-                    android:text="Chi tiết đề tài nghiên cứu khoa học"
+                    android:text="THÔNG TIN NGHIÊN CỨU KHOA HỌC"
                     android:textSize="@dimen/dp_24"
                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -301,13 +331,13 @@
                         android:textSize="@dimen/dp_16" />
 
                     <androidx.appcompat.widget.AppCompatTextView
-                        android:id="@+id/tv_nameResearcha"
+                        android:id="@+id/tv_idResearcha"
                         android:layout_width="260dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:ellipsize="middle"
                         android:singleLine="true"
-                        android:text="@{researchModel.id}"
+                        android:text="@{researchModel.code}"
                         android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
                 </LinearLayout>
 
@@ -330,8 +360,8 @@
                         android:textSize="@dimen/dp_16" />
 
                     <androidx.appcompat.widget.AppCompatTextView
-                        android:id="@+id/tv_idResearcha"
-                        setTextDepartment="@{researchModel.name}"
+                        android:id="@+id/tv_nameResearcha"
+                        android:text="@{researchModel.name}"
                         android:layout_width="260dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -360,7 +390,7 @@
 
                     <androidx.appcompat.widget.AppCompatTextView
                         android:id="@+id/tv_levelResearcha"
-                        setIdResearch="@{researchModel.level}"
+                        setTextType="@{researchModel.level}"
                         android:layout_width="260dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -447,7 +477,7 @@
 
                     <androidx.appcompat.widget.AppCompatTextView
                         android:id="@+id/tv_acceptDatea"
-                        setNumberSalary="@{researchModel.acceptDate}"
+                        android:text="@{researchModel.acceptDate}"
                         android:layout_width="260dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -481,7 +511,7 @@
                         android:layout_gravity="center"
                         android:ellipsize="middle"
                         android:singleLine="true"
-                        setSalaryStep="@{researchModel.user}"
+                        setTextAuthor="@{researchModel.users}"
                         android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
                 </LinearLayout>
                 <LinearLayout
@@ -509,7 +539,7 @@
                         android:layout_gravity="center"
                         android:ellipsize="middle"
                         android:singleLine="true"
-                        setSalaryStep="@{researchModel.year}"
+                        android:text="@{researchModel.year}"
                         android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
                 </LinearLayout>
             </androidx.constraintlayout.widget.ConstraintLayout>
@@ -577,7 +607,7 @@
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/tv_idResearchb"
-                        setIdResearch="@{researchModel.id}"
+                        setIdResearch="@{researchModel.code}"
                         android:layout_width="260dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -632,7 +662,7 @@
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/tv_startDateb"
-                        setIdResearch="@{researchModel.startDate}"
+                        setDateResearch="@{researchModel.startDate}"
                         android:layout_width="260dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -660,7 +690,7 @@
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/tv_endDateb"
-                        setIdResearch="@{researchModel.endDate}"
+                        setDateResearch="@{researchModel.endDate}"
                         android:layout_width="260dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -688,7 +718,7 @@
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/tv_acceptDateb"
-                        setIdResearch="@{researchModel.acceptDate}"
+                        setDateResearch="@{researchModel.acceptDate}"
                         android:layout_width="260dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -750,6 +780,36 @@
                         android:ellipsize="middle"
                         android:singleLine="true"
                         android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ll_9b"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginTop="@dimen/dp_32"
+                    android:layout_marginEnd="12dp"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/ll_8b">
+
+                    <Button
+                        android:id="@+id/btn_cancel"
+                        style="@style/Widget.Material3.Button.ElevatedButton"
+                        android:layout_width="124dp"
+                        android:layout_height="48dp"
+                        android:layout_margin="@dimen/dp_16"
+                        android:text="Hủy"
+                        android:textSize="@dimen/dp_16" />
+
+                    <Button
+                        android:id="@+id/btn_update"
+                        style="@style/Widget.Material3.Button.ElevatedButton"
+                        android:layout_width="124dp"
+                        android:layout_height="48dp"
+                        android:text="Cập nhật"
+                        android:textSize="@dimen/dp_16" />
                 </LinearLayout>
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>

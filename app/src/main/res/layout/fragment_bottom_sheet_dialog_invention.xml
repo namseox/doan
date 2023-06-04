@@ -1,13 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-
     <data>
-
         <variable
             name="inventionModel"
             type="com.kma.myapplication.data.model.InventionItem" />
-
         <import type="android.view.View" />
     </data>
 
@@ -85,7 +82,7 @@
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/tv_idInvention"
-                        setIdInvention="@{inventionModel.id}"
+                        setIdInvention="@{inventionModel.code}"
                         android:layout_width="260dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -140,7 +137,7 @@
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/tv_numDecision"
-                        setIdInvention="@{inventionModel.num_decision}"
+                        android:text="@{inventionModel.number_recognition}"
                         android:layout_width="260dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -168,7 +165,7 @@
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/tv_dateDecision"
-                        setIdInvention="@{inventionModel.date_decision}"
+                        setDateInvention="@{inventionModel.date_recognition}"
                         android:layout_width="260dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -279,7 +276,7 @@
                         android:layout_gravity="center"
                         android:ellipsize="middle"
                         android:singleLine="true"
-                        android:text="@{inventionModel.id}"
+                        android:text="@{inventionModel.code}"
                         android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
                 </LinearLayout>
 
@@ -303,7 +300,7 @@
 
                     <androidx.appcompat.widget.AppCompatTextView
                         android:id="@+id/tv_idInventiona"
-                        setTextDepartment="@{inventionModel.name}"
+                        android:text="@{inventionModel.name}"
                         android:layout_width="260dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -332,7 +329,7 @@
 
                     <androidx.appcompat.widget.AppCompatTextView
                         android:id="@+id/tv_dateDecisiona"
-                        setIdInvention="@{inventionModel.date_decision}"
+                        android:text="@{inventionModel.date_recognition}"
                         android:layout_width="260dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -366,7 +363,7 @@
                         android:layout_gravity="center"
                         android:ellipsize="middle"
                         android:singleLine="true"
-                        android:text="@{inventionModel.num_decision}"
+                        android:text="@{inventionModel.number_recognition}"
                         android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
                 </LinearLayout>
 
@@ -424,7 +421,7 @@
                         android:layout_gravity="center"
                         android:ellipsize="middle"
                         android:singleLine="true"
-                        setSalaryStep="@{inventionModel.user}"
+                        android:text="@{inventionModel.users}"
                         android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
                 </LinearLayout>
                 <LinearLayout
@@ -452,7 +449,7 @@
                         android:layout_gravity="center"
                         android:ellipsize="middle"
                         android:singleLine="true"
-                        setSalaryStep="@{inventionModel.year}"
+                        android:text="@{inventionModel.year_id}"
                         android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
                 </LinearLayout>
             </androidx.constraintlayout.widget.ConstraintLayout>
@@ -520,7 +517,7 @@
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/tv_idInventionb"
-                        setIdInvention="@{inventionModel.id}"
+                        setIdInvention="@{inventionModel.code}"
                         android:layout_width="260dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -575,7 +572,7 @@
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/tv_numDecisionb"
-                        setIdInvention="@{inventionModel.num_decision}"
+                        android:text="@{inventionModel.number_recognition}"
                         android:layout_width="260dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -603,7 +600,7 @@
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/tv_dateDecisionb"
-                        setIdInvention="@{inventionModel.date_decision}"
+                        setDateInvention="@{inventionModel.date_recognition}"
                         android:layout_width="260dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"

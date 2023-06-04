@@ -1,13 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-
     <data>
-
         <variable
             name="educationModel"
             type="com.kma.myapplication.data.model.EducationItem" />
-
         <import type="android.view.View" />
     </data>
 
@@ -85,7 +82,7 @@
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/tv_idEducation"
-                        setIdEducation="@{educationModel.id}"
+                        setIdEducation="@{educationModel.code}"
                         android:layout_width="260dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -141,7 +138,7 @@
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/tv_dateDecision"
-                        setIdEducation="@{educationModel.date_decision}"
+                        setDateEducation="@{educationModel.date_decision}"
                         android:layout_width="260dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -169,7 +166,7 @@
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/tv_numCredit"
-                        setIdEducation="@{educationModel.num_credit}"
+                        android:text="@{educationModel.num_credit}"
                         android:layout_width="260dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -306,7 +303,7 @@
                         android:layout_gravity="center"
                         android:ellipsize="middle"
                         android:singleLine="true"
-                        android:text="@{educationModel.id}"
+                        android:text="@{educationModel.code}"
                         android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
                 </LinearLayout>
 
@@ -330,7 +327,7 @@
 
                     <androidx.appcompat.widget.AppCompatTextView
                         android:id="@+id/tv_idEducationa"
-                        setTextDepartment="@{educationModel.name}"
+                        android:text="@{educationModel.name}"
                         android:layout_width="260dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -359,7 +356,7 @@
 
                     <androidx.appcompat.widget.AppCompatTextView
                         android:id="@+id/tv_numDecisiona"
-                        setIdEducation="@{educationModel.num_decision}"
+                        android:text="@{educationModel.num_decision}"
                         android:layout_width="260dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -478,7 +475,7 @@
                         android:layout_gravity="center"
                         android:ellipsize="middle"
                         android:singleLine="true"
-                        setSalaryStep="@{educationModel.user}"
+                        android:text="@{educationModel.users}"
                         android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
                 </LinearLayout>
                 <LinearLayout
@@ -506,7 +503,7 @@
                         android:layout_gravity="center"
                         android:ellipsize="middle"
                         android:singleLine="true"
-                        setSalaryStep="@{educationModel.year}"
+                        android:text="@{educationModel.year_id}"
                         android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
                 </LinearLayout>
             </androidx.constraintlayout.widget.ConstraintLayout>
@@ -574,7 +571,7 @@
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/tv_idEducationb"
-                        setIdEducation="@{educationModel.id}"
+                        setIdEducation="@{educationModel.code}"
                         android:layout_width="260dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -630,7 +627,7 @@
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/tv_dateDecisionb"
-                        setIdEducation="@{educationModel.date_decision}"
+                        setDateEducation="@{educationModel.date_decision}"
                         android:layout_width="260dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -658,7 +655,7 @@
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/tv_numCreditb"
-                        setIdEducation="@{educationModel.num_credit}"
+                        android:text="@{educationModel.num_credit}"
                         android:layout_width="260dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
