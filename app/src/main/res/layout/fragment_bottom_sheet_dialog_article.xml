@@ -85,7 +85,7 @@
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/tv_idArticle"
-                        setIdArticle="@{articleModel.code}"
+                        android:text="@{articleModel.code}"
                         android:layout_width="260dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -140,7 +140,7 @@
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/tv_indexArticle"
-                        setIdArticle="@{articleModel.index_article}"
+                        setTextInt="@{articleModel.index_article}"
                         android:layout_width="260dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -301,7 +301,7 @@
 
                     <androidx.appcompat.widget.AppCompatTextView
                         android:id="@+id/tv_idArticlea"
-                        setTextDepartment="@{articleModel.name}"
+                        android:text="@{articleModel.name}"
                         android:layout_width="260dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -330,7 +330,7 @@
 
                     <androidx.appcompat.widget.AppCompatTextView
                         android:id="@+id/tv_typea"
-                        setTextType="@{articleModel.type}"
+                        setTextInt="@{articleModel.type}"
                         android:layout_width="260dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -393,7 +393,7 @@
                         android:layout_gravity="center"
                         android:ellipsize="middle"
                         android:singleLine="true"
-                        setTextType="@{articleModel}"
+
                         android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
                 </LinearLayout>
 
@@ -422,7 +422,7 @@
                         android:layout_gravity="center"
                         android:ellipsize="middle"
                         android:singleLine="true"
-                        setTextType="@{articleModel.users}"
+                        setTextUser="@{articleModel.users}"
                         android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
                 </LinearLayout>
                 <LinearLayout
@@ -450,7 +450,7 @@
                         android:layout_gravity="center"
                         android:ellipsize="middle"
                         android:singleLine="true"
-                        setTextType="@{articleModel.year_id}"
+                        setTextInt="@{articleModel.year_id}"
                         android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
                 </LinearLayout>
             </androidx.constraintlayout.widget.ConstraintLayout>
@@ -518,7 +518,7 @@
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/tv_idArticleb"
-                        setIdArticle="@{articleModel.code}"
+                        android:text="@{articleModel.code}"
                         android:layout_width="260dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -573,7 +573,7 @@
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/tv_indexArticleb"
-                        setIdArticle="@{articleModel.index_article}"
+                        setTextInt="@{articleModel.index_article}"
                         android:layout_width="260dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"

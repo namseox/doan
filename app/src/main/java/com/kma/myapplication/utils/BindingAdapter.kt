@@ -6,6 +6,7 @@ import android.widget.TextView
 import androidx.databinding.BindingAdapter
 import com.amulyakhare.textdrawable.TextDrawable
 import com.kma.myapplication.data.model.Book
+import com.kma.myapplication.data.model.UserXX
 
 
 @BindingAdapter("setImage")
@@ -18,9 +19,9 @@ fun ImageView.setImage(name: String){
 
 }
 
-@BindingAdapter("setText")
-fun TextView.setText(id: Int){
-    this.text = "id: "+id.toString()
+@BindingAdapter("setTextInt")
+fun TextView.setTextInt(id: Int){
+    this.text = id.toString()
 }
 @BindingAdapter("setNameBook")
 fun TextView.setNameBook(name: String){
@@ -30,72 +31,56 @@ fun TextView.setNameBook(name: String){
 fun TextView.setTimeCreatBook(time:Int){
     this.text = "Năm phát hành: " +time
 }
-@BindingAdapter("setTextDepartment")
-fun TextView.setTextDepartment(id: Int){
-    this.text = id.toString()
-}
-@BindingAdapter("setIdStaff")
-fun TextView.setIdStaff(id: Int){
-    this.text = id.toString()
+@BindingAdapter("setTextIDStaff")
+fun TextView.setTextIDStaff(id:Int){
+    this.text = "ID: " +id
 }
 
-@BindingAdapter("setNumberSalary")
-fun TextView.setNumberSalary(id: Int){
-    this.text = id.toString()
-}
-@BindingAdapter("setSalaryStep")
-fun TextView.setSalaryStep(id: Int){
-    this.text = id.toString()
-}
-@BindingAdapter("setTextId")
-fun TextView.setTextId(id: Int){
-    this.text = id.toString()
-}
-@BindingAdapter("setTextType")
-fun TextView.setTextType(id: Int){
-    this.text = id.toString()
-}
-@BindingAdapter("setTextNumPage")
-fun TextView.setTextNumPage(id: Int){
-    this.text = id.toString()
-}
-@BindingAdapter("setTextYear")
-fun TextView.setTextYear(id: Int){
-    this.text = id.toString()
-}
-@BindingAdapter("setTextAuthor")
-fun TextView.setTextAuthor(book: Book){
-    if (book.users.size==1){
-        this.text = book.users[0].name
-    }else{
-        this.text = book.users[0].name +", "+ book.users[1].name
+@BindingAdapter("setTextUser")
+fun TextView.setTextUser(listUser: List<UserXX>){
+    var text : String =""
+    for (i in listUser){
+        text = text+i+", "
     }
+        this.text = text.substring(0,text.length-2)
+
 }
-@BindingAdapter("setDateResearch")
-fun TextView.setDateResearch(date: String){
+
+@BindingAdapter("setTextDate")
+fun TextView.setTextDate(date: String){
 this.text = date.substring(0,10)
 }
-@BindingAdapter("setDateInvention")
-fun TextView.setDateInvention(date: String){
-    this.text = date.substring(0,10)
+@BindingAdapter("setFormExam")
+fun TextView.
+        setFormExam(type: Int){
+    this.text =
+    when(type){
+        0 ->{"Tự luận"}
+        1->{"Trắc nghiệm"}
+        2->{"Vấn đáp, thực hành"}
+        else->{"Tiểu luận"}
+    }
 }
-@BindingAdapter("setDateEducation")
-fun TextView.setDateEducation(date: String){
-    this.text = date.substring(0,10)
+@BindingAdapter("setLevelInvention")
+fun TextView.setLevelInvention(type: Int){
+    this.text =
+        when(type){
+            0 ->{"Bằng độc quyền sáng chế"}
+            1->{"Giải thưởng khoa học và công nghệ cấp quốc gia"}
+            2->{"Giải thưởng khoa học và công nghệ từ cấp Bộ trở lên"}
+            3->{"Giải thưởng khoa học và công nghệ cấp dưới Bộ"}
+            else->{"Giải pháp hữu ích"}
+        }
 }
-@BindingAdapter("setDateScientific")
-fun TextView.setDateScientific(date: String){
-    this.text = date.substring(0,10)
-}
-@BindingAdapter("setDateClass")
-fun TextView.setDateClass(date: String){
-    this.text = date.substring(0,10)
-}
-@BindingAdapter("setDateMark")
-fun TextView.setDateMark(date: String){
-    this.text = date.substring(0,10)
-}
-@BindingAdapter("setDateRoom")
-fun TextView.setDateRoom(date: String){
-    this.text = date.substring(0,10)
-}
+//@BindingAdapter("setTypeMark")
+//fun TextView.setTypeMark(type: Int){
+//    this.text =
+//        when(type){
+//            0 ->{"Bằng độc quyền sáng chế"}
+//            1->{"Giải thưởng khoa học và công nghệ cấp quốc gia"}
+//            2->{"Giải thưởng khoa học và công nghệ từ cấp Bộ trở lên"}
+//            3->{"Giải thưởng khoa học và công nghệ cấp dưới Bộ"}
+//            else->{"Giải pháp hữu ích"}
+//        }
+//}
+

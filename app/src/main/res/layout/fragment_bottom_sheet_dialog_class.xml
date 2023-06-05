@@ -82,7 +82,7 @@
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/tv_idClass"
-                        setIdClass="@{classModel.id}"
+                        setTextInt="@{classModel.id}"
                         android:layout_width="260dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -110,7 +110,7 @@
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/tv_form_teach"
-                        setIdClass="@{classModel.form_teach}"
+                        android:text="@{classModel.form_teach}"
                         android:layout_width="260dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -138,7 +138,7 @@
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/tv_num_student"
-                        setIdClass="@{classModel.num_student}"
+                        setTextInt="@{classModel.num_student}"
                         android:layout_width="260dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -166,7 +166,7 @@
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:text="@+id/tv_numCredit"
-                        setIdClass="@{classModel.num_credit}"
+                        setTextInt="@{classModel.num_credit}"
                         android:layout_width="260dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -248,7 +248,7 @@
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/tv_num_lesson"
-                        setIdClass="@{classModel.num_lesson}"
+                        setTextInt="@{classModel.num_lesson}"
                         android:layout_width="260dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -276,7 +276,7 @@
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/tv_room"
-                        setIdClass="@{classModel.classroom}"
+                        android:text="@{classModel.classroom}"
                         android:layout_width="260dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -304,7 +304,7 @@
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/tv_startDate"
-                        setDateClass="@{classModel.startDate}"
+                        setTextDate="@{classModel.startDate}"
                         android:layout_width="260dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -332,7 +332,7 @@
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/tv_endDate"
-                        setDateClass="@{classModel.endDate}"
+                        setTextDate="@{classModel.endDate}"
                         android:layout_width="260dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -526,7 +526,7 @@
                         android:layout_gravity="center"
                         android:ellipsize="middle"
                         android:singleLine="true"
-                        android:text="@{classModel.subject_id}"
+                        setTextInt="@{classModel.subject_id}"
                         android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
                 </LinearLayout>
                 <LinearLayout
@@ -554,7 +554,7 @@
                         android:layout_gravity="center"
                         android:ellipsize="middle"
                         android:singleLine="true"
-                        android:text="@{classModel.user}"
+                        android:text="@{classModel.user.name}"
                         android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
                 </LinearLayout>
                 <LinearLayout
@@ -577,7 +577,7 @@
 
                     <androidx.appcompat.widget.AppCompatTextView
                         android:id="@+id/tv_form_teacha"
-                        setIdClass="@{classModel.form_teach}"
+                        android:text="@{classModel.form_teach}"
                         android:layout_width="260dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -605,7 +605,7 @@
 
                     <androidx.appcompat.widget.AppCompatTextView
                         android:id="@+id/tv_num_studenta"
-                        setIdClass="@{classModel.num_student}"
+                        setTextInt="@{classModel.num_student}"
                         android:layout_width="260dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -633,7 +633,7 @@
 
                     <androidx.appcompat.widget.AppCompatTextView
                         android:id="@+id/tv_numCredita"
-                        setIdClass="@{classModel.num_credit}"
+                        setTextInt="@{classModel.num_credit}"
                         android:layout_width="260dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -661,7 +661,7 @@
 
                     <androidx.appcompat.widget.AppCompatTextView
                         android:id="@+id/tv_num_lessona"
-                        setIdClass="@{classModel.num_lesson}"
+                        setTextInt="@{classModel.num_lesson}"
                         android:layout_width="260dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -689,7 +689,7 @@
 
                     <androidx.appcompat.widget.AppCompatTextView
                         android:id="@+id/tv_rooma"
-                        setIdClass="@{classModel.classroom}"
+                        android:text="@{classModel.classroom}"
                         android:layout_width="260dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -722,7 +722,7 @@
                         android:layout_gravity="center"
                         android:ellipsize="middle"
                         android:singleLine="true"
-                        android:text="@{classModel.dateStart}"
+                        setTextDate="@{classModel.startDate}"
                         android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
                 </LinearLayout>
 
@@ -807,7 +807,7 @@
                         android:layout_gravity="center"
                         android:ellipsize="middle"
                         android:singleLine="true"
-                        setSalaryStep="@{classModel.year}"
+                        android:text="@{classModel.year.name}"
                         android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
                 </LinearLayout>
                 <LinearLayout
@@ -835,7 +835,7 @@
                         android:layout_gravity="center"
                         android:ellipsize="middle"
                         android:singleLine="true"
-                        setSalaryStep="@{classModel.semester}"
+                        android:text="@{classModel.semester}"
                         android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
                 </LinearLayout>
 
@@ -904,7 +904,7 @@
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/tv_idClassb"
-                        setIdClass="@{classModel.id}"
+                        setTextInt="@{classModel.id}"
                         android:layout_width="260dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -932,7 +932,7 @@
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/tv_form_teachb"
-                        setIdClass="@{classModel.form_teach}"
+                        android:text="@{classModel.form_teach}"
                         android:layout_width="260dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -960,7 +960,7 @@
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/tv_num_studentb"
-                        setIdClass="@{classModel.num_student}"
+                        setTextInt="@{classModel.num_student}"
                         android:layout_width="260dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -988,7 +988,7 @@
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:text="@+id/tv_numCreditb"
-                        setIdClass="@{classModel.num_credit}"
+                        setTextInt="@{classModel.num_credit}"
                         android:layout_width="260dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -1070,7 +1070,7 @@
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/tv_num_lessonb"
-                        setIdClass="@{classModel.num_lesson}"
+                        setTextInt="@{classModel.num_lesson}"
                         android:layout_width="260dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -1098,7 +1098,7 @@
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/tv_roomb"
-                        setIdClass="@{classModel.classroom}"
+                        android:text="@{classModel.classroom}"
                         android:layout_width="260dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -1126,7 +1126,7 @@
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/tv_startDateb"
-                        setDateClass="@{classModel.startDate}"
+                        setTextDate="@{classModel.startDate}"
                         android:layout_width="260dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -1153,8 +1153,8 @@
                         android:textSize="@dimen/dp_16" />
 
                     <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/tv_endDate"
-                        setDateClass="@{classModel.endDate}"
+                        android:id="@+id/tv_endDateb"
+                        setTextDate="@{classModel.endDate}"
                         android:layout_width="260dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"

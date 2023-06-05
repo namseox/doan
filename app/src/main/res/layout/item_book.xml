@@ -52,7 +52,7 @@
                     android:id="@+id/tv_id"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    setText="@{bookModel.id}"/>
+                    setTextIDStaff="@{bookModel.id}"/>
                 <TextView
                     android:id="@+id/tv_name"
                     android:layout_width="match_parent"

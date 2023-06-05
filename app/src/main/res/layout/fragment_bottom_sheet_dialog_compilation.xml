@@ -84,7 +84,7 @@
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/tv_idCompilation"
-                        setIdCompilation="@{compilationModel.code}"
+                        android:text="@{compilationModel.code}"
                         android:layout_width="260dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -112,7 +112,7 @@
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/tv_numDecision"
-                        setIdCompilation="@{compilationModel.num_decision}"
+                        android:text="@{compilationModel.num_decision}"
                         android:layout_width="260dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -140,7 +140,7 @@
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/tv_dateDecision"
-                        setIdCompilation="@{compilationModel.date_decision}"
+                        setTextDate="@{compilationModel.date_decision}"
                         android:layout_width="260dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -168,7 +168,7 @@
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/tv_numCredit"
-                        setIdCompilation="@{compilationModel.number_credit}"
+                        setTextInt="@{compilationModel.number_credit}"
                         android:layout_width="260dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -358,7 +358,7 @@
 
                     <androidx.appcompat.widget.AppCompatTextView
                         android:id="@+id/tv_numDecisiona"
-                        setIdCompilation="@{compilationModel.num_decision}"
+                        android:text="@{compilationModel.num_decision}"
                         android:layout_width="260dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -477,7 +477,7 @@
                         android:layout_gravity="center"
                         android:ellipsize="middle"
                         android:singleLine="true"
-                        android:text="@{compilationModel.users}"
+                        setTextUser="@{compilationModel.users}"
                         android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
                 </LinearLayout>
                 <LinearLayout
@@ -505,7 +505,7 @@
                         android:layout_gravity="center"
                         android:ellipsize="middle"
                         android:singleLine="true"
-                        setTextYear="@{compilationModel.year_id}"
+                        setTextInt="@{compilationModel.year_id}"
                         android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
                 </LinearLayout>
             </androidx.constraintlayout.widget.ConstraintLayout>
@@ -573,7 +573,7 @@
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/tv_idCompilationb"
-                        setIdCompilation="@{compilationModel.id}"
+                        setTextInt="@{compilationModel.id}"
                         android:layout_width="260dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -601,7 +601,7 @@
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/tv_numDecisionb"
-                        setIdCompilation="@{compilationModel.num_decision}"
+                        android:text="@{compilationModel.num_decision}"
                         android:layout_width="260dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -629,7 +629,7 @@
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/tv_dateDecisionb"
-                        setIdCompilation="@{compilationModel.date_decision}"
+                        android:text="@{compilationModel.date_decision}"
                         android:layout_width="260dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -657,7 +657,7 @@
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/tv_numCreditb"
-                        setIdCompilation="@{compilationModel.number_credit}"
+                        setTextInt="@{compilationModel.number_credit}"
                         android:layout_width="260dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"

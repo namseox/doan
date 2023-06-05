@@ -82,7 +82,7 @@
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/tv_idEducation"
-                        setIdEducation="@{educationModel.code}"
+                        android:text="@{educationModel.code}"
                         android:layout_width="260dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -110,7 +110,7 @@
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/tv_numDecision"
-                        setIdEducation="@{educationModel.num_decision}"
+                        android:text="@{educationModel.num_decision}"
                         android:layout_width="260dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -138,7 +138,7 @@
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/tv_dateDecision"
-                        setDateEducation="@{educationModel.date_decision}"
+                        setTextDate="@{educationModel.date_decision}"
                         android:layout_width="260dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -475,7 +475,7 @@
                         android:layout_gravity="center"
                         android:ellipsize="middle"
                         android:singleLine="true"
-                        android:text="@{educationModel.users}"
+                        setTextUser="@{educationModel.users}"
                         android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
                 </LinearLayout>
                 <LinearLayout
@@ -571,7 +571,7 @@
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/tv_idEducationb"
-                        setIdEducation="@{educationModel.code}"
+                        android:text="@{educationModel.code}"
                         android:layout_width="260dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -599,7 +599,7 @@
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/tv_numDecisionb"
-                        setIdEducation="@{educationModel.num_decision}"
+                        android:text="@{educationModel.num_decision}"
                         android:layout_width="260dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -627,7 +627,7 @@
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/tv_dateDecisionb"
-                        setDateEducation="@{educationModel.date_decision}"
+                        setTextDate="@{educationModel.date_decision}"
                         android:layout_width="260dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"

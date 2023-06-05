@@ -4,7 +4,12 @@
     <data>
         <variable
             name="examModel"
-            type="com.kma.myapplication.data.model.ExamItem" />
+            type="com.kma.myapplication.data.model.ExamItem"
+            />
+        <variable
+            name="listExamModel"
+            type="com.kma.myapplication.data.model.ListExamItem"
+            />
         <import type="android.view.View" />
     </data>
 
@@ -136,7 +141,7 @@
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/tv_form_exam"
-                        setIdClass="@{examModel.form_exam}"
+                        setTextInt="@{examModel.type}"
                         android:layout_width="260dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -164,7 +169,7 @@
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/tv_num_question"
-                        setIdClass="@{examModel.num_question}"
+                        setTextInt="@{examModel.num_question}"
                         android:layout_width="260dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -192,7 +197,7 @@
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:text="@+id/tv_num_exam"
-                        setIdClass="@{examModel.num_exam}"
+                        setTextInt="@{examModel.num_exam}"
                         android:layout_width="260dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -359,7 +364,7 @@
                         android:layout_gravity="center"
                         android:ellipsize="middle"
                         android:singleLine="true"
-                        android:text="@{examModel.user}"
+                        android:text="@{listExamModel.users.name}"
                         android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
                 </LinearLayout>
                 <LinearLayout
@@ -382,7 +387,7 @@
 
                     <androidx.appcompat.widget.AppCompatTextView
                         android:id="@+id/tv_form_teacha"
-                        setIdClass="@{examModel.form_exam}"
+                        setFormExam="@{examModel.type}"
                         android:layout_width="260dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -410,7 +415,7 @@
 
                     <androidx.appcompat.widget.AppCompatTextView
                         android:id="@+id/tv_num_questiona"
-                        setIdClass="@{examModel.num_question}"
+                        setTextInt="@{examModel.num_question}"
                         android:layout_width="260dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -438,7 +443,7 @@
 
                     <androidx.appcompat.widget.AppCompatTextView
                         android:id="@+id/tv_num_exama"
-                        setIdClass="@{examModel.num_exam}"
+                        setTextInt="@{examModel.num_exam}"
                         android:layout_width="260dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -472,7 +477,7 @@
                         android:layout_gravity="center"
                         android:ellipsize="middle"
                         android:singleLine="true"
-                        setSalaryStep="@{examModel.year}"
+                        android:text="@{examModel.year.name}"
                         android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
                 </LinearLayout>
                 <LinearLayout
@@ -500,7 +505,7 @@
                         android:layout_gravity="center"
                         android:ellipsize="middle"
                         android:singleLine="true"
-                        setSalaryStep="@{examModel.semester}"
+                        setTextInt="@{examModel.semester}"
                         android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
                 </LinearLayout>
 
@@ -624,7 +629,7 @@
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/tv_form_examb"
-                        setIdClass="@{examModel.form_exam}"
+                        setFormExam="@{examModel.type}"
                         android:layout_width="260dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -652,7 +657,7 @@
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/tv_num_questionb"
-                        setIdClass="@{examModel.num_question}"
+                        setTextInt="@{examModel.num_question}"
                         android:layout_width="260dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -680,7 +685,7 @@
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:text="@+id/tv_num_examb"
-                        setIdClass="@{examModel.num_exam}"
+                        setTextInt="@{examModel.num_exam}"
                         android:layout_width="260dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"

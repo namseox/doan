@@ -68,6 +68,7 @@ class AdapterBook(var onCLick: onCLickBook) : RecyclerView.Adapter<RecyclerView.
             holder.binding.llClickItem.setOnClickListener {
                 onCLick.clickItem(data[position].id, holder.binding)
             }
+
         }
     }
 
@@ -82,4 +83,5 @@ class AdapterBook(var onCLick: onCLickBook) : RecyclerView.Adapter<RecyclerView.
 interface onCLickBook {
     fun click3Dot(idBook: Int, binding: ItemBookBinding)
     fun clickItem(idBook: Int, binding: ItemBookBinding)
+//    fun clickFullItem(idBook: Int)
 }

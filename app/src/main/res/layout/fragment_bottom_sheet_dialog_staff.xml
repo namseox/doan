@@ -114,7 +114,7 @@
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/tv_idStaff"
-                        setIdStaff="@{staffModel.id}"
+                        setTextInt="@{staffModel.id}"
                         android:layout_width="260dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -200,7 +200,7 @@
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/tv_stepSalary"
-                        setNumberSalary="@{staffModel.number_salary}"
+                        setTextInt="@{staffModel.number_salary}"
                         android:layout_width="260dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -232,7 +232,7 @@
                         android:layout_width="260dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        setSalaryStep="@{staffModel.income}"
+                        setTextInt="@{staffModel.income}"
                         android:ellipsize="middle"
                         android:singleLine="true"
                         android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
@@ -339,7 +339,7 @@
 
                     <androidx.appcompat.widget.AppCompatTextView
                         android:id="@+id/tv_departmenta"
-                        setTextDepartment="@{staffModel.department_id}"
+                        setTextInt="@{staffModel.department_id}"
                         android:layout_width="260dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -368,7 +368,7 @@
 
                     <androidx.appcompat.widget.AppCompatTextView
                         android:id="@+id/tv_idStaffa"
-                        setIdStaff="@{staffModel.id}"
+                        setTextInt="@{staffModel.id}"
                         android:layout_width="260dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -455,7 +455,7 @@
 
                     <androidx.appcompat.widget.AppCompatTextView
                         android:id="@+id/tv_stepSalarya"
-                        setNumberSalary="@{staffModel.number_salary}"
+                        setTextInt="@{staffModel.number_salary}"
                         android:layout_width="260dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -489,7 +489,7 @@
                         android:layout_gravity="center"
                         android:ellipsize="middle"
                         android:singleLine="true"
-                        setSalaryStep="@{staffModel.income}"
+                        setTextInt="@{staffModel.income}"
                         android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
                 </LinearLayout>
 
