@@ -4,7 +4,7 @@
     <data>
         <variable
             name="markModel"
-            type="com.kma.myapplication.data.model.MarkItem" />
+            type="com.kma.myapplication.data.model.ListMarkItem" />
         <import type="android.view.View" />
     </data>
 
@@ -108,7 +108,7 @@
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/tv_form_mark"
-                        setIdMark="@{markModel.form_mark}"
+                        setFormExam="@{markModel.type}"
                         android:layout_width="260dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -136,7 +136,7 @@
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/tv_num_exam"
-                        setIdMark="@{markModel.num_exam}"
+                        setTextInt="@{markModel.num_exam}"
                         android:layout_width="260dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -164,7 +164,7 @@
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:text="@+id/tv_date_exam"
-                        setDateMark="@{markModel.date_exam}"
+                        setTextDate="@{markModel.date_exam}"
                         android:layout_width="260dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -302,7 +302,7 @@
                         android:layout_gravity="center"
                         android:ellipsize="middle"
                         android:singleLine="true"
-                        android:text="@{markModel.user}"
+                        android:text="@{markModel.user.name}"
                         android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
                 </LinearLayout>
                 <LinearLayout
@@ -325,7 +325,7 @@
 
                     <androidx.appcompat.widget.AppCompatTextView
                         android:id="@+id/tv_form_marka"
-                        setIdMark="@{markModel.form_mark}"
+                        setFormExam="@{markModel.type}"
                         android:layout_width="260dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -353,7 +353,7 @@
 
                     <androidx.appcompat.widget.AppCompatTextView
                         android:id="@+id/tv_num_marka"
-                        setIdMark="@{markModel.num_mark}"
+                        setTextInt="@{markModel.num_exam}"
                         android:layout_width="260dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -381,7 +381,7 @@
 
                     <androidx.appcompat.widget.AppCompatTextView
                         android:id="@+id/tv_date_marka"
-                        setIdMark="@{markModel.date_mark}"
+                        setTextDate="@{markModel.date_exam}"
                         android:layout_width="260dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -415,7 +415,6 @@
                         android:layout_gravity="center"
                         android:ellipsize="middle"
                         android:singleLine="true"
-                        setSalaryStep="@{markModel.year}"
                         android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
                 </LinearLayout>
                 <LinearLayout
@@ -443,7 +442,7 @@
                         android:layout_gravity="center"
                         android:ellipsize="middle"
                         android:singleLine="true"
-                        setSalaryStep="@{markModel.semester}"
+                        android:text="@{markModel.semester}"
                         android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
                 </LinearLayout>
 
@@ -540,7 +539,7 @@
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/tv_form_markb"
-                        setIdMark="@{markModel.form_mark}"
+                        setFormExam="@{markModel.type}"
                         android:layout_width="260dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -568,7 +567,7 @@
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/tv_num_examb"
-                        setIdMark="@{markModel.num_exam}"
+                        setTextInt="@{markModel.num_exam}"
                         android:layout_width="260dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -596,7 +595,7 @@
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:text="@+id/tv_date_examb"
-                        setDateMark="@{markModel.date_exam}"
+                        setTextDate="@{markModel.date_exam}"
                         android:layout_width="260dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"

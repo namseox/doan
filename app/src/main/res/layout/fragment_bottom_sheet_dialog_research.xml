@@ -140,7 +140,7 @@
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/tv_startDate"
-                        setDateResearch="@{researchModel.startDate}"
+                        setTextDate="@{researchModel.startDate}"
                         android:layout_width="260dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -168,7 +168,7 @@
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/tv_endDate"
-                        setDateResearch="@{researchModel.endDate}"
+                        setTextDate="@{researchModel.endDate}"
                         android:layout_width="260dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -196,7 +196,7 @@
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/tv_acceptDate"
-                        setDateResearch="@{researchModel.acceptDate}"
+                        android:text="@{researchModel.acceptDate}"
                         android:layout_width="260dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -390,7 +390,7 @@
 
                     <androidx.appcompat.widget.AppCompatTextView
                         android:id="@+id/tv_levelResearcha"
-                        setTextType="@{researchModel.level}"
+                        setTextInt="@{researchModel.level}"
                         android:layout_width="260dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -511,7 +511,7 @@
                         android:layout_gravity="center"
                         android:ellipsize="middle"
                         android:singleLine="true"
-                        setTextAuthor="@{researchModel.users}"
+                        setTextUser="@{researchModel.users}"
                         android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
                 </LinearLayout>
                 <LinearLayout
@@ -539,7 +539,7 @@
                         android:layout_gravity="center"
                         android:ellipsize="middle"
                         android:singleLine="true"
-                        android:text="@{researchModel.year}"
+                        android:text="@{researchModel.year.name}"
                         android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
                 </LinearLayout>
             </androidx.constraintlayout.widget.ConstraintLayout>
@@ -607,7 +607,7 @@
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/tv_idResearchb"
-                        setIdResearch="@{researchModel.code}"
+                        android:text="@{researchModel.code}"
                         android:layout_width="260dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -662,7 +662,7 @@
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/tv_startDateb"
-                        setDateResearch="@{researchModel.startDate}"
+                        setTextDate="@{researchModel.startDate}"
                         android:layout_width="260dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -690,7 +690,7 @@
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/tv_endDateb"
-                        setDateResearch="@{researchModel.endDate}"
+                        setTextDate="@{researchModel.endDate}"
                         android:layout_width="260dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -718,7 +718,7 @@
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/tv_acceptDateb"
-                        setDateResearch="@{researchModel.acceptDate}"
+                        setTextDate="@{researchModel.acceptDate}"
                         android:layout_width="260dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -795,21 +795,15 @@
                     app:layout_constraintTop_toBottomOf="@id/ll_8b">
 
                     <Button
-                        android:id="@+id/btn_cancel"
+                        android:id="@+id/add"
                         style="@style/Widget.Material3.Button.ElevatedButton"
                         android:layout_width="124dp"
                         android:layout_height="48dp"
                         android:layout_margin="@dimen/dp_16"
-                        android:text="Hủy"
+                        android:text="Thêm"
                         android:textSize="@dimen/dp_16" />
 
-                    <Button
-                        android:id="@+id/btn_update"
-                        style="@style/Widget.Material3.Button.ElevatedButton"
-                        android:layout_width="124dp"
-                        android:layout_height="48dp"
-                        android:text="Cập nhật"
-                        android:textSize="@dimen/dp_16" />
+
                 </LinearLayout>
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>

@@ -5,6 +5,9 @@
         <variable
             name="roomModel"
             type="com.kma.myapplication.data.model.RoomItem" />
+        <variable
+            name="listRoomModel"
+            type="com.kma.myapplication.data.model.ListRoomItem" />
         <import type="android.view.View" />
     </data>
 
@@ -136,7 +139,7 @@
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/tv_num_exam_session"
-                        setIdRoom="@{roomModel.num_exam_session}"
+                        setTextInt="@{roomModel.num_exam_session}"
                         android:layout_width="260dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -164,7 +167,7 @@
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:text="@+id/tv_time"
-                        setIdRoom="@{roomModel.time}"
+                        setTextInt="@{roomModel.time}"
                         android:layout_width="260dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -192,7 +195,7 @@
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:text="@+id/tv_startDate"
-                        setDateRoom="@{roomModel.startDate}"
+                        setTextDate="@{roomModel.startDate}"
                         android:layout_width="260dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -359,7 +362,7 @@
                         android:layout_gravity="center"
                         android:ellipsize="middle"
                         android:singleLine="true"
-                        android:text="@{roomModel.user}"
+                        android:text="@{listRoomModel.user.name}"
                         android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
                 </LinearLayout>
 
@@ -383,7 +386,7 @@
 
                     <androidx.appcompat.widget.AppCompatTextView
                         android:id="@+id/tv_num_exam_sessiona"
-                        setIdRoom="@{roomModel.num_exam_session}"
+                        setTextInt="@{roomModel.num_exam_session}"
                         android:layout_width="260dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -472,7 +475,7 @@
                         android:layout_gravity="center"
                         android:ellipsize="middle"
                         android:singleLine="true"
-                        setSalaryStep="@{roomModel.year}"
+                        android:text="@{roomModel.year.name}"
                         android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
                 </LinearLayout>
                 <LinearLayout
@@ -500,7 +503,7 @@
                         android:layout_gravity="center"
                         android:ellipsize="middle"
                         android:singleLine="true"
-                        setSalaryStep="@{roomModel.semester}"
+                        setTextInt="@{roomModel.semester}"
                         android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
                 </LinearLayout>
 
@@ -568,7 +571,7 @@
                         android:textSize="@dimen/dp_16" />
 
                     <Spinner
-                        android:id="@+id/sp_subject_id"
+                        android:id="@+id/sp_subject_id_b"
                         android:layout_width="300px"
                         android:layout_height="@dimen/dp_36"
                         android:layout_gravity="center"
@@ -623,7 +626,7 @@
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/tv_num_exam_sessionb"
-                        setIdRoom="@{roomModel.num_exam_session}"
+                        setTextInt="@{roomModel.num_exam_session}"
                         android:layout_width="260dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -651,7 +654,7 @@
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:text="@+id/tv_timeb"
-                        setIdRoom="@{roomModel.time}"
+                        setTextInt="@{roomModel.time}"
                         android:layout_width="260dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -679,7 +682,7 @@
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:text="@+id/tv_startDateb"
-                        setDateRoom="@{roomModel.startDate}"
+                        setTextDate="@{roomModel.startDate}"
                         android:layout_width="260dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"

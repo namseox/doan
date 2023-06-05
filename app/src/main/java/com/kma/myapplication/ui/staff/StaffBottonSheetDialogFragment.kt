@@ -28,6 +28,7 @@ class StaffBottonSheetDialogFragment(
     BottomSheetDialogFragment(), AdapterView.OnItemSelectedListener {
     lateinit var binding: FragmentBottomSheetDialogStaffBinding
     var departmet_it = arrayOf("1", "2", "3", "4", "5", "6")
+    var position_staff = arrayOf("Trưởng khoa","Phó khoa","Giảng viên")
     val NEW_SPINNER_ID = 1
 
     companion object {
@@ -47,8 +48,10 @@ class StaffBottonSheetDialogFragment(
 
         var aa = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, departmet_it)
         aa.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        var bb = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, position_staff)
+        bb.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         var id_department = departmet_it.indexOf(staff.department_id.toString())
-        var position_staff = departmet_it.indexOf(staff.position.toString())
+        var position_staff_v = position_staff.indexOf(staff.position.toString())
         with(binding.spDepartment) {
             adapter = aa
             setSelection(id_department, false)
@@ -64,15 +67,15 @@ class StaffBottonSheetDialogFragment(
             gravity = Gravity.CENTER
         }
         with(binding.spPositionStaffb) {
-            adapter = aa
+            adapter = bb
             setSelection(0, false)
             onItemSelectedListener = this@StaffBottonSheetDialogFragment
             prompt = "Select your favourite language"
             gravity = Gravity.CENTER
         }
         with(binding.spPositionStaff) {
-            adapter = aa
-            setSelection(position_staff, false)
+            adapter = bb
+            setSelection(position_staff_v, false)
             onItemSelectedListener = this@StaffBottonSheetDialogFragment
             prompt = "Select your favourite language"
             gravity = Gravity.CENTER

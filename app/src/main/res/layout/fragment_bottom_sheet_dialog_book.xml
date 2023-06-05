@@ -151,7 +151,7 @@
                     android:layout_gravity="center"
                     android:ellipsize="middle"
                     android:singleLine="true"
-                    setTextType="@{bookModel.type}"
+                    setTextInt="@{bookModel.type}"
                     android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
             </LinearLayout>
 
@@ -180,7 +180,7 @@
                     android:layout_gravity="center"
                     android:ellipsize="middle"
                     android:singleLine="true"
-                    setTextNumPage="@{bookModel.num_page}"
+                    setTextInt="@{bookModel.num_page}"
                     android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
             </LinearLayout>
 
@@ -209,7 +209,7 @@
                     android:layout_gravity="center"
                     android:ellipsize="middle"
                     android:singleLine="true"
-                    setTextYear="@{bookModel.num_publish}"
+                    setTextInt="@{bookModel.num_publish}"
                     android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
             </LinearLayout>
 
@@ -319,7 +319,7 @@
                     android:layout_gravity="center"
                     android:ellipsize="middle"
                     android:singleLine="true"
-                    setTextId="@{bookModel.id}"
+                    setTextInt="@{bookModel.id}"
                     android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
             </LinearLayout>
 
@@ -348,7 +348,7 @@
                     android:layout_gravity="center"
                     android:ellipsize="middle"
                     android:singleLine="true"
-                    setTextAuthor="@{bookModel}"
+                    setTextUser="@{bookModel.users}"
                     android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
             </LinearLayout>
 
@@ -377,7 +377,7 @@
                     android:layout_gravity="center"
                     android:ellipsize="middle"
                     android:singleLine="true"
-                    setTextType="@{bookModel.type}"
+                    setTextInt="@{bookModel.type}"
                     android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
             </LinearLayout>
 
@@ -406,7 +406,7 @@
                     android:layout_gravity="center"
                     android:ellipsize="middle"
                     android:singleLine="true"
-                    setTextNumPage="@{bookModel.num_page}"
+                    setTextInt="@{bookModel.num_page}"
                     android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
             </LinearLayout>
 
@@ -435,7 +435,7 @@
                     android:layout_gravity="center"
                     android:ellipsize="middle"
                     android:singleLine="true"
-                    setTextYear="@{bookModel.num_publish}"
+                    setTextInt="@{bookModel.num_publish}"
                     android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
             </LinearLayout>
 

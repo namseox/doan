@@ -1,6 +1,6 @@
 package com.kma.myapplication.data.model
 
-data class scientificItem(
+data class ScientificItem(
     val code: String,
     val date_decision: String,
     val name: String,

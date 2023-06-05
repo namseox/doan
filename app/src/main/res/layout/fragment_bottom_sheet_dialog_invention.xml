@@ -82,7 +82,7 @@
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/tv_idInvention"
-                        setIdInvention="@{inventionModel.code}"
+                        android:text="@{inventionModel.code}"
                         android:layout_width="260dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -165,7 +165,7 @@
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/tv_dateDecision"
-                        setDateInvention="@{inventionModel.date_recognition}"
+                        setTextDate="@{inventionModel.date_recognition}"
                         android:layout_width="260dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -392,7 +392,7 @@
                         android:layout_gravity="center"
                         android:ellipsize="middle"
                         android:singleLine="true"
-                        android:text="@{inventionModel.type}"
+                        setLevelInvention="@{inventionModel.level}"
                         android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
                 </LinearLayout>
 
@@ -421,7 +421,7 @@
                         android:layout_gravity="center"
                         android:ellipsize="middle"
                         android:singleLine="true"
-                        android:text="@{inventionModel.users}"
+                        setTextUser="@{inventionModel.users}"
                         android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
                 </LinearLayout>
                 <LinearLayout
@@ -517,7 +517,7 @@
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/tv_idInventionb"
-                        setIdInvention="@{inventionModel.code}"
+                        android:text="@{inventionModel.code}"
                         android:layout_width="260dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -600,7 +600,7 @@
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/tv_dateDecisionb"
-                        setDateInvention="@{inventionModel.date_recognition}"
+                        setTextDate="@{inventionModel.date_recognition}"
                         android:layout_width="260dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"

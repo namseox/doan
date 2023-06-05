@@ -83,7 +83,7 @@
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/tv_idSubject"
-                        setIdSubject="@{subjectModel.code}"
+                        android:text="@{subjectModel.code}"
                         android:layout_width="260dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -112,7 +112,7 @@
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/tv_indexSubject"
-                        setIdSubject="@{subjectModel.form_exam}"
+                        android:text="@{subjectModel.form_exam}"
                         android:layout_width="260dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -226,7 +226,7 @@
                         android:layout_gravity="center"
                         android:ellipsize="middle"
                         android:singleLine="true"
-                        setIdSubject="@{subjectModel.form_exam}"
+                        android:text="@{subjectModel.form_exam}"
                         android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
                 </LinearLayout>
             </androidx.constraintlayout.widget.ConstraintLayout>
@@ -294,7 +294,7 @@
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/tv_idSubjectb"
-                        setIdSubject="@{subjectModel.code}"
+                        android:text="@{subjectModel.code}"
                         android:layout_width="260dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -323,7 +323,7 @@
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/tv_indexSubjectb"
-                        setIdSubject="@{subjectModel.form_exam}"
+                        android:text="@{subjectModel.form_exam}"
                         android:layout_width="260dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
