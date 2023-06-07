@@ -27,7 +27,7 @@ interface ArticApi {
     ): ListArticleItem
 
     @PUT("/article/{id}")
-    suspend fun updateBook(
+    suspend fun updateArticle(
         @Path("id") i: Int,
         @Body itemBook: ListArticleItem
     ): ListArticleItem

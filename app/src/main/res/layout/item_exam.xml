@@ -58,6 +58,11 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@{examModel.name}"/>
+                <TextView
+                    android:id="@+id/tv_user"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@{examModel.users.name}"/>
             </LinearLayout>
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/iv_3dot"

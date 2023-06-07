@@ -19,7 +19,7 @@ import com.kma.myapplication.databinding.FragmentBookBinding
 import com.kma.myapplication.databinding.ItemBookBinding
 import com.kma.myapplication.ui.base.AbsBaseFragment
 import com.kma.myapplication.ui.staff.StaffBottonSheetDialogFragment
-import com.kma.myapplication.ui.staff.StaffDialog
+import com.kma.myapplication.ui.dialog.DeleteDialog
 import com.kma.myapplication.utils.SharedPreferenceUtils
 import com.kma.myapplication.utils.Utils.actions
 
@@ -138,7 +138,7 @@ class BookFragment : AbsBaseFragment<FragmentBookBinding>(), onCLickBook, onClic
 
                             else -> {
                                 var myFileDialog =
-                                    StaffDialog.create(object : StaffDialog.IListener {
+                                    DeleteDialog.create(object : DeleteDialog.IListener {
                                         override fun delete() {
                                             try {
                                                 viewModelBook.deleteBook(viewModelBook.itemBook.id)

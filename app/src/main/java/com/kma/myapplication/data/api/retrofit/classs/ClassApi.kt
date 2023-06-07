@@ -1,7 +1,6 @@
-package com.kma.myapplication.data.api.retrofit.`class`
+package com.kma.myapplication.data.api.retrofit.classs
 
-import com.kma.myapplication.data.model.Class
-import com.kma.myapplication.data.model.ListBookItem
+import com.kma.myapplication.data.model.ClassItem
 import com.kma.myapplication.data.model.ListClassItem
 import retrofit2.http.Body
 import retrofit2.http.DELETE
@@ -16,7 +15,7 @@ interface ClassApi {
     ): List<ListClassItem>
 
     @GET("/class/{id}")
-    suspend fun getItemClass(@Path("id") i: Int): Class
+    suspend fun getItemClass(@Path("id") i: Int): ClassItem
 
     @DELETE("/class/{id}")
     suspend fun deleteClass(@Path("id") i: Int): Int
@@ -27,7 +26,7 @@ interface ClassApi {
     ): ListClassItem
 
     @PUT("/class/{id}")
-    suspend fun updateBook(
+    suspend fun updateClass(
         @Path("id") i: Int,
         @Body itemBook: ListClassItem
     ): ListClassItem

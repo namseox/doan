@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
+
     <data>
+
         <variable
             name="classModel"
             type="com.kma.myapplication.data.model.ClassItem" />
+
         <import type="android.view.View" />
     </data>
 
@@ -18,1232 +21,1329 @@
             android:layout_height="wrap_content"
             android:background="@drawable/bg_bottom_sheet">
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/cl_Class"
+
+            <ScrollView
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:visibility="gone">
-
-                <androidx.appcompat.widget.AppCompatTextView
-                    android:id="@+id/tv_title"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="12dp"
-                    android:gravity="center"
-                    android:text="THÊM LỚP HỌC"
-                    android:textSize="@dimen/dp_24"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <LinearLayout
-                    android:id="@+id/ll_1"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="12dp"
-                    android:layout_marginTop="@dimen/dp_32"
-                    android:layout_marginEnd="12dp"
-                    android:orientation="horizontal"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tv_title">
-
-                    <androidx.appcompat.widget.AppCompatTextView
-                        android:layout_width="120dp"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:text="Tên lớp học:"
-                        android:textSize="@dimen/dp_16" />
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/tv_nameClass"
-                        android:layout_width="260dp"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:ellipsize="middle"
-                        android:singleLine="true"
-                        android:text="@{classModel.name}"
-                        android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
-                </LinearLayout>
-                <LinearLayout
-                    android:id="@+id/ll_2"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="12dp"
-                    android:layout_marginTop="@dimen/dp_16"
-                    android:layout_marginEnd="12dp"
-                    android:orientation="horizontal"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/ll_1">
-
-                    <androidx.appcompat.widget.AppCompatTextView
-                        android:layout_width="120dp"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:text="Mã lớp học:"
-                        android:textSize="@dimen/dp_16" />
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/tv_idClass"
-                        setTextInt="@{classModel.id}"
-                        android:layout_width="260dp"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:ellipsize="middle"
-                        android:singleLine="true"
-                        android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
-                </LinearLayout>
-                <LinearLayout
-                    android:id="@+id/ll_3"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="12dp"
-                    android:layout_marginTop="@dimen/dp_16"
-                    android:layout_marginEnd="12dp"
-                    android:orientation="horizontal"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/ll_2">
-
-                    <androidx.appcompat.widget.AppCompatTextView
-                        android:layout_width="120dp"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:text="Hình thức giảng dạy:"
-                        android:textSize="@dimen/dp_16" />
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/tv_form_teach"
-                        android:text="@{classModel.form_teach}"
-                        android:layout_width="260dp"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:ellipsize="middle"
-                        android:singleLine="true"
-                        android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
-                </LinearLayout>
-                <LinearLayout
-                    android:id="@+id/ll_4"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="12dp"
-                    android:layout_marginTop="@dimen/dp_16"
-                    android:layout_marginEnd="12dp"
-                    android:orientation="horizontal"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/ll_3">
-
-                    <androidx.appcompat.widget.AppCompatTextView
-                        android:layout_width="120dp"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:text="Số sinh viên:"
-                        android:textSize="@dimen/dp_16" />
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/tv_num_student"
-                        setTextInt="@{classModel.num_student}"
-                        android:layout_width="260dp"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:ellipsize="middle"
-                        android:singleLine="true"
-                        android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
-                </LinearLayout>
-                <LinearLayout
-                    android:id="@+id/ll_5"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="12dp"
-                    android:layout_marginTop="@dimen/dp_16"
-                    android:layout_marginEnd="12dp"
-                    android:orientation="horizontal"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/ll_4">
-
-                    <androidx.appcompat.widget.AppCompatTextView
-                        android:layout_width="120dp"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:text="Số tín chỉ:"
-                        android:textSize="@dimen/dp_16" />
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:text="@+id/tv_numCredit"
-                        setTextInt="@{classModel.num_credit}"
-                        android:layout_width="260dp"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:ellipsize="middle"
-                        android:singleLine="true"
-                        android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
-                </LinearLayout>
-                <LinearLayout
-                    android:id="@+id/ll_6"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="12dp"
-                    android:layout_marginTop="@dimen/dp_16"
-                    android:layout_marginEnd="12dp"
-                    android:orientation="horizontal"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/ll_5">
-
-                    <androidx.appcompat.widget.AppCompatTextView
-                        android:layout_width="120dp"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:text="Môn học:"
-                        android:textSize="@dimen/dp_16" />
-
-                    <Spinner
-                        android:id="@+id/sp_subject_id"
-                        android:layout_width="300px"
-                        android:layout_height="@dimen/dp_36"
-                        android:layout_gravity="center"
-                        android:ellipsize="middle"
-                        android:singleLine="true"
-                        android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
-                </LinearLayout>
-                <LinearLayout
-                    android:id="@+id/ll_7"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="12dp"
-                    android:layout_marginTop="@dimen/dp_16"
-                    android:layout_marginEnd="12dp"
-                    android:orientation="horizontal"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/ll_6">
-
-                    <androidx.appcompat.widget.AppCompatTextView
-                        android:layout_width="120dp"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:text="Giảng viên:"
-                        android:textSize="@dimen/dp_16" />
-
-                    <Spinner
-                        android:id="@+id/sp_user"
-                        android:layout_width="300px"
-                        android:layout_height="@dimen/dp_36"
-                        android:layout_gravity="center"
-                        android:ellipsize="middle"
-                        android:singleLine="true"
-                        android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
-                </LinearLayout>
-                <LinearLayout
-                    android:id="@+id/ll_8"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="12dp"
-                    android:layout_marginTop="@dimen/dp_16"
-                    android:layout_marginEnd="12dp"
-                    android:orientation="horizontal"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/ll_7">
-
-                    <androidx.appcompat.widget.AppCompatTextView
-                        android:layout_width="120dp"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:text="Số tiết học:"
-                        android:textSize="@dimen/dp_16" />
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/tv_num_lesson"
-                        setTextInt="@{classModel.num_lesson}"
-                        android:layout_width="260dp"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:ellipsize="middle"
-                        android:singleLine="true"
-                        android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
-                </LinearLayout>
-                <LinearLayout
-                    android:id="@+id/ll_9"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="12dp"
-                    android:layout_marginTop="@dimen/dp_16"
-                    android:layout_marginEnd="12dp"
-                    android:orientation="horizontal"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/ll_8">
-
-                    <androidx.appcompat.widget.AppCompatTextView
-                        android:layout_width="120dp"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:text="Phòng học:"
-                        android:textSize="@dimen/dp_16" />
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/tv_room"
-                        android:text="@{classModel.classroom}"
-                        android:layout_width="260dp"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:ellipsize="middle"
-                        android:singleLine="true"
-                        android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
-                </LinearLayout>
-                <LinearLayout
-                    android:id="@+id/ll_10"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="12dp"
-                    android:layout_marginTop="@dimen/dp_16"
-                    android:layout_marginEnd="12dp"
-                    android:orientation="horizontal"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/ll_9">
-
-                    <androidx.appcompat.widget.AppCompatTextView
-                        android:layout_width="120dp"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:text="Ngày bắt đầu:"
-                        android:textSize="@dimen/dp_16" />
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/tv_startDate"
-                        setTextDate="@{classModel.startDate}"
-                        android:layout_width="260dp"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:ellipsize="middle"
-                        android:singleLine="true"
-                        android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
-                </LinearLayout>
-                <LinearLayout
-                    android:id="@+id/ll_11"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="12dp"
-                    android:layout_marginTop="@dimen/dp_16"
-                    android:layout_marginEnd="12dp"
-                    android:orientation="horizontal"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/ll_10">
-
-                    <androidx.appcompat.widget.AppCompatTextView
-                        android:layout_width="120dp"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:text="Ngày kết thúc:"
-                        android:textSize="@dimen/dp_16" />
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/tv_endDate"
-                        setTextDate="@{classModel.endDate}"
-                        android:layout_width="260dp"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:ellipsize="middle"
-                        android:singleLine="true"
-                        android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
-                </LinearLayout>
-                <LinearLayout
-                    android:id="@+id/ll_12"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="12dp"
-                    android:layout_marginTop="@dimen/dp_16"
-                    android:layout_marginEnd="12dp"
-                    android:orientation="horizontal"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/ll_11">
-
-                    <androidx.appcompat.widget.AppCompatTextView
-                        android:layout_width="120dp"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:text="Hình thức thi giữa kì:"
-                        android:textSize="@dimen/dp_16" />
-
-                    <Spinner
-                        android:id="@+id/sp_form_exam"
-                        android:layout_width="300px"
-                        android:layout_height="@dimen/dp_36"
-                        android:layout_gravity="center"
-                        android:ellipsize="middle"
-                        android:singleLine="true"
-                        android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
-                </LinearLayout>
-                <LinearLayout
-                    android:id="@+id/ll_13"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="12dp"
-                    android:layout_marginTop="@dimen/dp_16"
-                    android:layout_marginEnd="12dp"
-                    android:orientation="horizontal"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/ll_12">
-
-                    <androidx.appcompat.widget.AppCompatTextView
-                        android:layout_width="120dp"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:text="Năm học:"
-                        android:textSize="@dimen/dp_16" />
-
-                    <Spinner
-                        android:id="@+id/sp_year"
-                        android:layout_width="300px"
-                        android:layout_height="@dimen/dp_36"
-                        android:layout_gravity="center"
-                        android:ellipsize="middle"
-                        android:singleLine="true"
-                        android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
-                </LinearLayout>
-                <LinearLayout
-                    android:id="@+id/ll_14"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="12dp"
-                    android:layout_marginTop="@dimen/dp_16"
-                    android:layout_marginEnd="12dp"
-                    android:orientation="horizontal"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/ll_13">
-
-                    <androidx.appcompat.widget.AppCompatTextView
-                        android:layout_width="120dp"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:text="Kỳ học:"
-                        android:textSize="@dimen/dp_16" />
-
-                    <Spinner
-                        android:id="@+id/sp_semester"
-                        android:layout_width="300px"
-                        android:layout_height="@dimen/dp_36"
-                        android:layout_gravity="center"
-                        android:ellipsize="middle"
-                        android:singleLine="true"
-                        android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
-                </LinearLayout>
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/cl_Classa"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:visibility="gone">
+                android:layout_height="match_parent">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/cl_Class"
                     android:layout_width="match_parent"
-                    android:layout_height="60dp"
-                    app:layout_constraintTop_toBottomOf="@id/ll_7a" />
-
-                <androidx.appcompat.widget.AppCompatTextView
-                    android:id="@+id/tv_titlea"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="12dp"
-                    android:gravity="center"
-                    android:text="THÔNG TIN LỚP HỌC"
-                    android:textSize="@dimen/dp_24"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <LinearLayout
-                    android:id="@+id/ll_1a"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="12dp"
-                    android:layout_marginTop="@dimen/dp_32"
-                    android:layout_marginEnd="12dp"
-                    android:orientation="horizontal"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tv_titlea">
+                    android:layout_height="match_parent"
+                    android:visibility="gone">
 
                     <androidx.appcompat.widget.AppCompatTextView
-                        android:layout_width="120dp"
+                        android:id="@+id/tv_title"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:text="Mã lớp học:"
-                        android:textSize="@dimen/dp_16" />
+                        android:layout_margin="12dp"
+                        android:gravity="center"
+                        android:text="THÊM LỚP HỌC"
+                        android:textSize="@dimen/dp_24"
+                        app:layout_constraintTop_toTopOf="parent" />
 
-                    <androidx.appcompat.widget.AppCompatTextView
-                        android:id="@+id/tv_idClassa"
-                        android:layout_width="260dp"
+                    <LinearLayout
+                        android:id="@+id/ll_1"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:ellipsize="middle"
-                        android:singleLine="true"
-                        android:text="@{classModel.code}"
-                        android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
-                </LinearLayout>
+                        android:layout_marginStart="12dp"
+                        android:layout_marginTop="@dimen/dp_32"
+                        android:layout_marginEnd="12dp"
+                        android:orientation="horizontal"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tv_title">
 
-                <LinearLayout
-                    android:id="@+id/ll_2a"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="12dp"
-                    android:layout_marginTop="@dimen/dp_16"
-                    android:layout_marginEnd="12dp"
-                    android:orientation="horizontal"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/ll_1a">
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="120dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:text="Tên lớp học:"
+                            android:textSize="@dimen/dp_16" />
 
-                    <androidx.appcompat.widget.AppCompatTextView
-                        android:layout_width="120dp"
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/tv_nameClass"
+                            android:layout_width="260dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:ellipsize="middle"
+                            android:singleLine="true"
+                            android:text="@{classModel.name}"
+                            android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/ll_2"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:text="Tên lớp học:"
-                        android:textSize="@dimen/dp_16" />
+                        android:layout_marginStart="12dp"
+                        android:layout_marginTop="@dimen/dp_16"
+                        android:layout_marginEnd="12dp"
+                        android:orientation="horizontal"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/ll_1">
 
-                    <androidx.appcompat.widget.AppCompatTextView
-                        android:id="@+id/tv_nameClassa"
-                        android:text="@{classModel.name}"
-                        android:layout_width="260dp"
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="120dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:text="Mã lớp học:"
+                            android:textSize="@dimen/dp_16" />
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/tv_idClass"
+                            setTextInt="@{classModel.id}"
+                            android:layout_width="260dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:ellipsize="middle"
+                            android:singleLine="true"
+                            android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/ll_3"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:ellipsize="middle"
-                        android:singleLine="true"
-                        android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
-                </LinearLayout>
-                <LinearLayout
-                    android:id="@+id/ll_3a"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="12dp"
-                    android:layout_marginTop="@dimen/dp_16"
-                    android:layout_marginEnd="12dp"
-                    android:orientation="horizontal"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/ll_2a">
+                        android:layout_marginStart="12dp"
+                        android:layout_marginTop="@dimen/dp_16"
+                        android:layout_marginEnd="12dp"
+                        android:orientation="horizontal"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/ll_2">
 
-                    <androidx.appcompat.widget.AppCompatTextView
-                        android:layout_width="120dp"
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="120dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:text="Hình thức giảng dạy:"
+                            android:textSize="@dimen/dp_16" />
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/tv_form_teach"
+                            android:layout_width="260dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:ellipsize="middle"
+                            android:singleLine="true"
+                            android:text="@{classModel.form_teach}"
+                            android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/ll_4"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:text="Môn học:"
-                        android:textSize="@dimen/dp_16" />
+                        android:layout_marginStart="12dp"
+                        android:layout_marginTop="@dimen/dp_16"
+                        android:layout_marginEnd="12dp"
+                        android:orientation="horizontal"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/ll_3">
 
-                    <androidx.appcompat.widget.AppCompatTextView
-                        android:id="@+id/tv_subject_ida"
-                        android:layout_width="260dp"
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="120dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:text="Số sinh viên:"
+                            android:textSize="@dimen/dp_16" />
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/tv_num_student"
+                            setTextInt="@{classModel.num_student}"
+                            android:layout_width="260dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:ellipsize="middle"
+                            android:singleLine="true"
+                            android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/ll_5"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:ellipsize="middle"
-                        android:singleLine="true"
-                        setTextInt="@{classModel.subject_id}"
-                        android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
-                </LinearLayout>
-                <LinearLayout
-                    android:id="@+id/ll_4a"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="12dp"
-                    android:layout_marginTop="@dimen/dp_16"
-                    android:layout_marginEnd="12dp"
-                    android:orientation="horizontal"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/ll_3a">
+                        android:layout_marginStart="12dp"
+                        android:layout_marginTop="@dimen/dp_16"
+                        android:layout_marginEnd="12dp"
+                        android:orientation="horizontal"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/ll_4">
 
-                    <androidx.appcompat.widget.AppCompatTextView
-                        android:layout_width="120dp"
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="120dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:text="Số tín chỉ:"
+                            android:textSize="@dimen/dp_16" />
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            setTextInt="@{classModel.num_credit}"
+                            android:layout_width="260dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:ellipsize="middle"
+                            android:singleLine="true"
+                            android:text="@+id/tv_numCredit"
+                            android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/ll_6"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:text="Giảng viên:"
-                        android:textSize="@dimen/dp_16" />
+                        android:layout_marginStart="12dp"
+                        android:layout_marginTop="@dimen/dp_16"
+                        android:layout_marginEnd="12dp"
+                        android:orientation="horizontal"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/ll_5">
 
-                    <androidx.appcompat.widget.AppCompatTextView
-                        android:id="@+id/tv_usera"
-                        android:layout_width="260dp"
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="120dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:text="Môn học:"
+                            android:textSize="@dimen/dp_16" />
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/tv_subject"
+                            android:layout_width="260dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:ellipsize="middle"
+                            android:singleLine="true"
+                            android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/ll_7"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:ellipsize="middle"
-                        android:singleLine="true"
-                        android:text="@{classModel.user.name}"
-                        android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
-                </LinearLayout>
-                <LinearLayout
-                    android:id="@+id/ll_5a"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="12dp"
-                    android:layout_marginTop="@dimen/dp_16"
-                    android:layout_marginEnd="12dp"
-                    android:orientation="horizontal"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/ll_4a">
+                        android:layout_marginStart="12dp"
+                        android:layout_marginTop="@dimen/dp_16"
+                        android:layout_marginEnd="12dp"
+                        android:orientation="horizontal"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/ll_6">
 
-                    <androidx.appcompat.widget.AppCompatTextView
-                        android:layout_width="120dp"
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="120dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:text="Giảng viên:"
+                            android:textSize="@dimen/dp_16" />
+
+                        <Spinner
+                            android:id="@+id/sp_user"
+                            android:layout_width="300px"
+                            android:layout_height="@dimen/dp_36"
+                            android:layout_gravity="center"
+                            android:ellipsize="middle"
+                            android:singleLine="true"
+                            android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/ll_8"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:text="Hình thức giảng dạy:"
-                        android:textSize="@dimen/dp_16" />
+                        android:layout_marginStart="12dp"
+                        android:layout_marginTop="@dimen/dp_16"
+                        android:layout_marginEnd="12dp"
+                        android:orientation="horizontal"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/ll_7">
 
-                    <androidx.appcompat.widget.AppCompatTextView
-                        android:id="@+id/tv_form_teacha"
-                        android:text="@{classModel.form_teach}"
-                        android:layout_width="260dp"
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="120dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:text="Số tiết học:"
+                            android:textSize="@dimen/dp_16" />
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/tv_num_lesson"
+                            setTextInt="@{classModel.num_lesson}"
+                            android:layout_width="260dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:ellipsize="middle"
+                            android:singleLine="true"
+                            android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/ll_9"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:ellipsize="middle"
-                        android:singleLine="true"
-                        android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
-                </LinearLayout>
-                <LinearLayout
-                    android:id="@+id/ll_6a"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="12dp"
-                    android:layout_marginTop="@dimen/dp_16"
-                    android:layout_marginEnd="12dp"
-                    android:orientation="horizontal"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/ll_5a">
+                        android:layout_marginStart="12dp"
+                        android:layout_marginTop="@dimen/dp_16"
+                        android:layout_marginEnd="12dp"
+                        android:orientation="horizontal"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/ll_8">
 
-                    <androidx.appcompat.widget.AppCompatTextView
-                        android:layout_width="120dp"
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="120dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:text="Phòng học:"
+                            android:textSize="@dimen/dp_16" />
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/tv_room"
+                            android:layout_width="260dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:ellipsize="middle"
+                            android:singleLine="true"
+                            android:text="@{classModel.classroom}"
+                            android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/ll_10"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:text="Số sinh viên:"
-                        android:textSize="@dimen/dp_16" />
+                        android:layout_marginStart="12dp"
+                        android:layout_marginTop="@dimen/dp_16"
+                        android:layout_marginEnd="12dp"
+                        android:orientation="horizontal"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/ll_9">
 
-                    <androidx.appcompat.widget.AppCompatTextView
-                        android:id="@+id/tv_num_studenta"
-                        setTextInt="@{classModel.num_student}"
-                        android:layout_width="260dp"
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="120dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:text="Ngày bắt đầu:"
+                            android:textSize="@dimen/dp_16" />
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/tv_startDate"
+                            setTextDate="@{classModel.startDate}"
+                            android:layout_width="260dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:ellipsize="middle"
+                            android:singleLine="true"
+                            android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/ll_11"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:ellipsize="middle"
-                        android:singleLine="true"
-                        android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
-                </LinearLayout>
-                <LinearLayout
-                    android:id="@+id/ll_7a"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="12dp"
-                    android:layout_marginTop="@dimen/dp_16"
-                    android:layout_marginEnd="12dp"
-                    android:orientation="horizontal"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/ll_6a">
+                        android:layout_marginStart="12dp"
+                        android:layout_marginTop="@dimen/dp_16"
+                        android:layout_marginEnd="12dp"
+                        android:orientation="horizontal"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/ll_10">
 
-                    <androidx.appcompat.widget.AppCompatTextView
-                        android:layout_width="120dp"
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="120dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:text="Ngày kết thúc:"
+                            android:textSize="@dimen/dp_16" />
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/tv_endDate"
+                            setTextDate="@{classModel.endDate}"
+                            android:layout_width="260dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:ellipsize="middle"
+                            android:singleLine="true"
+                            android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/ll_12"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:text="Số tín chỉ:"
-                        android:textSize="@dimen/dp_16" />
+                        android:layout_marginStart="12dp"
+                        android:layout_marginTop="@dimen/dp_16"
+                        android:layout_marginEnd="12dp"
+                        android:orientation="horizontal"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/ll_11">
 
-                    <androidx.appcompat.widget.AppCompatTextView
-                        android:id="@+id/tv_numCredita"
-                        setTextInt="@{classModel.num_credit}"
-                        android:layout_width="260dp"
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="120dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:text="Hình thức thi giữa kì:"
+                            android:textSize="@dimen/dp_16" />
+
+                        <Spinner
+                            android:id="@+id/sp_form_exam"
+                            android:layout_width="300px"
+                            android:layout_height="@dimen/dp_36"
+                            android:layout_gravity="center"
+                            android:ellipsize="middle"
+                            android:singleLine="true"
+                            android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/ll_13"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:ellipsize="middle"
-                        android:singleLine="true"
-                        android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
-                </LinearLayout>
-                <LinearLayout
-                    android:id="@+id/ll_8a"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="12dp"
-                    android:layout_marginTop="@dimen/dp_16"
-                    android:layout_marginEnd="12dp"
-                    android:orientation="horizontal"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/ll_7a">
+                        android:layout_marginStart="12dp"
+                        android:layout_marginTop="@dimen/dp_16"
+                        android:layout_marginEnd="12dp"
+                        android:orientation="horizontal"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/ll_12">
 
-                    <androidx.appcompat.widget.AppCompatTextView
-                        android:layout_width="120dp"
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="120dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:text="Năm học:"
+                            android:textSize="@dimen/dp_16" />
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/tv_year"
+                            android:layout_width="260dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:ellipsize="middle"
+                            android:singleLine="true"
+                            android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/ll_14"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:text="Số tiết học:"
-                        android:textSize="@dimen/dp_16" />
+                        android:layout_marginStart="12dp"
+                        android:layout_marginTop="@dimen/dp_16"
+                        android:layout_marginEnd="12dp"
+                        android:orientation="horizontal"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/ll_13">
 
-                    <androidx.appcompat.widget.AppCompatTextView
-                        android:id="@+id/tv_num_lessona"
-                        setTextInt="@{classModel.num_lesson}"
-                        android:layout_width="260dp"
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="120dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:text="Kỳ học:"
+                            android:textSize="@dimen/dp_16" />
+
+                        <Spinner
+                            android:id="@+id/sp_semester"
+                            android:layout_width="300px"
+                            android:layout_height="@dimen/dp_36"
+                            android:layout_gravity="center"
+                            android:ellipsize="middle"
+                            android:singleLine="true"
+                            android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:ellipsize="middle"
-                        android:singleLine="true"
-                        android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
-                </LinearLayout>
-                <LinearLayout
-                    android:id="@+id/ll_9a"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="12dp"
-                    android:layout_marginTop="@dimen/dp_16"
-                    android:layout_marginEnd="12dp"
-                    android:orientation="horizontal"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/ll_8a">
+                        android:layout_marginStart="12dp"
+                        android:layout_marginTop="@dimen/dp_32"
+                        android:layout_marginEnd="12dp"
+                        android:gravity="center"
+                        android:orientation="horizontal"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/ll_14">
 
-                    <androidx.appcompat.widget.AppCompatTextView
-                        android:layout_width="120dp"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:text="Phòng học:"
-                        android:textSize="@dimen/dp_16" />
+                        <Button
+                            android:id="@+id/btn_add"
+                            style="@style/Widget.Material3.Button.ElevatedButton"
+                            android:layout_width="124dp"
+                            android:layout_height="48dp"
+                            android:layout_margin="@dimen/dp_16"
+                            android:text="Thêm"
+                            android:textSize="@dimen/dp_16" />
+                    </LinearLayout>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </ScrollView>
 
-                    <androidx.appcompat.widget.AppCompatTextView
-                        android:id="@+id/tv_rooma"
-                        android:text="@{classModel.classroom}"
-                        android:layout_width="260dp"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:ellipsize="middle"
-                        android:singleLine="true"
-                        android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
-                </LinearLayout>
-                <LinearLayout
-                    android:id="@+id/ll_10a"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="12dp"
-                    android:layout_marginTop="@dimen/dp_16"
-                    android:layout_marginEnd="12dp"
-                    android:orientation="horizontal"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/ll_9a">
-
-                    <androidx.appcompat.widget.AppCompatTextView
-                        android:layout_width="120dp"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:text="Ngày bắt đầu:"
-                        android:textSize="@dimen/dp_16" />
-
-                    <androidx.appcompat.widget.AppCompatTextView
-                        android:id="@+id/tv_dateStarta"
-                        android:layout_width="260dp"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:ellipsize="middle"
-                        android:singleLine="true"
-                        setTextDate="@{classModel.startDate}"
-                        android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/ll_11a"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="12dp"
-                    android:layout_marginTop="@dimen/dp_16"
-                    android:layout_marginEnd="12dp"
-                    android:orientation="horizontal"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/ll_10a">
-
-                    <androidx.appcompat.widget.AppCompatTextView
-                        android:layout_width="120dp"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:text="Ngày kết thúc:"
-                        android:textSize="@dimen/dp_16" />
-
-                    <androidx.appcompat.widget.AppCompatTextView
-                        android:id="@+id/tv_endDatea"
-                        android:layout_width="260dp"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:ellipsize="middle"
-                        android:singleLine="true"
-                        android:text="@{classModel.endDate}"
-                        android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
-                </LinearLayout>
-                <LinearLayout
-                    android:id="@+id/ll_12a"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="12dp"
-                    android:layout_marginTop="@dimen/dp_16"
-                    android:layout_marginEnd="12dp"
-                    android:orientation="horizontal"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/ll_11a">
-
-                    <androidx.appcompat.widget.AppCompatTextView
-                        android:layout_width="120dp"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:text="Hình thức thi giữa kì:"
-                        android:textSize="@dimen/dp_16" />
-
-                    <androidx.appcompat.widget.AppCompatTextView
-                        android:id="@+id/tv_formExama"
-                        android:layout_width="260dp"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:ellipsize="middle"
-                        android:singleLine="true"
-                        android:text="@{classModel.form_exam}"
-                        android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
-                </LinearLayout>
-                <LinearLayout
-                    android:id="@+id/ll_13a"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="12dp"
-                    android:layout_marginTop="@dimen/dp_16"
-                    android:layout_marginEnd="12dp"
-                    android:orientation="horizontal"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/ll_12a">
-
-                    <androidx.appcompat.widget.AppCompatTextView
-                        android:layout_width="120dp"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:text="Năm học:"
-                        android:textSize="@dimen/dp_16" />
-
-                    <androidx.appcompat.widget.AppCompatTextView
-                        android:id="@+id/tv_yeara"
-                        android:layout_width="260dp"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:ellipsize="middle"
-                        android:singleLine="true"
-                        android:text="@{classModel.year.name}"
-                        android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
-                </LinearLayout>
-                <LinearLayout
-                    android:id="@+id/ll_14a"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="12dp"
-                    android:layout_marginTop="@dimen/dp_16"
-                    android:layout_marginEnd="12dp"
-                    android:orientation="horizontal"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/ll_13a">
-
-                    <androidx.appcompat.widget.AppCompatTextView
-                        android:layout_width="120dp"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:text="Kỳ học:"
-                        android:textSize="@dimen/dp_16" />
-
-                    <androidx.appcompat.widget.AppCompatTextView
-                        android:id="@+id/tv_semetera"
-                        android:layout_width="260dp"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:ellipsize="middle"
-                        android:singleLine="true"
-                        android:text="@{classModel.semester}"
-                        android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
-                </LinearLayout>
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/cl_Classb"
+            <ScrollView
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:visibility="gone">
+                android:layout_height="match_parent">
 
-                <androidx.appcompat.widget.AppCompatTextView
-                    android:id="@+id/tv_titleb"
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/cl_Classa"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="12dp"
-                    android:gravity="center"
-                    android:text="CẬP NHẬT LỚP HỌC"
-                    android:textSize="@dimen/dp_24"
-                    app:layout_constraintTop_toTopOf="parent" />
-                <LinearLayout
-                    android:id="@+id/ll_1b"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="12dp"
-                    android:layout_marginTop="@dimen/dp_32"
-                    android:layout_marginEnd="12dp"
-                    android:orientation="horizontal"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tv_titleb">
+                    android:layout_height="match_parent"
+                    android:visibility="gone">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp"
+                        app:layout_constraintTop_toBottomOf="@id/ll_7a" />
 
                     <androidx.appcompat.widget.AppCompatTextView
-                        android:layout_width="120dp"
+                        android:id="@+id/tv_titlea"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:text="Tên lớp học:"
-                        android:textSize="@dimen/dp_16" />
+                        android:layout_margin="12dp"
+                        android:gravity="center"
+                        android:text="THÔNG TIN LỚP HỌC"
+                        android:textSize="@dimen/dp_24"
+                        app:layout_constraintTop_toTopOf="parent" />
 
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/tv_nameClassb"
-                        android:layout_width="260dp"
+                    <LinearLayout
+                        android:id="@+id/ll_1a"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:ellipsize="middle"
-                        android:singleLine="true"
-                        android:text="@{classModel.name}"
-                        android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
-                </LinearLayout>
-                <LinearLayout
-                    android:id="@+id/ll_2b"
+                        android:layout_marginStart="12dp"
+                        android:layout_marginTop="@dimen/dp_32"
+                        android:layout_marginEnd="12dp"
+                        android:orientation="horizontal"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tv_titlea">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="120dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:text="Mã lớp học:"
+                            android:textSize="@dimen/dp_16" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/tv_idClassa"
+                            android:layout_width="260dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:ellipsize="middle"
+                            android:singleLine="true"
+                            android:text="@{classModel.code}"
+                            android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/ll_2a"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="12dp"
+                        android:layout_marginTop="@dimen/dp_16"
+                        android:layout_marginEnd="12dp"
+                        android:orientation="horizontal"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/ll_1a">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="120dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:text="Tên lớp học:"
+                            android:textSize="@dimen/dp_16" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/tv_nameClassa"
+                            android:layout_width="260dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:ellipsize="middle"
+                            android:singleLine="true"
+                            android:text="@{classModel.name}"
+                            android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/ll_3a"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="12dp"
+                        android:layout_marginTop="@dimen/dp_16"
+                        android:layout_marginEnd="12dp"
+                        android:orientation="horizontal"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/ll_2a">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="120dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:text="Môn học:"
+                            android:textSize="@dimen/dp_16" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/tv_subject_ida"
+                            setTextInt="@{classModel.subject_id}"
+                            android:layout_width="260dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:ellipsize="middle"
+                            android:singleLine="true"
+                            android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/ll_4a"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="12dp"
+                        android:layout_marginTop="@dimen/dp_16"
+                        android:layout_marginEnd="12dp"
+                        android:orientation="horizontal"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/ll_3a">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="120dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:text="Giảng viên:"
+                            android:textSize="@dimen/dp_16" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/tv_usera"
+                            android:layout_width="260dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:ellipsize="middle"
+                            android:singleLine="true"
+                            android:text="@{classModel.user.name}"
+                            android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/ll_5a"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="12dp"
+                        android:layout_marginTop="@dimen/dp_16"
+                        android:layout_marginEnd="12dp"
+                        android:orientation="horizontal"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/ll_4a">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="120dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:text="Hình thức giảng dạy:"
+                            android:textSize="@dimen/dp_16" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/tv_form_teacha"
+                            android:layout_width="260dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:ellipsize="middle"
+                            android:singleLine="true"
+                            android:text="@{classModel.form_teach}"
+                            android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/ll_6a"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="12dp"
+                        android:layout_marginTop="@dimen/dp_16"
+                        android:layout_marginEnd="12dp"
+                        android:orientation="horizontal"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/ll_5a">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="120dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:text="Số sinh viên:"
+                            android:textSize="@dimen/dp_16" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/tv_num_studenta"
+                            setTextInt="@{classModel.num_student}"
+                            android:layout_width="260dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:ellipsize="middle"
+                            android:singleLine="true"
+                            android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/ll_7a"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="12dp"
+                        android:layout_marginTop="@dimen/dp_16"
+                        android:layout_marginEnd="12dp"
+                        android:orientation="horizontal"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/ll_6a">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="120dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:text="Số tín chỉ:"
+                            android:textSize="@dimen/dp_16" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/tv_numCredita"
+                            setTextInt="@{classModel.num_credit}"
+                            android:layout_width="260dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:ellipsize="middle"
+                            android:singleLine="true"
+                            android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/ll_8a"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="12dp"
+                        android:layout_marginTop="@dimen/dp_16"
+                        android:layout_marginEnd="12dp"
+                        android:orientation="horizontal"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/ll_7a">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="120dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:text="Số tiết học:"
+                            android:textSize="@dimen/dp_16" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/tv_num_lessona"
+                            setTextInt="@{classModel.num_lesson}"
+                            android:layout_width="260dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:ellipsize="middle"
+                            android:singleLine="true"
+                            android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/ll_9a"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="12dp"
+                        android:layout_marginTop="@dimen/dp_16"
+                        android:layout_marginEnd="12dp"
+                        android:orientation="horizontal"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/ll_8a">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="120dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:text="Phòng học:"
+                            android:textSize="@dimen/dp_16" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/tv_rooma"
+                            android:layout_width="260dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:ellipsize="middle"
+                            android:singleLine="true"
+                            android:text="@{classModel.classroom}"
+                            android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/ll_10a"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="12dp"
+                        android:layout_marginTop="@dimen/dp_16"
+                        android:layout_marginEnd="12dp"
+                        android:orientation="horizontal"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/ll_9a">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="120dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:text="Ngày bắt đầu:"
+                            android:textSize="@dimen/dp_16" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/tv_dateStarta"
+                            setTextDate="@{classModel.startDate}"
+                            android:layout_width="260dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:ellipsize="middle"
+                            android:singleLine="true"
+                            android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/ll_11a"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="12dp"
+                        android:layout_marginTop="@dimen/dp_16"
+                        android:layout_marginEnd="12dp"
+                        android:orientation="horizontal"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/ll_10a">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="120dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:text="Ngày kết thúc:"
+                            android:textSize="@dimen/dp_16" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/tv_endDatea"
+                            android:layout_width="260dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:ellipsize="middle"
+                            android:singleLine="true"
+                            android:text="@{classModel.endDate}"
+                            android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/ll_12a"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="12dp"
+                        android:layout_marginTop="@dimen/dp_16"
+                        android:layout_marginEnd="12dp"
+                        android:orientation="horizontal"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/ll_11a">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="120dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:text="Hình thức thi giữa kì:"
+                            android:textSize="@dimen/dp_16" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/tv_formExama"
+                            android:layout_width="260dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:ellipsize="middle"
+                            android:singleLine="true"
+                            android:text="@{classModel.form_exam}"
+                            android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/ll_13a"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="12dp"
+                        android:layout_marginTop="@dimen/dp_16"
+                        android:layout_marginEnd="12dp"
+                        android:orientation="horizontal"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/ll_12a">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="120dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:text="Năm học:"
+                            android:textSize="@dimen/dp_16" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/tv_yeara"
+                            android:layout_width="260dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:ellipsize="middle"
+                            android:singleLine="true"
+                            android:text="@{classModel.year.name}"
+                            android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/ll_14a"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="12dp"
+                        android:layout_marginTop="@dimen/dp_16"
+                        android:layout_marginEnd="12dp"
+                        android:orientation="horizontal"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/ll_13a">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="120dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:text="Kỳ học:"
+                            android:textSize="@dimen/dp_16" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/tv_semetera"
+                            android:layout_width="260dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:ellipsize="middle"
+                            android:singleLine="true"
+                            android:text="@{classModel.semester}"
+                            android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
+                    </LinearLayout>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </ScrollView>
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/cl_Classb"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="12dp"
-                    android:layout_marginTop="@dimen/dp_16"
-                    android:layout_marginEnd="12dp"
-                    android:orientation="horizontal"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/ll_1b">
+                    android:layout_height="match_parent"
+                    android:visibility="gone">
 
                     <androidx.appcompat.widget.AppCompatTextView
-                        android:layout_width="120dp"
+                        android:id="@+id/tv_titleb"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:text="Mã lớp học:"
-                        android:textSize="@dimen/dp_16" />
+                        android:layout_margin="12dp"
+                        android:gravity="center"
+                        android:text="CẬP NHẬT LỚP HỌC"
+                        android:textSize="@dimen/dp_24"
+                        app:layout_constraintTop_toTopOf="parent" />
 
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/tv_idClassb"
-                        setTextInt="@{classModel.id}"
-                        android:layout_width="260dp"
+                    <LinearLayout
+                        android:id="@+id/ll_1b"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:ellipsize="middle"
-                        android:singleLine="true"
-                        android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
-                </LinearLayout>
-                <LinearLayout
-                    android:id="@+id/ll_3b"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="12dp"
-                    android:layout_marginTop="@dimen/dp_16"
-                    android:layout_marginEnd="12dp"
-                    android:orientation="horizontal"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/ll_2b">
+                        android:layout_marginStart="12dp"
+                        android:layout_marginTop="@dimen/dp_32"
+                        android:layout_marginEnd="12dp"
+                        android:orientation="horizontal"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tv_titleb">
 
-                    <androidx.appcompat.widget.AppCompatTextView
-                        android:layout_width="120dp"
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="120dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:text="Tên lớp học:"
+                            android:textSize="@dimen/dp_16" />
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/tv_nameClassb"
+                            android:layout_width="260dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:ellipsize="middle"
+                            android:singleLine="true"
+                            android:text="@{classModel.name}"
+                            android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/ll_2b"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:text="Hình thức giảng dạy:"
-                        android:textSize="@dimen/dp_16" />
+                        android:layout_marginStart="12dp"
+                        android:layout_marginTop="@dimen/dp_16"
+                        android:layout_marginEnd="12dp"
+                        android:orientation="horizontal"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/ll_1b">
 
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/tv_form_teachb"
-                        android:text="@{classModel.form_teach}"
-                        android:layout_width="260dp"
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="120dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:text="Mã lớp học:"
+                            android:textSize="@dimen/dp_16" />
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/tv_idClassb"
+                            setTextInt="@{classModel.id}"
+                            android:layout_width="260dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:ellipsize="middle"
+                            android:singleLine="true"
+                            android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/ll_3b"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:ellipsize="middle"
-                        android:singleLine="true"
-                        android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
-                </LinearLayout>
-                <LinearLayout
-                    android:id="@+id/ll_4b"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="12dp"
-                    android:layout_marginTop="@dimen/dp_16"
-                    android:layout_marginEnd="12dp"
-                    android:orientation="horizontal"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/ll_3b">
+                        android:layout_marginStart="12dp"
+                        android:layout_marginTop="@dimen/dp_16"
+                        android:layout_marginEnd="12dp"
+                        android:orientation="horizontal"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/ll_2b">
 
-                    <androidx.appcompat.widget.AppCompatTextView
-                        android:layout_width="120dp"
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="120dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:text="Hình thức giảng dạy:"
+                            android:textSize="@dimen/dp_16" />
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/tv_form_teachb"
+                            android:layout_width="260dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:ellipsize="middle"
+                            android:singleLine="true"
+                            android:text="@{classModel.form_teach}"
+                            android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/ll_4b"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:text="Số sinh viên:"
-                        android:textSize="@dimen/dp_16" />
+                        android:layout_marginStart="12dp"
+                        android:layout_marginTop="@dimen/dp_16"
+                        android:layout_marginEnd="12dp"
+                        android:orientation="horizontal"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/ll_3b">
 
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/tv_num_studentb"
-                        setTextInt="@{classModel.num_student}"
-                        android:layout_width="260dp"
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="120dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:text="Số sinh viên:"
+                            android:textSize="@dimen/dp_16" />
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/tv_num_studentb"
+                            setTextInt="@{classModel.num_student}"
+                            android:layout_width="260dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:ellipsize="middle"
+                            android:singleLine="true"
+                            android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/ll_5b"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:ellipsize="middle"
-                        android:singleLine="true"
-                        android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
-                </LinearLayout>
-                <LinearLayout
-                    android:id="@+id/ll_5b"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="12dp"
-                    android:layout_marginTop="@dimen/dp_16"
-                    android:layout_marginEnd="12dp"
-                    android:orientation="horizontal"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/ll_4b">
+                        android:layout_marginStart="12dp"
+                        android:layout_marginTop="@dimen/dp_16"
+                        android:layout_marginEnd="12dp"
+                        android:orientation="horizontal"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/ll_4b">
 
-                    <androidx.appcompat.widget.AppCompatTextView
-                        android:layout_width="120dp"
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="120dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:text="Số tín chỉ:"
+                            android:textSize="@dimen/dp_16" />
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            setTextInt="@{classModel.num_credit}"
+                            android:layout_width="260dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:ellipsize="middle"
+                            android:singleLine="true"
+                            android:text="@+id/tv_numCreditb"
+                            android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/ll_6b"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:text="Số tín chỉ:"
-                        android:textSize="@dimen/dp_16" />
+                        android:layout_marginStart="12dp"
+                        android:layout_marginTop="@dimen/dp_16"
+                        android:layout_marginEnd="12dp"
+                        android:orientation="horizontal"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/ll_5b">
 
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:text="@+id/tv_numCreditb"
-                        setTextInt="@{classModel.num_credit}"
-                        android:layout_width="260dp"
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="120dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:text="Môn học:"
+                            android:textSize="@dimen/dp_16" />
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/tv_subjectb"
+                            android:layout_width="260dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:ellipsize="middle"
+                            android:singleLine="true"
+                            android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/ll_7b"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:ellipsize="middle"
-                        android:singleLine="true"
-                        android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
-                </LinearLayout>
-                <LinearLayout
-                    android:id="@+id/ll_6b"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="12dp"
-                    android:layout_marginTop="@dimen/dp_16"
-                    android:layout_marginEnd="12dp"
-                    android:orientation="horizontal"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/ll_5b">
+                        android:layout_marginStart="12dp"
+                        android:layout_marginTop="@dimen/dp_16"
+                        android:layout_marginEnd="12dp"
+                        android:orientation="horizontal"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/ll_6b">
 
-                    <androidx.appcompat.widget.AppCompatTextView
-                        android:layout_width="120dp"
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="120dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:text="Giảng viên:"
+                            android:textSize="@dimen/dp_16" />
+
+                        <Spinner
+                            android:id="@+id/sp_userb"
+                            android:layout_width="300px"
+                            android:layout_height="@dimen/dp_36"
+                            android:layout_gravity="center"
+                            android:ellipsize="middle"
+                            android:singleLine="true"
+                            android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/ll_8b"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:text="Môn học:"
-                        android:textSize="@dimen/dp_16" />
+                        android:layout_marginStart="12dp"
+                        android:layout_marginTop="@dimen/dp_16"
+                        android:layout_marginEnd="12dp"
+                        android:orientation="horizontal"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/ll_7b">
 
-                    <Spinner
-                        android:id="@+id/sp_subject_idb"
-                        android:layout_width="300px"
-                        android:layout_height="@dimen/dp_36"
-                        android:layout_gravity="center"
-                        android:ellipsize="middle"
-                        android:singleLine="true"
-                        android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
-                </LinearLayout>
-                <LinearLayout
-                    android:id="@+id/ll_7b"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="12dp"
-                    android:layout_marginTop="@dimen/dp_16"
-                    android:layout_marginEnd="12dp"
-                    android:orientation="horizontal"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/ll_6b">
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="120dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:text="Số tiết học:"
+                            android:textSize="@dimen/dp_16" />
 
-                    <androidx.appcompat.widget.AppCompatTextView
-                        android:layout_width="120dp"
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/tv_num_lessonb"
+                            setTextInt="@{classModel.num_lesson}"
+                            android:layout_width="260dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:ellipsize="middle"
+                            android:singleLine="true"
+                            android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/ll_9b"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:text="Giảng viên:"
-                        android:textSize="@dimen/dp_16" />
+                        android:layout_marginStart="12dp"
+                        android:layout_marginTop="@dimen/dp_16"
+                        android:layout_marginEnd="12dp"
+                        android:orientation="horizontal"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/ll_8b">
 
-                    <Spinner
-                        android:id="@+id/sp_userb"
-                        android:layout_width="300px"
-                        android:layout_height="@dimen/dp_36"
-                        android:layout_gravity="center"
-                        android:ellipsize="middle"
-                        android:singleLine="true"
-                        android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
-                </LinearLayout>
-                <LinearLayout
-                    android:id="@+id/ll_8b"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="12dp"
-                    android:layout_marginTop="@dimen/dp_16"
-                    android:layout_marginEnd="12dp"
-                    android:orientation="horizontal"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/ll_7b">
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="120dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:text="Phòng học:"
+                            android:textSize="@dimen/dp_16" />
 
-                    <androidx.appcompat.widget.AppCompatTextView
-                        android:layout_width="120dp"
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/tv_roomb"
+                            android:layout_width="260dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:ellipsize="middle"
+                            android:singleLine="true"
+                            android:text="@{classModel.classroom}"
+                            android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/ll_10b"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:text="Số tiết học:"
-                        android:textSize="@dimen/dp_16" />
+                        android:layout_marginStart="12dp"
+                        android:layout_marginTop="@dimen/dp_16"
+                        android:layout_marginEnd="12dp"
+                        android:orientation="horizontal"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/ll_9b">
 
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/tv_num_lessonb"
-                        setTextInt="@{classModel.num_lesson}"
-                        android:layout_width="260dp"
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="120dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:text="Ngày bắt đầu:"
+                            android:textSize="@dimen/dp_16" />
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/tv_startDateb"
+                            setTextDate="@{classModel.startDate}"
+                            android:layout_width="260dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:ellipsize="middle"
+                            android:singleLine="true"
+                            android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/ll_11b"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:ellipsize="middle"
-                        android:singleLine="true"
-                        android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
-                </LinearLayout>
-                <LinearLayout
-                    android:id="@+id/ll_9b"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="12dp"
-                    android:layout_marginTop="@dimen/dp_16"
-                    android:layout_marginEnd="12dp"
-                    android:orientation="horizontal"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/ll_8b">
+                        android:layout_marginStart="12dp"
+                        android:layout_marginTop="@dimen/dp_16"
+                        android:layout_marginEnd="12dp"
+                        android:orientation="horizontal"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/ll_10b">
 
-                    <androidx.appcompat.widget.AppCompatTextView
-                        android:layout_width="120dp"
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="120dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:text="Ngày kết thúc:"
+                            android:textSize="@dimen/dp_16" />
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/tv_endDateb"
+                            setTextDate="@{classModel.endDate}"
+                            android:layout_width="260dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:ellipsize="middle"
+                            android:singleLine="true"
+                            android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/ll_12b"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:text="Phòng học:"
-                        android:textSize="@dimen/dp_16" />
+                        android:layout_marginStart="12dp"
+                        android:layout_marginTop="@dimen/dp_16"
+                        android:layout_marginEnd="12dp"
+                        android:orientation="horizontal"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/ll_11b">
 
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/tv_roomb"
-                        android:text="@{classModel.classroom}"
-                        android:layout_width="260dp"
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="120dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:text="Hình thức thi giữa kì:"
+                            android:textSize="@dimen/dp_16" />
+
+                        <Spinner
+                            android:id="@+id/sp_form_examb"
+                            android:layout_width="300px"
+                            android:layout_height="@dimen/dp_36"
+                            android:layout_gravity="center"
+                            android:ellipsize="middle"
+                            android:singleLine="true"
+                            android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/ll_13b"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:ellipsize="middle"
-                        android:singleLine="true"
-                        android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
-                </LinearLayout>
-                <LinearLayout
-                    android:id="@+id/ll_10b"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="12dp"
-                    android:layout_marginTop="@dimen/dp_16"
-                    android:layout_marginEnd="12dp"
-                    android:orientation="horizontal"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/ll_9b">
+                        android:layout_marginStart="12dp"
+                        android:layout_marginTop="@dimen/dp_16"
+                        android:layout_marginEnd="12dp"
+                        android:orientation="horizontal"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/ll_12b">
 
-                    <androidx.appcompat.widget.AppCompatTextView
-                        android:layout_width="120dp"
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="120dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:text="Năm học:"
+                            android:textSize="@dimen/dp_16" />
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/tv_yearb"
+                            android:layout_width="260dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:ellipsize="middle"
+                            android:singleLine="true"
+                            android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/ll_14b"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:text="Ngày bắt đầu:"
-                        android:textSize="@dimen/dp_16" />
+                        android:layout_marginStart="12dp"
+                        android:layout_marginTop="@dimen/dp_16"
+                        android:layout_marginEnd="12dp"
+                        android:orientation="horizontal"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/ll_13b">
 
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/tv_startDateb"
-                        setTextDate="@{classModel.startDate}"
-                        android:layout_width="260dp"
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="120dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:text="Kỳ học:"
+                            android:textSize="@dimen/dp_16" />
+
+                        <Spinner
+                            android:id="@+id/sp_semesterb"
+                            android:layout_width="300px"
+                            android:layout_height="@dimen/dp_36"
+                            android:layout_gravity="center"
+                            android:ellipsize="middle"
+                            android:singleLine="true"
+                            android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:ellipsize="middle"
-                        android:singleLine="true"
-                        android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
-                </LinearLayout>
-                <LinearLayout
-                    android:id="@+id/ll_11b"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="12dp"
-                    android:layout_marginTop="@dimen/dp_16"
-                    android:layout_marginEnd="12dp"
-                    android:orientation="horizontal"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/ll_10b">
+                        android:layout_marginStart="12dp"
+                        android:layout_marginTop="@dimen/dp_32"
+                        android:layout_marginEnd="12dp"
+                        android:gravity="center"
+                        android:orientation="horizontal"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/ll_14b">
 
-                    <androidx.appcompat.widget.AppCompatTextView
-                        android:layout_width="120dp"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:text="Ngày kết thúc:"
-                        android:textSize="@dimen/dp_16" />
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/tv_endDateb"
-                        setTextDate="@{classModel.endDate}"
-                        android:layout_width="260dp"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:ellipsize="middle"
-                        android:singleLine="true"
-                        android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
-                </LinearLayout>
-                <LinearLayout
-                    android:id="@+id/ll_12b"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="12dp"
-                    android:layout_marginTop="@dimen/dp_16"
-                    android:layout_marginEnd="12dp"
-                    android:orientation="horizontal"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/ll_11b">
-
-                    <androidx.appcompat.widget.AppCompatTextView
-                        android:layout_width="120dp"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:text="Hình thức thi giữa kì:"
-                        android:textSize="@dimen/dp_16" />
-
-                    <Spinner
-                        android:id="@+id/sp_form_examb"
-                        android:layout_width="300px"
-                        android:layout_height="@dimen/dp_36"
-                        android:layout_gravity="center"
-                        android:ellipsize="middle"
-                        android:singleLine="true"
-                        android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
-                </LinearLayout>
-                <LinearLayout
-                    android:id="@+id/ll_13b"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="12dp"
-                    android:layout_marginTop="@dimen/dp_16"
-                    android:layout_marginEnd="12dp"
-                    android:orientation="horizontal"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/ll_12b">
-
-                    <androidx.appcompat.widget.AppCompatTextView
-                        android:layout_width="120dp"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:text="Năm học:"
-                        android:textSize="@dimen/dp_16" />
-
-                    <Spinner
-                        android:id="@+id/sp_yearb"
-                        android:layout_width="300px"
-                        android:layout_height="@dimen/dp_36"
-                        android:layout_gravity="center"
-                        android:ellipsize="middle"
-                        android:singleLine="true"
-                        android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
-                </LinearLayout>
-                <LinearLayout
-                    android:id="@+id/ll_14b"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="12dp"
-                    android:layout_marginTop="@dimen/dp_16"
-                    android:layout_marginEnd="12dp"
-                    android:orientation="horizontal"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/ll_13b">
-
-                    <androidx.appcompat.widget.AppCompatTextView
-                        android:layout_width="120dp"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:text="Kỳ học:"
-                        android:textSize="@dimen/dp_16" />
-
-                    <Spinner
-                        android:id="@+id/sp_semesterb"
-                        android:layout_width="300px"
-                        android:layout_height="@dimen/dp_36"
-                        android:layout_gravity="center"
-                        android:ellipsize="middle"
-                        android:singleLine="true"
-                        android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
-                </LinearLayout>
-            </androidx.constraintlayout.widget.ConstraintLayout>
+                        <Button
+                            android:id="@+id/btn_update"
+                            style="@style/Widget.Material3.Button.ElevatedButton"
+                            android:layout_width="124dp"
+                            android:layout_height="48dp"
+                            android:layout_margin="@dimen/dp_16"
+                            android:text="Cập nhật"
+                            android:textSize="@dimen/dp_16" />
+                    </LinearLayout>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </ScrollView>
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 

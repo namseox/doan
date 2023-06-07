@@ -1,6 +1,5 @@
 package com.kma.myapplication.data.api.retrofit.education
 
-import com.kma.myapplication.data.model.Class
 import com.kma.myapplication.data.model.EducationItem
 import com.kma.myapplication.data.model.ListClassItem
 import com.kma.myapplication.data.model.ListEducationItem

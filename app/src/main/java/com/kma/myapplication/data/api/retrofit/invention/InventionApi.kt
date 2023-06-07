@@ -9,13 +9,13 @@ import retrofit2.http.POST
 import retrofit2.http.PUT
 import retrofit2.http.Path
 
-interface Invention {
+interface InventionApi {
     @GET("/invention")
     suspend fun getListListInvention(
     ): List<ListInventionItem>
 
     @GET("/invention/{id}")
-    suspend fun getItemInvention(@Path("id") i: Int): ListInventionItem
+    suspend fun getItemInvention(@Path("id") i: Int): InventionItem
 
     @DELETE("/invention/{id}")
     suspend fun deleteInvention(@Path("id") i: Int): Int

@@ -1,4 +1,4 @@
-package com.kma.myapplication.ui.staff
+package com.kma.myapplication.ui.dialog
 
 import android.os.Bundle
 import com.kma.myapplication.R
@@ -6,7 +6,7 @@ import com.kma.myapplication.databinding.MyFileDialogBinding
 import com.kma.myapplication.ui.base.dialog.BaseDialog
 import com.kma.myapplication.ui.base.dialog.BaseListener
 
-class StaffDialog(): BaseDialog<MyFileDialogBinding, StaffDialog.IListener>() {
+class DeleteDialog(): BaseDialog<MyFileDialogBinding, DeleteDialog.IListener>() {
 
     interface IListener : BaseListener {
         fun delete()
@@ -31,8 +31,8 @@ class StaffDialog(): BaseDialog<MyFileDialogBinding, StaffDialog.IListener>() {
 
     }
     companion object {
-        fun create(listener: StaffDialog.IListener): StaffDialog {
-            val dialog = StaffDialog()
+        fun create(listener: IListener): DeleteDialog {
+            val dialog = DeleteDialog()
             dialog.listener = listener
             return dialog
         }

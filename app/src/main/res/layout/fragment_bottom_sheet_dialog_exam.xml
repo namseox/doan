@@ -24,7 +24,7 @@
             android:background="@drawable/bg_bottom_sheet">
 
             <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/cl_Class"
+                android:id="@+id/cl_Exam"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:visibility="gone">
@@ -58,7 +58,7 @@
                         android:textSize="@dimen/dp_16" />
 
                     <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/tv_idClass"
+                        android:id="@+id/tv_idExam"
                         android:layout_width="260dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -85,10 +85,10 @@
                         android:text="Môn thi:"
                         android:textSize="@dimen/dp_16" />
 
-                    <Spinner
-                        android:id="@+id/sp_subject_id"
-                        android:layout_width="300px"
-                        android:layout_height="@dimen/dp_36"
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/tv_subject_id"
+                        android:layout_width="260dp"
+                        android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:ellipsize="middle"
                         android:singleLine="true"
@@ -139,15 +139,15 @@
                         android:text="Hình thức thi:"
                         android:textSize="@dimen/dp_16" />
 
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/tv_form_exam"
-                        setTextInt="@{examModel.type}"
-                        android:layout_width="260dp"
-                        android:layout_height="wrap_content"
+                    <Spinner
+                        android:id="@+id/sp_form_exam"
+                        android:layout_width="300px"
+                        android:layout_height="@dimen/dp_36"
                         android:layout_gravity="center"
                         android:ellipsize="middle"
                         android:singleLine="true"
                         android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
+
                 </LinearLayout>
                 <LinearLayout
                     android:id="@+id/ll_5"
@@ -223,10 +223,10 @@
                         android:text="Năm học:"
                         android:textSize="@dimen/dp_16" />
 
-                    <Spinner
-                        android:id="@+id/sp_year"
-                        android:layout_width="300px"
-                        android:layout_height="@dimen/dp_36"
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/tv_year"
+                        android:layout_width="260dp"
+                        android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:ellipsize="middle"
                         android:singleLine="true"
@@ -262,7 +262,7 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/cl_Classa"
+                android:id="@+id/cl_Exama"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:visibility="gone">
@@ -301,7 +301,7 @@
                         android:textSize="@dimen/dp_16" />
 
                     <androidx.appcompat.widget.AppCompatTextView
-                        android:id="@+id/tv_idClassa"
+                        android:id="@+id/tv_idExama"
                         android:layout_width="260dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -386,7 +386,7 @@
                         android:textSize="@dimen/dp_16" />
 
                     <androidx.appcompat.widget.AppCompatTextView
-                        android:id="@+id/tv_form_teacha"
+                        android:id="@+id/tv_form_exama"
                         setFormExam="@{examModel.type}"
                         android:layout_width="260dp"
                         android:layout_height="wrap_content"
@@ -512,7 +512,7 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/cl_Classb"
+                android:id="@+id/cl_Examb"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:visibility="gone">
@@ -546,7 +546,7 @@
                         android:textSize="@dimen/dp_16" />
 
                     <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/tv_idClassb"
+                        android:id="@+id/tv_idExamb"
                         android:layout_width="260dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -573,10 +573,10 @@
                         android:text="Môn thi:"
                         android:textSize="@dimen/dp_16" />
 
-                    <Spinner
-                        android:id="@+id/sp_subject_idb"
-                        android:layout_width="300px"
-                        android:layout_height="@dimen/dp_36"
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/tv_subject_idb"
+                        android:layout_width="260dp"
+                        android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:ellipsize="middle"
                         android:singleLine="true"
@@ -627,16 +627,14 @@
                         android:text="Hình thức thi:"
                         android:textSize="@dimen/dp_16" />
 
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/tv_form_examb"
-                        setFormExam="@{examModel.type}"
-                        android:layout_width="260dp"
-                        android:layout_height="wrap_content"
+                    <Spinner
+                        android:id="@+id/sp_form_examb"
+                        android:layout_width="300px"
+                        android:layout_height="@dimen/dp_36"
                         android:layout_gravity="center"
                         android:ellipsize="middle"
                         android:singleLine="true"
-                        android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
-                </LinearLayout>
+                        android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" /></LinearLayout>
                 <LinearLayout
                     android:id="@+id/ll_5b"
                     android:layout_width="match_parent"
@@ -711,10 +709,10 @@
                         android:text="Năm học:"
                         android:textSize="@dimen/dp_16" />
 
-                    <Spinner
-                        android:id="@+id/sp_yearb"
-                        android:layout_width="300px"
-                        android:layout_height="@dimen/dp_36"
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/tv_yearb"
+                        android:layout_width="260dp"
+                        android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:ellipsize="middle"
                         android:singleLine="true"

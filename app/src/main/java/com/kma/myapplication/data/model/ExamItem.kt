@@ -8,9 +8,11 @@ data class ExamItem(
     val num_exam: Int,
     val num_question: Int,
     val semester: Int,
+    val subject: Any,
     val subject_id: Int,
     val type: Int,
+    val user: UserXXX,
     val user_id: Int,
-    val year: Year,
+    val year: YearX,
     val year_id: Int
 )
