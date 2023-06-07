@@ -6,8 +6,8 @@
     <data>
 
         <variable
-            name="scientificModel"
-            type="com.kma.myapplication.data.model.ListScientificItem" />
+            name="educationModel"
+            type="com.kma.myapplication.data.model.ListEducationItem" />
 
         <import type="android.view.View" />
     </data>
@@ -52,12 +52,12 @@
                     android:id="@+id/tv_id"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@{scientificModel.code}"/>
+                    android:text="@{educationModel.code}"/>
                 <TextView
                     android:id="@+id/tv_name"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@{scientificModel.name}"/>
+                    android:text="@{educationModel.name}"/>
             </LinearLayout>
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/iv_3dot"
