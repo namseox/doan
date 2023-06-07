@@ -229,6 +229,25 @@
                         android:singleLine="true"
                         android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
                 </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/ll_7"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginTop="@dimen/dp_32"
+                    android:layout_marginEnd="12dp"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+                <Button
+                    android:id="@+id/btn_add"
+                    style="@style/Widget.Material3.Button.ElevatedButton"
+                    android:layout_width="124dp"
+                    android:layout_height="48dp"
+                    android:layout_margin="@dimen/dp_16"
+                    android:text="Thêm"
+                    android:textSize="@dimen/dp_16"/>
+                </LinearLayout>
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -330,7 +349,7 @@
 
                     <androidx.appcompat.widget.AppCompatTextView
                         android:id="@+id/tv_typea"
-                        setTextInt="@{articleModel.type}"
+                        setTypeArticle="@{articleModel.type}"
                         android:layout_width="260dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -364,7 +383,7 @@
                         android:layout_gravity="center"
                         android:ellipsize="middle"
                         android:singleLine="true"
-                        android:text="@{articleModel.index_article}"
+                        setTextIndexArticle="@{articleModel.index_article}"
                         android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
                 </LinearLayout>
 
@@ -393,7 +412,6 @@
                         android:layout_gravity="center"
                         android:ellipsize="middle"
                         android:singleLine="true"
-
                         android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
                 </LinearLayout>
 
@@ -661,6 +679,25 @@
                         android:ellipsize="middle"
                         android:singleLine="true"
                         android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/ll_7b"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginTop="@dimen/dp_32"
+                    android:layout_marginEnd="12dp"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+                    <Button
+                        android:id="@+id/btn_update"
+                        style="@style/Widget.Material3.Button.ElevatedButton"
+                        android:layout_width="124dp"
+                        android:layout_height="48dp"
+                        android:layout_margin="@dimen/dp_16"
+                        android:text="Cập nhật"
+                        android:textSize="@dimen/dp_16"/>
                 </LinearLayout>
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>

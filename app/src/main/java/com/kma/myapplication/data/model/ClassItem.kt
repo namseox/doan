@@ -14,7 +14,7 @@ data class ClassItem(
     val num_credit: Int,
     val num_lesson: Int,
     val num_student: Int,
-    val semester: String,
+    val semester: Int,
     val startDate: String,
     val subject_id: Int,
     val user: UserXX,

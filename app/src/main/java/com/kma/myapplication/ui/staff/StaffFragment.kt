@@ -22,6 +22,7 @@ import com.kma.myapplication.databinding.FragmentStaffBinding
 import com.kma.myapplication.databinding.ItemStaffBinding
 
 import com.kma.myapplication.ui.base.AbsBaseFragment
+import com.kma.myapplication.ui.dialog.DeleteDialog
 import com.kma.myapplication.utils.SharedPreferenceUtils
 import com.kma.myapplication.utils.Utils.actions
 import java.util.ArrayList
@@ -145,7 +146,7 @@ class StaffFragment : AbsBaseFragment<FragmentStaffBinding>(), onCLick, onClickB
                         }
 
                         else -> {
-                            var myFileDialog = StaffDialog.create(object : StaffDialog.IListener {
+                            var myFileDialog = DeleteDialog.create(object : DeleteDialog.IListener {
                                 override fun delete() {
                                     try {
                                         viewModelStaff.deleteStaff(staff.id)
