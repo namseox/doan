@@ -5,8 +5,8 @@
     <data>
 
         <variable
-            name="bookModel"
-            type="com.kma.myapplication.data.model.Book" />
+            name="ThesisModel"
+            type="com.kma.myapplication.data.model.ThesisItem" />
 
         <import type="android.view.View" />
     </data>
@@ -27,7 +27,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="12dp"
                 android:gravity="center"
-                android:text="THÊM SÁCH, GIÁO TRÌNH"
+                android:text="THÊM LUẬN ÁN, LUẬN VĂN"
                 android:textSize="@dimen/dp_24"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -46,17 +46,17 @@
                     android:layout_width="120dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:text="Tên sách:"
+                    android:text="Họ tên nghiên cứu sinh:"
                     android:textSize="@dimen/dp_16" />
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/tv_nameBook"
+                    android:id="@+id/tv_nameThesis"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:ellipsize="end"
                     android:singleLine="true"
-                    android:text="@{bookModel.name}"
+                    android:text="@{ThesisModel.name}"
                     android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
             </LinearLayout>
 
@@ -75,17 +75,17 @@
                     android:layout_width="120dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:text="Code :"
+                    android:text="Số QĐ giao nhiệm vụ:"
                     android:textSize="@dimen/dp_16" />
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/rt_code"
+                    android:id="@+id/rt_num_decision"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:ellipsize="middle"
                     android:singleLine="true"
-                    android:text="@{bookModel.code}"
+                    android:text="@{ThesisModel.num_decision}"
                     android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
             </LinearLayout>
 
@@ -99,6 +99,63 @@
                 android:orientation="horizontal"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/ll_2">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="120dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="Khóa đào tạo:"
+                    android:textSize="@dimen/dp_16" />
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/tv_course"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:ellipsize="middle"
+                    android:singleLine="true"
+                    android:text="@{ThesisModel.course}"
+                    android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/ll_4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="@dimen/dp_16"
+                android:layout_marginEnd="12dp"
+                android:orientation="horizontal"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/ll_3">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="120dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="Số năm làm luận án tiến sĩ:"
+                    android:textSize="@dimen/dp_16" />
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/tv_num_year"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:ellipsize="middle"
+                    android:singleLine="true"
+                    setTextInt="@{ThesisModel.num_year}"
+                    android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="@dimen/dp_16"
+                android:layout_marginEnd="12dp"
+                android:orientation="horizontal"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/ll_4">
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:layout_width="120dp"
@@ -118,73 +175,6 @@
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/ll_4"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="12dp"
-                android:layout_marginTop="@dimen/dp_16"
-                android:layout_marginEnd="12dp"
-                android:orientation="horizontal"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/ll_3">
-
-                <androidx.appcompat.widget.AppCompatTextView
-                    android:layout_width="120dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:text="Loại sách:"
-                    android:textSize="@dimen/dp_16" />
-                <Spinner
-                    android:id="@+id/spAuthor_2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="@dimen/dp_36"
-                    android:layout_gravity="center"
-                    android:ellipsize="middle"
-                    android:singleLine="true"
-                    android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
-
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/tv_emailType"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:ellipsize="middle"
-                    android:singleLine="true"
-                    setTextInt="@{bookModel.type}"
-                    android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/ll_5"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="12dp"
-                android:layout_marginTop="@dimen/dp_16"
-                android:layout_marginEnd="12dp"
-                android:orientation="horizontal"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/ll_4">
-
-                <androidx.appcompat.widget.AppCompatTextView
-                    android:layout_width="120dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:text="Số trang:"
-                    android:textSize="@dimen/dp_16" />
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/tv_numberPage"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:ellipsize="middle"
-                    android:singleLine="true"
-                    setTextInt="@{bookModel.num_page}"
-                    android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
-            </LinearLayout>
-
-            <LinearLayout
                 android:id="@+id/ll_6"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -194,6 +184,32 @@
                 android:orientation="horizontal"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/ll_5">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="120dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="Thể loại:"
+                    android:textSize="@dimen/dp_16" />
+                <Spinner
+                    android:id="@+id/spAuthor_2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/dp_36"
+                    android:layout_gravity="center"
+                    android:ellipsize="middle"
+                    android:singleLine="true"
+                    android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/ll_7"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="@dimen/dp_16"
+                android:layout_marginEnd="12dp"
+                android:orientation="horizontal"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/ll_6">
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:layout_width="120dp"
@@ -209,11 +225,9 @@
                     android:layout_gravity="center"
                     android:ellipsize="middle"
                     android:singleLine="true"
-                    setTextInt="@{bookModel.num_publish}"
+                    setTextInt="@{ThesisModel.year_id}"
                     android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
             </LinearLayout>
-
-
 
             <LinearLayout
                 android:id="@+id/ll_8"
@@ -261,7 +275,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="12dp"
                 android:gravity="center"
-                android:text="THÔNG TIN SÁCH, GIÁO TRÌNH"
+                android:text="THÔNG TIN LUẬN ÁN, LUẬN VĂN"
                 android:textSize="@dimen/dp_24"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -280,17 +294,17 @@
                     android:layout_width="120dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:text="Tên sách:"
+                    android:text="Họ tên nghiên cứu sinh:"
                     android:textSize="@dimen/dp_16" />
 
                 <androidx.appcompat.widget.AppCompatTextView
-                    android:id="@+id/tv_nameBook_a"
+                    android:id="@+id/tv_nameThesis_a"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:ellipsize="end"
                     android:singleLine="true"
-                    android:text="@{bookModel.name}"
+                    android:text="@{ThesisModel.name}"
                     android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
             </LinearLayout>
 
@@ -309,7 +323,7 @@
                     android:layout_width="120dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:text="ID :"
+                    android:text="Số QĐ giao nhiệm vụ:"
                     android:textSize="@dimen/dp_16" />
 
                 <androidx.appcompat.widget.AppCompatTextView
@@ -319,7 +333,7 @@
                     android:layout_gravity="center"
                     android:ellipsize="middle"
                     android:singleLine="true"
-                    setTextInt="@{bookModel.id}"
+                    android:text="@{ThesisModel.num_decision}"
                     android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
             </LinearLayout>
 
@@ -338,20 +352,19 @@
                     android:layout_width="120dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:text="Tác giả:"
+                    android:text="Khóa đào tạo:"
                     android:textSize="@dimen/dp_16" />
 
                 <androidx.appcompat.widget.AppCompatTextView
-                    android:id="@+id/tv_tvAuthor_a"
+                    android:id="@+id/tv_course_a"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:ellipsize="middle"
                     android:singleLine="true"
-                    setTextUser="@{bookModel.users}"
+                    setTextInt="@{ThesisModel.course}"
                     android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
             </LinearLayout>
-
             <LinearLayout
                 android:id="@+id/ll_4_a"
                 android:layout_width="match_parent"
@@ -367,17 +380,17 @@
                     android:layout_width="120dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:text="Loại sách:"
+                    android:text="Số năm làm luận án tiến sĩ:"
                     android:textSize="@dimen/dp_16" />
 
                 <androidx.appcompat.widget.AppCompatTextView
-                    android:id="@+id/tv_emailType_a"
+                    android:id="@+id/tv_num_year_a"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:ellipsize="middle"
                     android:singleLine="true"
-                    setTextInt="@{bookModel.type}"
+                    setTextInt="@{ThesisModel.num_year}"
                     android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
             </LinearLayout>
 
@@ -396,17 +409,17 @@
                     android:layout_width="120dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:text="Số trang:"
+                    android:text="Tác giả:"
                     android:textSize="@dimen/dp_16" />
 
                 <androidx.appcompat.widget.AppCompatTextView
-                    android:id="@+id/tv_numberPage_a"
+                    android:id="@+id/tv_tvAuthor_a"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:ellipsize="middle"
                     android:singleLine="true"
-                    setTextInt="@{bookModel.num_page}"
+                    setTextUser="@{ThesisModel.users}"
                     android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
             </LinearLayout>
 
@@ -425,6 +438,35 @@
                     android:layout_width="120dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
+                    android:text="Thể loại:"
+                    android:textSize="@dimen/dp_16" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_emailType_a"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:ellipsize="middle"
+                    android:singleLine="true"
+                    setTextInt="@{ThesisModel.type}"
+                    android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_7_a"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="@dimen/dp_16"
+                android:layout_marginEnd="12dp"
+                android:orientation="horizontal"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/ll_6_a">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="120dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
                     android:text="Năm học:"
                     android:textSize="@dimen/dp_16" />
 
@@ -435,7 +477,7 @@
                     android:layout_gravity="center"
                     android:ellipsize="middle"
                     android:singleLine="true"
-                    setTextInt="@{bookModel.num_publish}"
+                    setTextInt="@{ThesisModel.year_id}"
                     android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
             </LinearLayout>
 
@@ -466,17 +508,17 @@
             android:background="@drawable/bg_bottom_sheet"
             android:visibility="gone">
             <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/tv_title_b"
+                android:id="@+id/tv_titleb"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="12dp"
                 android:gravity="center"
-                android:text="CẬP NHẬT THÔNG TIN SÁCH, GIÁO TRÌNH"
+                android:text="CẬP NHẬT THÔNG TIN LUẬN ÁN, LUẬN VĂN"
                 android:textSize="@dimen/dp_24"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <LinearLayout
-                android:id="@+id/ll_1_b"
+                android:id="@+id/ll_1b"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="12dp"
@@ -484,27 +526,28 @@
                 android:layout_marginEnd="12dp"
                 android:orientation="horizontal"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tv_title_b">
+                app:layout_constraintTop_toBottomOf="@id/tv_titleb">
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:layout_width="120dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:text="Tên sách:"
+                    android:text="Họ tên nghiên cứu sinh:"
                     android:textSize="@dimen/dp_16" />
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/tv_nameBook_b"
+                    android:id="@+id/tv_nameThesisb"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:ellipsize="end"
                     android:singleLine="true"
+                    android:text="@{ThesisModel.name}"
                     android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/ll_2_b"
+                android:id="@+id/ll_2b"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="12dp"
@@ -512,27 +555,28 @@
                 android:layout_marginEnd="12dp"
                 android:orientation="horizontal"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/ll_1_b">
+                app:layout_constraintTop_toBottomOf="@id/ll_1b">
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:layout_width="120dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:text="Code :"
+                    android:text="Số QĐ giao nhiệm vụ:"
                     android:textSize="@dimen/dp_16" />
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/rt_code_b"
+                    android:id="@+id/rt_num_decisionb"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:ellipsize="middle"
                     android:singleLine="true"
+                    android:text="@{ThesisModel.num_decision}"
                     android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/ll_3_b"
+                android:id="@+id/ll_3b"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="12dp"
@@ -540,7 +584,64 @@
                 android:layout_marginEnd="12dp"
                 android:orientation="horizontal"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/ll_2_b">
+                app:layout_constraintTop_toBottomOf="@id/ll_2b">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="120dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="Khóa đào tạo:"
+                    android:textSize="@dimen/dp_16" />
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/tv_courseb"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:ellipsize="middle"
+                    android:singleLine="true"
+                    android:text="@{ThesisModel.course}"
+                    android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/ll_4b"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="@dimen/dp_16"
+                android:layout_marginEnd="12dp"
+                android:orientation="horizontal"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/ll_3b">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="120dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="Số năm làm luận án tiến sĩ:"
+                    android:textSize="@dimen/dp_16" />
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/tv_num_yearb"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:ellipsize="middle"
+                    android:singleLine="true"
+                    setTextInt="@{ThesisModel.num_year}"
+                    android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_5b"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="@dimen/dp_16"
+                android:layout_marginEnd="12dp"
+                android:orientation="horizontal"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/ll_4b">
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:layout_width="120dp"
@@ -550,15 +651,34 @@
                     android:textSize="@dimen/dp_16" />
 
                 <Spinner
-                    android:id="@+id/spAuthor_1_b"
+                    android:id="@+id/spAuthor_1b"
                     android:layout_width="wrap_content"
                     android:layout_height="@dimen/dp_36"
                     android:layout_gravity="center"
                     android:ellipsize="middle"
                     android:singleLine="true"
                     android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_6b"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="@dimen/dp_16"
+                android:layout_marginEnd="12dp"
+                android:orientation="horizontal"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/ll_5b">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="120dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="Thể loại:"
+                    android:textSize="@dimen/dp_16" />
                 <Spinner
-                    android:id="@+id/spAuthor_2_b"
+                    android:id="@+id/spAuthor_2b"
                     android:layout_width="wrap_content"
                     android:layout_height="@dimen/dp_36"
                     android:layout_gravity="center"
@@ -566,9 +686,8 @@
                     android:singleLine="true"
                     android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
             </LinearLayout>
-
             <LinearLayout
-                android:id="@+id/ll_4_b"
+                android:id="@+id/ll_7b"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="12dp"
@@ -576,63 +695,7 @@
                 android:layout_marginEnd="12dp"
                 android:orientation="horizontal"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/ll_3_b">
-
-                <androidx.appcompat.widget.AppCompatTextView
-                    android:layout_width="120dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:text="Loại sách:"
-                    android:textSize="@dimen/dp_16" />
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/tv_emailType_b"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:ellipsize="middle"
-                    android:singleLine="true"
-                    android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/ll_5_b"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="12dp"
-                android:layout_marginTop="@dimen/dp_16"
-                android:layout_marginEnd="12dp"
-                android:orientation="horizontal"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/ll_4_b">
-
-                <androidx.appcompat.widget.AppCompatTextView
-                    android:layout_width="120dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:text="Số trang:"
-                    android:textSize="@dimen/dp_16" />
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/tv_numberPage_b"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:ellipsize="middle"
-                    android:singleLine="true"
-                    android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/ll_6_b"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="12dp"
-                android:layout_marginTop="@dimen/dp_16"
-                android:layout_marginEnd="12dp"
-                android:orientation="horizontal"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/ll_5_b">
+                app:layout_constraintTop_toBottomOf="@id/ll_6b">
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:layout_width="120dp"
@@ -642,39 +705,16 @@
                     android:textSize="@dimen/dp_16" />
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/tv_year_b"
+                    android:id="@+id/tv_yearb"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:ellipsize="middle"
                     android:singleLine="true"
+                    setTextInt="@{ThesisModel.year_id}"
                     android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
             </LinearLayout>
 
-
-
-            <LinearLayout
-                android:id="@+id/ll_8_b"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="12dp"
-                android:layout_marginTop="@dimen/dp_32"
-                android:layout_marginEnd="12dp"
-                android:gravity="center"
-                android:orientation="horizontal"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/ll_6_b">
-
-
-                <Button
-                    android:id="@+id/btn_add"
-                    style="@style/Widget.Material3.Button.ElevatedButton"
-                    android:layout_width="124dp"
-                    android:layout_height="48dp"
-                    android:layout_margin="@dimen/dp_16"
-                    android:text="Thêm"
-                    android:textSize="@dimen/dp_16" />
-            </LinearLayout>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
