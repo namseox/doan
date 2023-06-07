@@ -54,23 +54,23 @@
     </fragment>
     <fragment
         android:id="@+id/bookFragment"
-        android:name="com.kma.myapplication.ui.sach.BookFragment"
+        android:name="com.kma.myapplication.ui.book.BookFragment"
         android:label="BookFragment" />
     <fragment
         android:id="@+id/educationProgramFragment"
-        android:name="com.kma.myapplication.ui.chuongtrinh.EducationProgramFragment"
+        android:name="com.kma.myapplication.ui.education.EducationProgramFragment"
         android:label="EducationProgramFragment" />
     <fragment
         android:id="@+id/prizeFragment"
-        android:name="com.kma.myapplication.ui.giaithuong.PrizeFragment"
+        android:name="com.kma.myapplication.ui.invention.InventionFragment"
         android:label="PrizeFragment" />
     <fragment
         android:id="@+id/scientificArticleFragment"
-        android:name="com.kma.myapplication.ui.baibaokhoahoc.ScientificArticleFragment"
+        android:name="com.kma.myapplication.ui.article.ScientificArticleFragment"
         android:label="ScientificArticleFragment" />
     <fragment
         android:id="@+id/scientificResearchFragment"
-        android:name="com.kma.myapplication.ui.nghiencuukhoahoc.ScientificResearchFragment"
+        android:name="com.kma.myapplication.ui.topic.TopicFragment"
         android:label="ScientificResearchFragment" />
     <fragment
         android:id="@+id/staffFragment"
@@ -78,23 +78,23 @@
         android:label="StaffFragment" />
     <fragment
         android:id="@+id/classFragment"
-        android:name="com.kma.myapplication.ui.quanlylophoc.ClassFragment"
+        android:name="com.kma.myapplication.ui.managerClass.ClassFragment"
         android:label="ClassFragment" />
     <fragment
         android:id="@+id/examFragment"
-        android:name="com.kma.myapplication.ui.quanlydethi.ExamFragment"
+        android:name="com.kma.myapplication.ui.managerExam.ExamFragment"
         android:label="ExamFragment" />
     <fragment
         android:id="@+id/markExamFragment"
-        android:name="com.kma.myapplication.ui.quanlychamthi.MarkExamFragment"
+        android:name="com.kma.myapplication.ui.managerMark.MarkExamFragment"
         android:label="MarkExamFragment" />
     <fragment
         android:id="@+id/monotorExamFragment"
-        android:name="com.kma.myapplication.ui.quanlycoithi.MonotorExamFragment"
+        android:name="com.kma.myapplication.ui.managerRoomExam.RoomExamFragment"
         android:label="MonotorExamFragment" />
     <fragment
         android:id="@+id/subjectFragment"
-        android:name="com.kma.myapplication.ui.quanlymonhoc.SubjectFragment"
+        android:name="com.kma.myapplication.ui.managerSubject.SubjectFragment"
         android:label="SubjectFragment" />
     <fragment
         android:id="@+id/policyAndTermFragment"

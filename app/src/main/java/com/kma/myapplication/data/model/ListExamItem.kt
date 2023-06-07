@@ -4,7 +4,7 @@ data class ListExamItem(
     val code: String,
     val factor: Double,
     val id: Int,
-    val name: Any,
+    val name: String,
     val num_exam: Int,
     val num_question: Int,
     val semester: Int,

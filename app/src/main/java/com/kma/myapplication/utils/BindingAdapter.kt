@@ -31,6 +31,10 @@ fun TextView.setNameBook(name: String){
 fun TextView.setTimeCreatBook(time:Int){
     this.text = "Năm phát hành: " +time
 }
+@BindingAdapter("setTimeStartClass")
+fun TextView.setTimeStartClass(time:String){
+    this.text = "Thời gian bắt đầu: " +time
+}
 @BindingAdapter("setTextIDStaff")
 fun TextView.setTextIDStaff(id:Int){
     this.text = "ID: " +id

@@ -5,7 +5,7 @@ data class ListRoomItem(
     val endDate: Any,
     val factor: Double,
     val id: Int,
-    val name: Any,
+    val name: String,
     val num_exam_session: Int,
     val num_student: Int,
     val semester: Int,
@@ -13,7 +13,7 @@ data class ListRoomItem(
     val subject: SubjectItem,
     val subject_id: Int,
     val time: Int,
-    val type: Any,
+    val type: String,
     val user: UserXX,
     val user_id: Int,
     val year_id: Int
