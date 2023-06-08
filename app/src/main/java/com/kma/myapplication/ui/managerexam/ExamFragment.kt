@@ -1,4 +1,4 @@
-package com.kma.myapplication.ui.managerClass
+package com.kma.myapplication.ui.managerexam
 
 import ListActionPopup
 import android.app.Application
@@ -13,28 +13,28 @@ import androidx.recyclerview.widget.RecyclerView
 import com.hola360.m3uplayer.data.response.DataResponse
 import com.hola360.m3uplayer.data.response.LoadingStatus
 import com.kma.myapplication.R
-import com.kma.myapplication.data.model.ClassItem
-import com.kma.myapplication.data.model.ListClassItem
-import com.kma.myapplication.databinding.FragmentManagerClassBinding
-import com.kma.myapplication.databinding.ItemClassBinding
+import com.kma.myapplication.data.model.ExamItem
+import com.kma.myapplication.data.model.ListExamItem
+import com.kma.myapplication.databinding.FragmentManagerExamBinding
+import com.kma.myapplication.databinding.ItemExamBinding
 import com.kma.myapplication.ui.base.AbsBaseFragment
 import com.kma.myapplication.ui.dialog.DeleteDialog
 import com.kma.myapplication.ui.staff.StaffBottonSheetDialogFragment
 import com.kma.myapplication.utils.SharedPreferenceUtils
 import com.kma.myapplication.utils.Utils
 
-class ClassFragment:AbsBaseFragment<FragmentManagerClassBinding>(),onCLickClass,onClickBottomSheetClass {
+class ExamFragment:AbsBaseFragment<FragmentManagerExamBinding>(),onCLickExam,onClickBottomSheetExam {
     private val listActionPopup by lazy { ListActionPopup(requireActivity()) }
-    lateinit var viewModelClass: ViewModelClassFragment
-    lateinit var adapterClass: AdapterClass
-    var listClass = listOf<ListClassItem>()
+    lateinit var viewModelExam: ViewModelExamFragment
+    lateinit var adapterExam: AdapterExam
+    var listExam = listOf<ListExamItem>()
     val handler = Handler(Looper.myLooper()!!)
     override fun getLayout(): Int {
-        return R.layout.fragment_manager_class
+        return R.layout.fragment_manager_exam
     }
 
     override fun initView() {
-        viewModelClass = ViewModelClassFragment(Application())
+        viewModelExam = ViewModelExamFragment(Application())
 
         handler.postDelayed(runnable, 1000)
         binding.toolbar.setOnClickListener {
@@ -45,12 +45,12 @@ class ClassFragment:AbsBaseFragment<FragmentManagerClassBinding>(),onCLickClass,
         runView()
     }
     private fun runView() {
-        adapterClass = AdapterClass(this)
+        adapterExam = AdapterExam(this)
         upData()
     }
     private fun upData() {
-        viewModelClass.getListClass()
-        viewModelClass.listClasItem.observe(viewLifecycleOwner) {
+        viewModelExam.getListExam()
+        viewModelExam.listExamItem.observe(viewLifecycleOwner) {
             it?.let {
                 if (it.loadingStatus == LoadingStatus.Loading) {
                     binding.cpiLoading.visibility = View.VISIBLE
@@ -61,7 +61,7 @@ class ClassFragment:AbsBaseFragment<FragmentManagerClassBinding>(),onCLickClass,
                     if (body!!.isNotEmpty()) {
                         binding.cpiLoading.visibility = View.GONE
                         binding.tvStatus.visibility = View.GONE
-                        listClass = body as List<ListClassItem>
+                        listExam = body as List<ListExamItem>
                         handler.postDelayed(Runnable {
                             setAudioRecycleView()
                         }, 200)
@@ -78,37 +78,53 @@ class ClassFragment:AbsBaseFragment<FragmentManagerClassBinding>(),onCLickClass,
                 }
             }
         }
-        viewModelClass.value_delete.observe(viewLifecycleOwner) {
+        viewModelExam.value_delete.observe(viewLifecycleOwner) {
             it?.let {
                 if (it == 1) {
-                    adapterClass.deleteClass(viewModelClass.itemClass)
+                    adapterExam.deleteExam(viewModelExam.itemExam)
                     Toast.makeText(requireContext(), "Xoá thành công", Toast.LENGTH_SHORT).show()
                 }
 
             }
         }
-        viewModelClass.value_creat.observe(viewLifecycleOwner) {
-            adapterClass.creatClass(it)
+        viewModelExam.value_creat.observe(viewLifecycleOwner) {
+            adapterExam.creatExam(it)
             Toast.makeText(requireContext(), "Tạo thành công", Toast.LENGTH_SHORT).show()
 
         }
-        viewModelClass.value_updtae.observe(viewLifecycleOwner) {
+        viewModelExam.value_updtae.observe(viewLifecycleOwner) {
             Log.d("TAG", "upData000000: "+it)
-            adapterClass.updateClass(it)
+            adapterExam.updateExam(it)
             Toast.makeText(requireContext(), "Cập nhật thành công", Toast.LENGTH_SHORT)
                 .show()
 
         }
+        viewModelExam.exam2.observe(viewLifecycleOwner) {
+            Log.d("TAG", "onItemActionClick: ...........")
+            showButtonSheetAdd(it)
+        }
+        viewModelExam.exam3.observe(viewLifecycleOwner) {
+            showButtonSheetUpdate(it)
+        }
+        viewModelExam.exam.observe(this) {
+            val bottomSheetActionDialog =
+                ExamBottomSheetDialogFragment(this, "Exam", it, requireContext())
+            SharedPreferenceUtils.getInstance(requireContext()).setObjModel(it)
+            bottomSheetActionDialog.show(
+                requireActivity().supportFragmentManager,
+                StaffBottonSheetDialogFragment.TAG
+            )
+        }
     }
     private fun setAudioRecycleView() {
-        adapterClass.getData(listClass)
+        adapterExam.getData(listExam)
 
-        binding.rcvStaff.adapter = adapterClass
+        binding.rcvStaff.adapter = adapterExam
         var manager = GridLayoutManager(requireContext(), 1, RecyclerView.VERTICAL, false)
         binding.rcvStaff.layoutManager = manager
     }
 
-    override fun click3Dot(id: Int, binding: ItemClassBinding) {
+    override fun click3Dot(id: Int, binding: ItemExamBinding) {
         listActionPopup.showPopup(
             binding.iv3dot,
             Utils.actions,
@@ -116,18 +132,13 @@ class ClassFragment:AbsBaseFragment<FragmentManagerClassBinding>(),onCLickClass,
                 override fun onItemActionClick(position: Int) {
                     when (position) {
                         0 -> {
-                            viewModelClass.getItemClass2(id)
-                            viewModelClass.clas2.observe(viewLifecycleOwner) {
-                                Log.d("TAG", "onItemActionClick: ...........")
-                                showButtonSheetAdd(it)
-                            }
+                            viewModelExam.getItemExam2(id)
+
                         }
 
                         1 -> {
-                            viewModelClass.getItemClass2(id)
-                            viewModelClass.clas3.observe(viewLifecycleOwner) {
-                                showButtonSheetUpdate(it)
-                            }
+                            viewModelExam.getItemExam3(id)
+
                         }
 
                         else -> {
@@ -135,7 +146,7 @@ class ClassFragment:AbsBaseFragment<FragmentManagerClassBinding>(),onCLickClass,
                                 DeleteDialog.create(object : DeleteDialog.IListener {
                                     override fun delete() {
                                         try {
-                                            viewModelClass.deleteClass(viewModelClass.itemClass.id)
+                                            viewModelExam.deleteExam(viewModelExam.itemExam.id)
                                         } catch (e: Exception) {
                                             Toast.makeText(
                                                 requireContext(),
@@ -154,43 +165,35 @@ class ClassFragment:AbsBaseFragment<FragmentManagerClassBinding>(),onCLickClass,
                 }
             })
     }
-    private fun showButtonSheetAdd(Class: ClassItem) {
+    private fun showButtonSheetAdd(Exam: ExamItem) {
         val bottomSheetActionDialog =
-            ClassBottomSheetDialogFragment(this, "AddClass", Class, requireContext())
+            ExamBottomSheetDialogFragment(this, "AddExam", Exam, requireContext())
         bottomSheetActionDialog.show(
             requireActivity().supportFragmentManager,
-            ClassBottomSheetDialogFragment.TAG
+            ExamBottomSheetDialogFragment.TAG
         )
     }
-    private fun showButtonSheetUpdate(Class: ClassItem) {
+    private fun showButtonSheetUpdate(Exam: ExamItem) {
         val bottomSheetActionDialog =
-            ClassBottomSheetDialogFragment(this, "UpdateClass", Class, requireContext())
+            ExamBottomSheetDialogFragment(this, "UpdateExam", Exam, requireContext())
         bottomSheetActionDialog.show(
             requireActivity().supportFragmentManager,
-            ClassBottomSheetDialogFragment.TAG
+            ExamBottomSheetDialogFragment.TAG
         )
     }
-    override fun clickItem(id: Int, binding: ItemClassBinding) {
-        viewModelClass.getItemClass(id)
-        viewModelClass.clas.observe(this) {
-            val bottomSheetActionDialog =
-                ClassBottomSheetDialogFragment(this, "Class", it, requireContext())
-            SharedPreferenceUtils.getInstance(requireContext()).setObjModel(it)
-            bottomSheetActionDialog.show(
-                requireActivity().supportFragmentManager,
-                StaffBottonSheetDialogFragment.TAG
-            )
-        }
+    override fun clickItem(id: Int, binding: ItemExamBinding) {
+        viewModelExam.getItemExam(id)
+
     }
 
-    override fun onClickText(text: String, item: ListClassItem) {
+    override fun onClickText(text: String, item: ListExamItem) {
         when (text) {
-            "updateClass" -> {
-                viewModelClass.updateClass(viewModelClass.itemClass.id, item)
+            "updateExam" -> {
+                viewModelExam.updateExam(viewModelExam.itemExam.id, item)
             }
 
-            "addClass" -> {
-                viewModelClass.creatClass(item)
+            "addExam" -> {
+                viewModelExam.creatExam(item)
             }
         }
     }

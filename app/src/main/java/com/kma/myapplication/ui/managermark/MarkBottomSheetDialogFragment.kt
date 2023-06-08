@@ -1,4 +1,4 @@
-package com.kma.myapplication.ui.managerExam
+package com.kma.myapplication.ui.managermark
 
 import android.R
 import android.content.Context
@@ -15,21 +15,21 @@ import android.widget.Spinner
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
-import com.kma.myapplication.data.model.ExamItem
-import com.kma.myapplication.data.model.ListExamItem
+import com.kma.myapplication.data.model.MarkItem
+import com.kma.myapplication.data.model.ListMarkItem
 import com.kma.myapplication.data.model.Staff
-import com.kma.myapplication.databinding.FragmentBottomSheetDialogExamBinding
+import com.kma.myapplication.databinding.FragmentBottomSheetDialogMarkBinding
 import com.kma.myapplication.utils.SharedPreferenceUtils
 
-class ExamBottomSheetDialogFragment (
-    var onClickl: onClickBottomSheetExam,
+class MarkBottomSheetDialogFragment(
+    var onClickl: onClickBottomSheetMark,
     var status: String,
-    var itemExam: ExamItem,
+    var itemMark: MarkItem,
     var ct: Context
 ) : BottomSheetDialogFragment(), AdapterView.OnItemSelectedListener {
-    lateinit var binding: FragmentBottomSheetDialogExamBinding
+    lateinit var binding: FragmentBottomSheetDialogMarkBinding
     var a: Staff = SharedPreferenceUtils.getInstance(ct).getObjModel()!!
-    var listTypeExam = arrayListOf<String>("Tự luận", "Trắc nghiệm","Vấn đáp","Tiểu luận")
+    var listTypeMark = arrayListOf<String>("Tự luận", "Trắc nghiệm","Vấn đáp","Tiểu luận")
     var listHocKy = arrayListOf<String>(
         "Học kỳ 1",
         "Học Kỳ 2"
@@ -38,103 +38,103 @@ class ExamBottomSheetDialogFragment (
     val NEW_SPINNER_ID = 1
 
     companion object {
-        const val TAG = "ExamBottomSheet"
+        const val TAG = "MarkBottomSheet"
     }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View? {
         (dialog as BottomSheetDialog).behavior.state = BottomSheetBehavior.STATE_EXPANDED
-        binding = FragmentBottomSheetDialogExamBinding.inflate(layoutInflater, container, false)
+        binding = FragmentBottomSheetDialogMarkBinding.inflate(layoutInflater, container, false)
         (a.a).forEach {
             listAuthor.add(it.name)
         }
 
 
-        var spTypeExam = ArrayAdapter(requireContext(), R.layout.simple_spinner_item, listTypeExam)
-        spTypeExam.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        var spTypeMark = ArrayAdapter(requireContext(), R.layout.simple_spinner_item, listTypeMark)
+        spTypeMark.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         var spUser = ArrayAdapter(requireContext(), R.layout.simple_spinner_item, listAuthor)
         spUser.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         var spHocKy = ArrayAdapter(requireContext(), R.layout.simple_spinner_item, listHocKy)
         spHocKy.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        var positionAuthor = listAuthor.indexOf(itemExam.user.name)
+        var positionAuthor = listAuthor.indexOf(itemMark.user.name)
 
-//        with(binding.spFormExam) {
-//            adapter = spTypeExam
+//        with(binding.spFormMark) {
+//            adapter = spTypeMark
 //            setSelection(0, false)
-//            onItemSelectedListener = this@ExamBottomSheetDialogFragment
+//            onItemSelectedListener = this@MarkBottomSheetDialogFragment
 //            prompt = "Chọn tác giả"
 //            gravity = Gravity.CENTER
 //        }
-//        with(binding.spFormExamb) {
-//            adapter = spTypeExam
-//            setSelection(itemExam., false)
-//            onItemSelectedListener = this@ExamBottomSheetDialogFragment
+//        with(binding.spFormMarkb) {
+//            adapter = spTypeMark
+//            setSelection(itemMark., false)
+//            onItemSelectedListener = this@MarkBottomSheetDialogFragment
 //            prompt = "Chọn tác giả"
 //            gravity = Gravity.CENTER
 //        }
         with(binding.spUser) {
             adapter = spUser
             setSelection(0, false)
-            onItemSelectedListener = this@ExamBottomSheetDialogFragment
+            onItemSelectedListener = this@MarkBottomSheetDialogFragment
             prompt = "Chọn tác giả"
             gravity = Gravity.CENTER
         }
         with(binding.spUserb) {
             adapter = spUser
             setSelection(positionAuthor, false)
-            onItemSelectedListener = this@ExamBottomSheetDialogFragment
+            onItemSelectedListener = this@MarkBottomSheetDialogFragment
             prompt = "Chọn tác giả"
             gravity = android.view.Gravity.CENTER
         }
         with(binding.spSemester) {
             adapter = spHocKy
             setSelection(0, false)
-            onItemSelectedListener = this@ExamBottomSheetDialogFragment
+            onItemSelectedListener = this@MarkBottomSheetDialogFragment
             prompt = "Chọn tác giả"
             gravity = Gravity.CENTER
         }
         with(binding.spSemesterb) {
             adapter = spHocKy
-            setSelection(itemExam.semester, false)
-            onItemSelectedListener = this@ExamBottomSheetDialogFragment
+            setSelection(itemMark.semester, false)
+            onItemSelectedListener = this@MarkBottomSheetDialogFragment
             prompt = "Chọn tác giả"
             gravity = Gravity.CENTER
         }
         val spinner = Spinner(requireContext())
         spinner.id = NEW_SPINNER_ID
-        binding.examModel = itemExam
+        binding.markModel = itemMark
         when (status) {
-            "UpdateExam" -> {
-                binding.clExamb.visibility = View.VISIBLE
+            "UpdateMark" -> {
+                binding.clMarkb.visibility = View.VISIBLE
             }
 
-            "Exam" -> {
-                binding.clExama.visibility = View.VISIBLE
+            "Mark" -> {
+                binding.clMarka.visibility = View.VISIBLE
             }
 
-            "AddExam" -> {
-                binding.clExam.visibility = View.VISIBLE
+            "AddMark" -> {
+                binding.clMark.visibility = View.VISIBLE
             }
         }
 //        binding.btnUpdate.setOnClickListener {
-//            var itemList = ListExamItem(
+//            var itemList = ListMarkItem(
 //
 //            )
 //
-//            onClickl.onClickText("updateExam", itemList)
+//            onClickl.onClickText("updateMark", itemList)
 //            destroy()
 //        }
 //        binding.btnAdd.setOnClickListener {
-//            var itemList = ListExamItem(
-//                binding.tvIdExam.text.toString(),
+//            var itemList = ListMarkItem(
+//                binding.tvIdMark.text.toString(),
 //                binding.tvEndDate.text.toString(),
 //                "1",
 //                ""
 //
 //            )
 //
-//            onClickl.onClickText("addExam", itemList)
+//            onClickl.onClickText("addMark", itemList)
 //            destroy()
 //        }
         return binding.root
@@ -163,6 +163,6 @@ class ExamBottomSheetDialogFragment (
 
 }
 
-interface onClickBottomSheetExam {
-    fun onClickText(text: String, item: ListExamItem)
+interface onClickBottomSheetMark {
+    fun onClickText(text: String, item: ListMarkItem)
 }

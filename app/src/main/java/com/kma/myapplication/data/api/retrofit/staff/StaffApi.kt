@@ -9,6 +9,7 @@ import retrofit2.http.GET
 import retrofit2.http.POST
 import retrofit2.http.PUT
 import retrofit2.http.Path
+import retrofit2.http.Query
 
 interface StaffApi {
     @GET("/user?search=&sort=desc&sortColumn=")
@@ -17,7 +18,7 @@ interface StaffApi {
     @GET("/user/{id}")
     suspend fun getStaff(
         @Path("id") id: Int,
-        @Body year_id :Int
+        @Query("year_id") year_id :Int
     ): UserX
 
     @DELETE("/user/{id}")

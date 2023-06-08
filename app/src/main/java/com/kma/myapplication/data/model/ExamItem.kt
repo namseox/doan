@@ -13,6 +13,6 @@ data class ExamItem(
     val type: Int,
     val user: UserXXX,
     val user_id: Int,
-    val year: YearX,
+    val year: Year,
     val year_id: Int
 )

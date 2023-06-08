@@ -1,4 +1,4 @@
-package com.kma.myapplication.ui.managerExam
+package com.kma.myapplication.ui.managermark
 
 import ListActionPopup
 import android.app.Application
@@ -13,33 +13,28 @@ import androidx.recyclerview.widget.RecyclerView
 import com.hola360.m3uplayer.data.response.DataResponse
 import com.hola360.m3uplayer.data.response.LoadingStatus
 import com.kma.myapplication.R
-import com.kma.myapplication.data.model.ClassItem
-import com.kma.myapplication.data.model.ExamItem
-import com.kma.myapplication.data.model.ListClassItem
-import com.kma.myapplication.data.model.ListExamItem
-import com.kma.myapplication.databinding.FragmentManagerExamBinding
-import com.kma.myapplication.databinding.ItemExamBinding
+import com.kma.myapplication.data.model.ListMarkItem
+import com.kma.myapplication.data.model.MarkItem
+import com.kma.myapplication.databinding.FragmentManagerMarkExamBinding
+import com.kma.myapplication.databinding.ItemMarkBinding
 import com.kma.myapplication.ui.base.AbsBaseFragment
 import com.kma.myapplication.ui.dialog.DeleteDialog
-import com.kma.myapplication.ui.managerClass.AdapterClass
-import com.kma.myapplication.ui.managerClass.ClassBottomSheetDialogFragment
-import com.kma.myapplication.ui.managerClass.ViewModelClassFragment
 import com.kma.myapplication.ui.staff.StaffBottonSheetDialogFragment
 import com.kma.myapplication.utils.SharedPreferenceUtils
 import com.kma.myapplication.utils.Utils
 
-class ExamFragment:AbsBaseFragment<FragmentManagerExamBinding>(),onCLickExam,onClickBottomSheetExam {
+class MarkExamFragment:AbsBaseFragment<FragmentManagerMarkExamBinding>(), onCLickMark,onClickBottomSheetMark{
     private val listActionPopup by lazy { ListActionPopup(requireActivity()) }
-    lateinit var viewModelExam: ViewModelExamFragment
-    lateinit var adapterExam: AdapterExam
-    var listExam = listOf<ListExamItem>()
+    lateinit var viewModelMark: ViewModelMarkFragment
+    lateinit var adapterMark: AdapterMark
+    var listMark = listOf<ListMarkItem>()
     val handler = Handler(Looper.myLooper()!!)
     override fun getLayout(): Int {
-        return R.layout.fragment_manager_exam
+        return R.layout.fragment_manager_mark_exam
     }
 
     override fun initView() {
-        viewModelExam = ViewModelExamFragment(Application())
+        viewModelMark = ViewModelMarkFragment(Application())
 
         handler.postDelayed(runnable, 1000)
         binding.toolbar.setOnClickListener {
@@ -50,12 +45,12 @@ class ExamFragment:AbsBaseFragment<FragmentManagerExamBinding>(),onCLickExam,onC
         runView()
     }
     private fun runView() {
-        adapterExam = AdapterExam(this)
+        adapterMark = AdapterMark(this)
         upData()
     }
     private fun upData() {
-        viewModelExam.getListExam()
-        viewModelExam.listExamItem.observe(viewLifecycleOwner) {
+        viewModelMark.getListMark()
+        viewModelMark.listMarkItem.observe(viewLifecycleOwner) {
             it?.let {
                 if (it.loadingStatus == LoadingStatus.Loading) {
                     binding.cpiLoading.visibility = View.VISIBLE
@@ -66,7 +61,7 @@ class ExamFragment:AbsBaseFragment<FragmentManagerExamBinding>(),onCLickExam,onC
                     if (body!!.isNotEmpty()) {
                         binding.cpiLoading.visibility = View.GONE
                         binding.tvStatus.visibility = View.GONE
-                        listExam = body as List<ListExamItem>
+                        listMark = body as List<ListMarkItem>
                         handler.postDelayed(Runnable {
                             setAudioRecycleView()
                         }, 200)
@@ -83,37 +78,37 @@ class ExamFragment:AbsBaseFragment<FragmentManagerExamBinding>(),onCLickExam,onC
                 }
             }
         }
-        viewModelExam.value_delete.observe(viewLifecycleOwner) {
+        viewModelMark.value_delete.observe(viewLifecycleOwner) {
             it?.let {
                 if (it == 1) {
-                    adapterExam.deleteExam(viewModelExam.itemExam)
+                    adapterMark.deleteMark(viewModelMark.itemMark)
                     Toast.makeText(requireContext(), "Xoá thành công", Toast.LENGTH_SHORT).show()
                 }
 
             }
         }
-        viewModelExam.value_creat.observe(viewLifecycleOwner) {
-            adapterExam.creatExam(it)
+        viewModelMark.value_creat.observe(viewLifecycleOwner) {
+            adapterMark.creatMark(it)
             Toast.makeText(requireContext(), "Tạo thành công", Toast.LENGTH_SHORT).show()
 
         }
-        viewModelExam.value_updtae.observe(viewLifecycleOwner) {
+        viewModelMark.value_updtae.observe(viewLifecycleOwner) {
             Log.d("TAG", "upData000000: "+it)
-            adapterExam.updateExam(it)
+            adapterMark.updateMark(it)
             Toast.makeText(requireContext(), "Cập nhật thành công", Toast.LENGTH_SHORT)
                 .show()
 
         }
-        viewModelExam.exam2.observe(viewLifecycleOwner) {
+        viewModelMark.Mark2.observe(viewLifecycleOwner) {
             Log.d("TAG", "onItemActionClick: ...........")
             showButtonSheetAdd(it)
         }
-        viewModelExam.exam3.observe(viewLifecycleOwner) {
+        viewModelMark.Mark3.observe(viewLifecycleOwner) {
             showButtonSheetUpdate(it)
         }
-        viewModelExam.exam.observe(this) {
+        viewModelMark.Mark.observe(this) {
             val bottomSheetActionDialog =
-                ExamBottomSheetDialogFragment(this, "Exam", it, requireContext())
+                MarkBottomSheetDialogFragment(this, "Mark", it, requireContext())
             SharedPreferenceUtils.getInstance(requireContext()).setObjModel(it)
             bottomSheetActionDialog.show(
                 requireActivity().supportFragmentManager,
@@ -122,14 +117,14 @@ class ExamFragment:AbsBaseFragment<FragmentManagerExamBinding>(),onCLickExam,onC
         }
     }
     private fun setAudioRecycleView() {
-        adapterExam.getData(listExam)
+        adapterMark.getData(listMark)
 
-        binding.rcvStaff.adapter = adapterExam
+        binding.rcvStaff.adapter = adapterMark
         var manager = GridLayoutManager(requireContext(), 1, RecyclerView.VERTICAL, false)
         binding.rcvStaff.layoutManager = manager
     }
 
-    override fun click3Dot(id: Int, binding: ItemExamBinding) {
+    override fun click3Dot(id: Int, binding: ItemMarkBinding) {
         listActionPopup.showPopup(
             binding.iv3dot,
             Utils.actions,
@@ -137,12 +132,12 @@ class ExamFragment:AbsBaseFragment<FragmentManagerExamBinding>(),onCLickExam,onC
                 override fun onItemActionClick(position: Int) {
                     when (position) {
                         0 -> {
-                            viewModelExam.getItemExam2(id)
+                            viewModelMark.getItemMark2(id)
 
                         }
 
                         1 -> {
-                            viewModelExam.getItemExam3(id)
+                            viewModelMark.getItemMark3(id)
 
                         }
 
@@ -151,7 +146,7 @@ class ExamFragment:AbsBaseFragment<FragmentManagerExamBinding>(),onCLickExam,onC
                                 DeleteDialog.create(object : DeleteDialog.IListener {
                                     override fun delete() {
                                         try {
-                                            viewModelExam.deleteExam(viewModelExam.itemExam.id)
+                                            viewModelMark.deleteMark(viewModelMark.itemMark.id)
                                         } catch (e: Exception) {
                                             Toast.makeText(
                                                 requireContext(),
@@ -170,35 +165,34 @@ class ExamFragment:AbsBaseFragment<FragmentManagerExamBinding>(),onCLickExam,onC
                 }
             })
     }
-    private fun showButtonSheetAdd(Exam: ExamItem) {
+
+    override fun clickItem(id: Int, binding: ItemMarkBinding) {
+        viewModelMark.getItemMark(id)
+    }
+    private fun showButtonSheetAdd(Mark: MarkItem) {
         val bottomSheetActionDialog =
-            ExamBottomSheetDialogFragment(this, "AddExam", Exam, requireContext())
+            MarkBottomSheetDialogFragment(this, "AddMark", Mark, requireContext())
         bottomSheetActionDialog.show(
             requireActivity().supportFragmentManager,
-            ExamBottomSheetDialogFragment.TAG
+            MarkBottomSheetDialogFragment.TAG
         )
     }
-    private fun showButtonSheetUpdate(Exam: ExamItem) {
+    private fun showButtonSheetUpdate(Mark: MarkItem) {
         val bottomSheetActionDialog =
-            ExamBottomSheetDialogFragment(this, "UpdateExam", Exam, requireContext())
+            MarkBottomSheetDialogFragment(this, "UpdateMark", Mark, requireContext())
         bottomSheetActionDialog.show(
             requireActivity().supportFragmentManager,
-            ExamBottomSheetDialogFragment.TAG
+            MarkBottomSheetDialogFragment.TAG
         )
     }
-    override fun clickItem(id: Int, binding: ItemExamBinding) {
-        viewModelExam.getItemExam(id)
-
-    }
-
-    override fun onClickText(text: String, item: ListExamItem) {
+    override fun onClickText(text: String, item: ListMarkItem) {
         when (text) {
-            "updateExam" -> {
-                viewModelExam.updateExam(viewModelExam.itemExam.id, item)
+            "updateMark" -> {
+                viewModelMark.updateMark(viewModelMark.itemMark.id, item)
             }
 
-            "addExam" -> {
-                viewModelExam.creatExam(item)
+            "addMark" -> {
+                viewModelMark.creatMark(item)
             }
         }
     }

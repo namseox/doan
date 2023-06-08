@@ -1,4 +1,4 @@
-package com.kma.myapplication.ui.managerRoomExam
+package com.kma.myapplication.ui.managerclass
 
 import ListActionPopup
 import android.app.Application
@@ -13,28 +13,28 @@ import androidx.recyclerview.widget.RecyclerView
 import com.hola360.m3uplayer.data.response.DataResponse
 import com.hola360.m3uplayer.data.response.LoadingStatus
 import com.kma.myapplication.R
-import com.kma.myapplication.data.model.ListRoomItem
-import com.kma.myapplication.data.model.RoomItem
-import com.kma.myapplication.databinding.FragmentManagerRoomExamBinding
-import com.kma.myapplication.databinding.ItemRoomBinding
+import com.kma.myapplication.data.model.ClassItem
+import com.kma.myapplication.data.model.ListClassItem
+import com.kma.myapplication.databinding.FragmentManagerClassBinding
+import com.kma.myapplication.databinding.ItemClassBinding
 import com.kma.myapplication.ui.base.AbsBaseFragment
 import com.kma.myapplication.ui.dialog.DeleteDialog
 import com.kma.myapplication.ui.staff.StaffBottonSheetDialogFragment
 import com.kma.myapplication.utils.SharedPreferenceUtils
 import com.kma.myapplication.utils.Utils
 
-class RoomExamFragment:AbsBaseFragment<FragmentManagerRoomExamBinding>(),onCLickRoom,onClickBottomSheetRoom {
+class ClassFragment:AbsBaseFragment<FragmentManagerClassBinding>(),onCLickClass,onClickBottomSheetClass {
     private val listActionPopup by lazy { ListActionPopup(requireActivity()) }
-    lateinit var viewModelRoom: ViewModelRoomFragment
-    lateinit var adapterRoom: AdapterRoom
-    var listRoom = listOf<ListRoomItem>()
+    lateinit var viewModelClass: ViewModelClassFragment
+    lateinit var adapterClass: AdapterClass
+    var listClass = listOf<ListClassItem>()
     val handler = Handler(Looper.myLooper()!!)
     override fun getLayout(): Int {
-        return R.layout.fragment_manager_room_exam
+        return R.layout.fragment_manager_class
     }
 
     override fun initView() {
-        viewModelRoom = ViewModelRoomFragment(Application())
+        viewModelClass = ViewModelClassFragment(Application())
 
         handler.postDelayed(runnable, 1000)
         binding.toolbar.setOnClickListener {
@@ -45,12 +45,12 @@ class RoomExamFragment:AbsBaseFragment<FragmentManagerRoomExamBinding>(),onCLick
         runView()
     }
     private fun runView() {
-        adapterRoom = AdapterRoom(this)
+        adapterClass = AdapterClass(this)
         upData()
     }
     private fun upData() {
-        viewModelRoom.getListRoom()
-        viewModelRoom.listRoomItem.observe(viewLifecycleOwner) {
+        viewModelClass.getListClass()
+        viewModelClass.listClasItem.observe(viewLifecycleOwner) {
             it?.let {
                 if (it.loadingStatus == LoadingStatus.Loading) {
                     binding.cpiLoading.visibility = View.VISIBLE
@@ -61,7 +61,7 @@ class RoomExamFragment:AbsBaseFragment<FragmentManagerRoomExamBinding>(),onCLick
                     if (body!!.isNotEmpty()) {
                         binding.cpiLoading.visibility = View.GONE
                         binding.tvStatus.visibility = View.GONE
-                        listRoom = body as List<ListRoomItem>
+                        listClass = body as List<ListClassItem>
                         handler.postDelayed(Runnable {
                             setAudioRecycleView()
                         }, 200)
@@ -78,54 +78,37 @@ class RoomExamFragment:AbsBaseFragment<FragmentManagerRoomExamBinding>(),onCLick
                 }
             }
         }
-        viewModelRoom.value_delete.observe(viewLifecycleOwner) {
+        viewModelClass.value_delete.observe(viewLifecycleOwner) {
             it?.let {
                 if (it == 1) {
-                    adapterRoom.deleteRoom(viewModelRoom.itemRoom)
+                    adapterClass.deleteClass(viewModelClass.itemClass)
                     Toast.makeText(requireContext(), "Xoá thành công", Toast.LENGTH_SHORT).show()
                 }
 
             }
         }
-        viewModelRoom.value_creat.observe(viewLifecycleOwner) {
-            adapterRoom.creatRoom(it)
+        viewModelClass.value_creat.observe(viewLifecycleOwner) {
+            adapterClass.creatClass(it)
             Toast.makeText(requireContext(), "Tạo thành công", Toast.LENGTH_SHORT).show()
 
         }
-        viewModelRoom.value_updtae.observe(viewLifecycleOwner) {
+        viewModelClass.value_updtae.observe(viewLifecycleOwner) {
             Log.d("TAG", "upData000000: "+it)
-            adapterRoom.updateRoom(it)
+            adapterClass.updateClass(it)
             Toast.makeText(requireContext(), "Cập nhật thành công", Toast.LENGTH_SHORT)
                 .show()
 
         }
-        viewModelRoom.Room2.observe(viewLifecycleOwner) {
-            Log.d("TAG", "onItemActionClick: ...........")
-            showButtonSheetAdd(it)
-        }
-        viewModelRoom.Room3.observe(viewLifecycleOwner) {
-            showButtonSheetUpdate(it)
-        }
-        viewModelRoom.Room.observe(this) {
-            val bottomSheetActionDialog =
-                RoomBottomSheetDialogFragment(this, "Room", it,viewModelRoom.itemListRoom, requireContext())
-            SharedPreferenceUtils.getInstance(requireContext()).setObjModel(it)
-            bottomSheetActionDialog.show(
-                requireActivity().supportFragmentManager,
-                StaffBottonSheetDialogFragment.TAG
-            )
-        }
     }
     private fun setAudioRecycleView() {
-        adapterRoom.getData(listRoom)
+        adapterClass.getData(listClass)
 
-        binding.rcvStaff.adapter = adapterRoom
+        binding.rcvStaff.adapter = adapterClass
         var manager = GridLayoutManager(requireContext(), 1, RecyclerView.VERTICAL, false)
         binding.rcvStaff.layoutManager = manager
     }
 
-    override fun click3Dot(itemListRoom: ListRoomItem, binding: ItemRoomBinding) {
-        viewModelRoom.itemListRoom = itemListRoom
+    override fun click3Dot(id: Int, binding: ItemClassBinding) {
         listActionPopup.showPopup(
             binding.iv3dot,
             Utils.actions,
@@ -133,13 +116,18 @@ class RoomExamFragment:AbsBaseFragment<FragmentManagerRoomExamBinding>(),onCLick
                 override fun onItemActionClick(position: Int) {
                     when (position) {
                         0 -> {
-                            viewModelRoom.getItemRoom2(itemListRoom.id)
-
+                            viewModelClass.getItemClass2(id)
+                            viewModelClass.clas2.observe(viewLifecycleOwner) {
+                                Log.d("TAG", "onItemActionClick: ...........")
+                                showButtonSheetAdd(it)
+                            }
                         }
 
                         1 -> {
-                            viewModelRoom.getItemRoom3(itemListRoom.id)
-
+                            viewModelClass.getItemClass2(id)
+                            viewModelClass.clas3.observe(viewLifecycleOwner) {
+                                showButtonSheetUpdate(it)
+                            }
                         }
 
                         else -> {
@@ -147,7 +135,7 @@ class RoomExamFragment:AbsBaseFragment<FragmentManagerRoomExamBinding>(),onCLick
                                 DeleteDialog.create(object : DeleteDialog.IListener {
                                     override fun delete() {
                                         try {
-                                            viewModelRoom.deleteRoom(viewModelRoom.itemRoom.id)
+                                            viewModelClass.deleteClass(viewModelClass.itemClass.id)
                                         } catch (e: Exception) {
                                             Toast.makeText(
                                                 requireContext(),
@@ -166,36 +154,43 @@ class RoomExamFragment:AbsBaseFragment<FragmentManagerRoomExamBinding>(),onCLick
                 }
             })
     }
-    private fun showButtonSheetAdd(Room: RoomItem) {
+    private fun showButtonSheetAdd(Class: ClassItem) {
         val bottomSheetActionDialog =
-            RoomBottomSheetDialogFragment(this, "AddRoom", Room,viewModelRoom.itemListRoom, requireContext())
+            ClassBottomSheetDialogFragment(this, "AddClass", Class, requireContext())
         bottomSheetActionDialog.show(
             requireActivity().supportFragmentManager,
-            RoomBottomSheetDialogFragment.TAG
+            ClassBottomSheetDialogFragment.TAG
         )
     }
-    private fun showButtonSheetUpdate(Room: RoomItem) {
+    private fun showButtonSheetUpdate(Class: ClassItem) {
         val bottomSheetActionDialog =
-            RoomBottomSheetDialogFragment(this, "UpdateRoom", Room,viewModelRoom.itemListRoom, requireContext())
+            ClassBottomSheetDialogFragment(this, "UpdateClass", Class, requireContext())
         bottomSheetActionDialog.show(
             requireActivity().supportFragmentManager,
-            RoomBottomSheetDialogFragment.TAG
+            ClassBottomSheetDialogFragment.TAG
         )
     }
-
-    override fun clickItem(itemListRoom: ListRoomItem, binding: ItemRoomBinding) {
-        viewModelRoom.itemListRoom = itemListRoom
-        viewModelRoom.getItemRoom(itemListRoom.id)
+    override fun clickItem(id: Int, binding: ItemClassBinding) {
+        viewModelClass.getItemClass(id)
+        viewModelClass.clas.observe(this) {
+            val bottomSheetActionDialog =
+                ClassBottomSheetDialogFragment(this, "Class", it, requireContext())
+            SharedPreferenceUtils.getInstance(requireContext()).setObjModel(it)
+            bottomSheetActionDialog.show(
+                requireActivity().supportFragmentManager,
+                StaffBottonSheetDialogFragment.TAG
+            )
+        }
     }
 
-    override fun onClickText(text: String, item: ListRoomItem) {
+    override fun onClickText(text: String, item: ListClassItem) {
         when (text) {
-            "updateRoom" -> {
-                viewModelRoom.updateRoom(viewModelRoom.itemRoom.id, item)
+            "updateClass" -> {
+                viewModelClass.updateClass(viewModelClass.itemClass.id, item)
             }
 
-            "addRoom" -> {
-                viewModelRoom.creatRoom(item)
+            "addClass" -> {
+                viewModelClass.creatClass(item)
             }
         }
     }

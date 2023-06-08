@@ -13,7 +13,6 @@ import com.kma.myapplication.ui.base.AbsBaseActivity
 
 class MainActivity : AbsBaseActivity<ActivityMainBinding>() {
 
-
     override fun getFragmentID(): Int {
         return R.id.navContainerViewMain
     }

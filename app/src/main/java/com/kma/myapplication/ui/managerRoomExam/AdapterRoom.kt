@@ -1,4 +1,4 @@
-package com.kma.myapplication.ui.managerRoomRoom
+package com.kma.myapplication.ui.managerRoomExam
 
 import android.util.Log
 import android.view.LayoutInflater
@@ -63,10 +63,10 @@ class AdapterRoom (var onCLick: onCLickRoom) : RecyclerView.Adapter<RecyclerView
         if (holder is AdapterRoom.ViewHolder) {
             holder.bind(position)
             holder.binding.iv3dot.setOnClickListener {
-                onCLick.click3Dot(data[position].id, holder.binding)
+                onCLick.click3Dot(data[position], holder.binding)
             }
             holder.binding.llClickItem.setOnClickListener {
-                onCLick.clickItem(data[position].id, holder.binding)
+                onCLick.clickItem(data[position], holder.binding)
             }
 
         }
@@ -81,7 +81,7 @@ class AdapterRoom (var onCLick: onCLickRoom) : RecyclerView.Adapter<RecyclerView
 }
 
 interface onCLickRoom {
-    fun click3Dot(id: Int, binding: ItemRoomBinding)
-    fun clickItem(id: Int, binding: ItemRoomBinding)
+    fun click3Dot(itemListRoom: ListRoomItem, binding: ItemRoomBinding)
+    fun clickItem(itemListRoom: ListRoomItem, binding: ItemRoomBinding)
 //    fun clickFullItem(idRoom: Int)
 }

@@ -144,7 +144,7 @@ class MainFragment : AbsBaseFragment<FragmentMainBinding>() {
         (chapterList as ArrayList<String>).add("Nhân viên")
         (chapterList as ArrayList<String>).add("Quản lý giảng dạy")
         (chapterList as ArrayList<String>).add("Đánh giá học phần")
-        (chapterList as ArrayList<String>).add("Luận án/lLuận văn")
+        (chapterList as ArrayList<String>).add("Luận án/Luận văn")
         (chapterList as ArrayList<String>).add("Nghiên cứu khoa học")
         (chapterList as ArrayList<String>).add("Bài báo khoa học")
         (chapterList as ArrayList<String>).add("Sách/giáo trình suất bản")

@@ -1,4 +1,4 @@
-package com.kma.myapplication.ui.managerRoomRoom
+package com.kma.myapplication.ui.managerRoomExam
 
 import android.R
 import android.content.Context
@@ -105,6 +105,7 @@ class RoomBottomSheetDialogFragment(
         val spinner = Spinner(requireContext())
         spinner.id = NEW_SPINNER_ID
         binding.roomModel = itemRoom
+        binding.listRoomModel = itemListRoom
         when (status) {
             "UpdateRoom" -> {
                 binding.clRoomb.visibility = View.VISIBLE

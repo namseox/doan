@@ -1,4 +1,4 @@
-package com.kma.myapplication.ui.managerExam
+package com.kma.myapplication.ui.managerexam
 
 import android.app.Application
 import android.util.Log

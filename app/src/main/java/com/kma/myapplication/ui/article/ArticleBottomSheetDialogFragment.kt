@@ -16,9 +16,12 @@ import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.kma.myapplication.data.model.ArticleItem
+import com.kma.myapplication.data.model.Book
 import com.kma.myapplication.data.model.ListArticleItem
+import com.kma.myapplication.data.model.ListBookItem
 import com.kma.myapplication.data.model.Staff
 import com.kma.myapplication.databinding.FragmentBottomSheetDialogArticleBinding
+import com.kma.myapplication.databinding.FragmentBottomSheetDialogBookBinding
 import com.kma.myapplication.utils.SharedPreferenceUtils
 
 class ArticleBottomSheetDialogFragment(
@@ -58,11 +61,11 @@ class ArticleBottomSheetDialogFragment(
         }
 
 
-        var aa = ArrayAdapter(requireContext(), R.layout.simple_spinner_item, listType)
+        var aa = ArrayAdapter(requireContext(), R.layout.simple_spinner_item, listTypeAricle)
         aa.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         var bb = ArrayAdapter(requireContext(), R.layout.simple_spinner_item, listAuthor)
         bb.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        var cc = ArrayAdapter(requireContext(), R.layout.simple_spinner_item, listTypeAricle)
+        var cc = ArrayAdapter(requireContext(), R.layout.simple_spinner_item, listType)
         cc.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         var positionAuthor = listAuthor.indexOf(itemArticle.users[0].name)
 
@@ -75,7 +78,7 @@ class ArticleBottomSheetDialogFragment(
         }
         with(binding.spTypeb) {
             adapter = aa
-            setSelection(itemArticle.type, false)
+            setSelection(itemArticle.index_article, false)
             onItemSelectedListener = this@ArticleBottomSheetDialogFragment
             prompt = "Chọn tác giả"
             gravity = Gravity.CENTER
@@ -103,7 +106,7 @@ class ArticleBottomSheetDialogFragment(
         }
         with(binding.spTypeArticlescientificb) {
             adapter = cc
-            setSelection(itemArticle.index_article, false)
+            setSelection(itemArticle.type, false)
             onItemSelectedListener = this@ArticleBottomSheetDialogFragment
             prompt = "Chọn tác giả"
             gravity = android.view.Gravity.CENTER
@@ -128,13 +131,13 @@ class ArticleBottomSheetDialogFragment(
             var itemList = ListArticleItem(
                 binding.tvIdArticleb.text.toString(),
                 0,
-                listTypeAricle.indexOf(binding.spTypeArticlescientificb.selectedItem.toString()),
+                listType.indexOf(binding.spTypeArticlescientificb.selectedItem.toString()),
                 binding.tvNameArticleb.text.toString(),
                 1,
                 "1",
                 "1",
                 0,
-                listType.indexOf(binding.spTypeb.selectedItem.toString()),
+                listTypeAricle.indexOf(binding.spTypeb.selectedItem.toString()),
                 1
             )
 
@@ -145,13 +148,13 @@ class ArticleBottomSheetDialogFragment(
             var itemList = ListArticleItem(
                 binding.tvIdArticle.text.toString(),
                 0,
-                listTypeAricle.indexOf(binding.spTypeArticlescientific.selectedItem.toString()),
+                listType.indexOf(binding.spTypeArticlescientific.selectedItem.toString()),
                 binding.tvNameArticle.text.toString(),
                 1,
                 "1",
                 "1",
                 0,
-                listType.indexOf(binding.spType.selectedItem.toString()),
+                listTypeAricle.indexOf(binding.spType.selectedItem.toString()),
                 1
             )
 

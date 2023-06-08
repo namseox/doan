@@ -78,15 +78,15 @@
         android:label="StaffFragment" />
     <fragment
         android:id="@+id/classFragment"
-        android:name="com.kma.myapplication.ui.managerClass.ClassFragment"
+        android:name="com.kma.myapplication.ui.managerclass.ClassFragment"
         android:label="ClassFragment" />
     <fragment
         android:id="@+id/examFragment"
-        android:name="com.kma.myapplication.ui.managerExam.ExamFragment"
+        android:name="com.kma.myapplication.ui.managerexam.ExamFragment"
         android:label="ExamFragment" />
     <fragment
         android:id="@+id/markExamFragment"
-        android:name="com.kma.myapplication.ui.managerMark.MarkExamFragment"
+        android:name="com.kma.myapplication.ui.managermark.MarkExamFragment"
         android:label="MarkExamFragment" />
     <fragment
         android:id="@+id/monotorExamFragment"

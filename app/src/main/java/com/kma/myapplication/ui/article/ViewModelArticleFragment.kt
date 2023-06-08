@@ -58,7 +58,6 @@ class ViewModelArticleFragment(app: Application): ViewModel() {
     }
     fun getItemBook(id:Int){
         viewModelScope.launch {
-            Log.d("TAG", "getItemBook000: "+id)
             itemBook = repository.getItemArtic(id)!!
             article.postValue(itemBook)
             Log.d("TAG", "upData00: "+itemBook)

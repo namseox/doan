@@ -1,4 +1,4 @@
-package com.kma.myapplication.ui.managerMark
+package com.kma.myapplication.ui.managermark
 
 import android.app.Application
 import android.util.Log

@@ -1,4 +1,4 @@
-package com.kma.myapplication.ui.managerClass
+package com.kma.myapplication.ui.managerclass
 
 import android.app.Application
 import android.util.Log

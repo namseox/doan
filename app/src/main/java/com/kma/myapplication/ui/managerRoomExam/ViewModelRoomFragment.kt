@@ -1,4 +1,4 @@
-package com.kma.myapplication.ui.managerRoomRoom
+package com.kma.myapplication.ui.managerRoomExam
 
 import android.app.Application
 import android.util.Log
@@ -19,6 +19,7 @@ class ViewModelRoomFragment(app: Application): ViewModel() {
     var value_creat = MutableLiveData<ListRoomItem>()
     var value_updtae = MutableLiveData<ListRoomItem>()
     lateinit var itemRoom : RoomItem
+    lateinit var itemListRoom : ListRoomItem
     var Room = MutableLiveData<RoomItem>()
     var Room2 = MutableLiveData<RoomItem>()
     var Room3 = MutableLiveData<RoomItem>()

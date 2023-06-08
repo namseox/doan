@@ -1,24 +1,22 @@
-package com.kma.myapplication.ui.managerClass
+package com.kma.myapplication.ui.managermark
 
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.kma.myapplication.data.model.ClassItem
-import com.kma.myapplication.data.model.ListClassItem
-import com.kma.myapplication.databinding.ItemClassBinding
+import com.kma.myapplication.data.model.MarkItem
+import com.kma.myapplication.data.model.ListMarkItem
+import com.kma.myapplication.databinding.ItemMarkBinding
 
-
-
-class AdapterClass (var onCLick: onCLickClass) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
-    var data = mutableListOf<ListClassItem>()
-    fun getData(listClass: List<ListClassItem>) {
+class AdapterMark(var onCLick: onCLickMark) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+    var data = mutableListOf<ListMarkItem>()
+    fun getData(listMark: List<ListMarkItem>) {
         data.clear()
-        data.addAll(listClass)
+        data.addAll(listMark)
         notifyDataSetChanged()
     }
 
-    fun updateClass(item : ListClassItem) {
+    fun updateMark(item : ListMarkItem) {
         var position = -1
         var j = 0
         for (i in data){
@@ -28,13 +26,13 @@ class AdapterClass (var onCLick: onCLickClass) : RecyclerView.Adapter<RecyclerVi
             }
             j++
         }
-        Log.d("TAG", "updateClass000: "+position)
+        Log.d("TAG", "updateMark000: "+position)
         data[position]=item
         notifyItemChanged(position)
 //        notifyDataSetChanged()
     }
 
-    fun deleteClass(item: ClassItem) {
+    fun deleteMark(item: MarkItem) {
         var position = -1
         var j = 0
         for (i in data){
@@ -49,20 +47,20 @@ class AdapterClass (var onCLick: onCLickClass) : RecyclerView.Adapter<RecyclerVi
 //        notifyDataSetChanged()
     }
 
-    fun creatClass(item: ListClassItem) {
+    fun creatMark(item: ListMarkItem) {
         data.add(0,item)
         notifyDataSetChanged()
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
-        val binding = ItemClassBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        val binding = ItemMarkBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return ViewHolder(binding)
     }
 
     override fun getItemCount(): Int = data.size
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-        if (holder is AdapterClass.ViewHolder) {
+        if (holder is AdapterMark.ViewHolder) {
             holder.bind(position)
             holder.binding.iv3dot.setOnClickListener {
                 onCLick.click3Dot(data[position].id, holder.binding)
@@ -74,16 +72,16 @@ class AdapterClass (var onCLick: onCLickClass) : RecyclerView.Adapter<RecyclerVi
         }
     }
 
-    inner class ViewHolder(val binding: ItemClassBinding) : RecyclerView.ViewHolder(binding.root) {
+    inner class ViewHolder(val binding: ItemMarkBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(position: Int) {
-            binding.classModel = data[position]
+            binding.markModel = data[position]
             binding.tvStt.text = (position + 1).toString()
         }
     }
 }
 
-interface onCLickClass {
-    fun click3Dot(id: Int, binding: ItemClassBinding)
-    fun clickItem(id: Int, binding: ItemClassBinding)
-//    fun clickFullItem(idClass: Int)
+interface onCLickMark {
+    fun click3Dot(id: Int, binding: ItemMarkBinding)
+    fun clickItem(id: Int, binding: ItemMarkBinding)
+//    fun clickFullItem(idMark: Int)
 }
