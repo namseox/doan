@@ -12,9 +12,13 @@ import retrofit2.http.Path
 
 interface StaffApi {
     @GET("/user?search=&sort=desc&sortColumn=")
-    suspend fun getStaff(
+    suspend fun getListStaff(
     ): List<StaffItem>
-
+    @GET("/user/{id}")
+    suspend fun getStaff(
+        @Path("id") id: Int,
+        @Body year_id :Int
+    ): UserX
 
     @DELETE("/user/{id}")
     suspend fun deleteStaff(@Path("id") i: Int): Int
@@ -24,17 +28,6 @@ interface StaffApi {
     @POST("/user")
     suspend fun creatStaff(
     @Body userX: UserX
-//        @Part("department_id") id: Int,
-//        @Part("name") name: String,
-//        @Part("email") email: String,
-//        @Part("password") password: String,
-//        @Part("code") code: String,
-//        @Part("birthday") birthday: Date,
-//        @Part("position") position: String,
-//        @Part("degree") degree: String,
-//        @Part("number_salary") number_salary: Int,
-//        @Part("income") income: Int,
-//        @Part("avatar") avatar: String
     ):CreateUser
 
     @PUT("/user/{id}")

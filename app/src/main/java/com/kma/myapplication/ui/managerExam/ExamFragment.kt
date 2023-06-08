@@ -104,6 +104,22 @@ class ExamFragment:AbsBaseFragment<FragmentManagerExamBinding>(),onCLickExam,onC
                 .show()
 
         }
+        viewModelExam.exam2.observe(viewLifecycleOwner) {
+            Log.d("TAG", "onItemActionClick: ...........")
+            showButtonSheetAdd(it)
+        }
+        viewModelExam.exam3.observe(viewLifecycleOwner) {
+            showButtonSheetUpdate(it)
+        }
+        viewModelExam.exam.observe(this) {
+            val bottomSheetActionDialog =
+                ExamBottomSheetDialogFragment(this, "Exam", it, requireContext())
+            SharedPreferenceUtils.getInstance(requireContext()).setObjModel(it)
+            bottomSheetActionDialog.show(
+                requireActivity().supportFragmentManager,
+                StaffBottonSheetDialogFragment.TAG
+            )
+        }
     }
     private fun setAudioRecycleView() {
         adapterExam.getData(listExam)
@@ -121,18 +137,13 @@ class ExamFragment:AbsBaseFragment<FragmentManagerExamBinding>(),onCLickExam,onC
                 override fun onItemActionClick(position: Int) {
                     when (position) {
                         0 -> {
-                            viewModelExam.getItemExam(id)
-                            viewModelExam.exam2.observe(viewLifecycleOwner) {
-                                Log.d("TAG", "onItemActionClick: ...........")
-                                showButtonSheetAdd(it)
-                            }
+                            viewModelExam.getItemExam2(id)
+
                         }
 
                         1 -> {
-                            viewModelExam.getItemExam2(id)
-                            viewModelExam.exam3.observe(viewLifecycleOwner) {
-                                showButtonSheetUpdate(it)
-                            }
+                            viewModelExam.getItemExam3(id)
+
                         }
 
                         else -> {
@@ -177,15 +188,7 @@ class ExamFragment:AbsBaseFragment<FragmentManagerExamBinding>(),onCLickExam,onC
     }
     override fun clickItem(id: Int, binding: ItemExamBinding) {
         viewModelExam.getItemExam(id)
-        viewModelExam.exam.observe(this) {
-            val bottomSheetActionDialog =
-                ExamBottomSheetDialogFragment(this, "Exam", it, requireContext())
-            SharedPreferenceUtils.getInstance(requireContext()).setObjModel(it)
-            bottomSheetActionDialog.show(
-                requireActivity().supportFragmentManager,
-                StaffBottonSheetDialogFragment.TAG
-            )
-        }
+
     }
 
     override fun onClickText(text: String, item: ListExamItem) {

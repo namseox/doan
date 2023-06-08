@@ -18,7 +18,6 @@ import com.kma.myapplication.data.model.ListBookItem
 import com.kma.myapplication.databinding.FragmentBookBinding
 import com.kma.myapplication.databinding.ItemBookBinding
 import com.kma.myapplication.ui.base.AbsBaseFragment
-import com.kma.myapplication.ui.staff.StaffBottonSheetDialogFragment
 import com.kma.myapplication.ui.dialog.DeleteDialog
 import com.kma.myapplication.utils.SharedPreferenceUtils
 import com.kma.myapplication.utils.Utils.actions
@@ -104,6 +103,22 @@ class BookFragment : AbsBaseFragment<FragmentBookBinding>(), onCLickBook, onClic
                         .show()
 
         }
+        viewModelBook.book.observe(this) {
+            val bottomSheetActionDialog =
+                BookBottonSheetDialogFragment(this, "Book", it, requireContext())
+            SharedPreferenceUtils.getInstance(requireContext()).setObjModel(it)
+            bottomSheetActionDialog.show(
+                requireActivity().supportFragmentManager,
+                BookBottonSheetDialogFragment.TAG
+            )
+        }
+        viewModelBook.book2.observe(viewLifecycleOwner) {
+            Log.d("TAG", "onItemActionClick: ...........")
+            showButtonSheetAdd(it)
+        }
+        viewModelBook.book3.observe(viewLifecycleOwner) {
+            showButtonSheetUpdate(it)
+        }
     }
 
     private fun setAudioRecycleView() {
@@ -123,17 +138,11 @@ class BookFragment : AbsBaseFragment<FragmentBookBinding>(), onCLickBook, onClic
                         when (position) {
                             0 -> {
                                 viewModelBook.getItemBook2(idBook)
-                                viewModelBook.book2.observe(viewLifecycleOwner) {
-                                    Log.d("TAG", "onItemActionClick: ...........")
-                                    showButtonSheetAdd(it)
-                                }
                             }
 
                             1 -> {
                                 viewModelBook.getItemBook3(idBook)
-                                viewModelBook.book3.observe(viewLifecycleOwner) {
-                                    showButtonSheetUpdate(it)
-                                }
+
                             }
 
                             else -> {
@@ -182,15 +191,7 @@ class BookFragment : AbsBaseFragment<FragmentBookBinding>(), onCLickBook, onClic
 
     override fun clickItem(idBook: Int, binding: ItemBookBinding) {
         viewModelBook.getItemBook(idBook)
-        viewModelBook.book.observe(this) {
-            val bottomSheetActionDialog =
-                BookBottonSheetDialogFragment(this, "Book", it, requireContext())
-            SharedPreferenceUtils.getInstance(requireContext()).setObjModel(it)
-            bottomSheetActionDialog.show(
-                requireActivity().supportFragmentManager,
-                StaffBottonSheetDialogFragment.TAG
-            )
-        }
+
     }
 
     override fun onClickText(text: String, bookItem: ListBookItem) {

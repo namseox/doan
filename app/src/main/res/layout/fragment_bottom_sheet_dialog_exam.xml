@@ -6,10 +6,6 @@
             name="examModel"
             type="com.kma.myapplication.data.model.ExamItem"
             />
-        <variable
-            name="listExamModel"
-            type="com.kma.myapplication.data.model.ListExamItem"
-            />
         <import type="android.view.View" />
     </data>
 
@@ -27,7 +23,7 @@
                 android:id="@+id/cl_Exam"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:visibility="gone">
+                android:visibility="visible">
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/tv_title"
@@ -259,6 +255,26 @@
                         android:singleLine="true"
                         android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
                 </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/ll_9"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginTop="@dimen/dp_32"
+                    android:layout_marginEnd="12dp"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/ll_8">
+
+                    <Button
+                        android:id="@+id/btn_add"
+                        style="@style/Widget.Material3.Button.ElevatedButton"
+                        android:layout_width="124dp"
+                        android:layout_height="48dp"
+                        android:text="Thêm"
+                        android:textSize="@dimen/dp_16" />
+                </LinearLayout>
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -364,7 +380,7 @@
                         android:layout_gravity="center"
                         android:ellipsize="middle"
                         android:singleLine="true"
-                        android:text="@{listExamModel.users.name}"
+                        android:text="@{examModel.user.name}"
                         android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
                 </LinearLayout>
                 <LinearLayout
@@ -744,6 +760,26 @@
                         android:ellipsize="middle"
                         android:singleLine="true"
                         android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
+                </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/ll_9b"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginTop="@dimen/dp_32"
+                    android:layout_marginEnd="12dp"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/ll_8b">
+
+                    <Button
+                        android:id="@+id/btn_update"
+                        style="@style/Widget.Material3.Button.ElevatedButton"
+                        android:layout_width="124dp"
+                        android:layout_height="48dp"
+                        android:text="Cập nhật"
+                        android:textSize="@dimen/dp_16" />
                 </LinearLayout>
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>

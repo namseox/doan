@@ -6,7 +6,7 @@
 
         <variable
             name="staffModel"
-            type="com.kma.myapplication.data.model.StaffItem" />
+            type="com.kma.myapplication.data.model.UserX" />
 
         <import type="android.view.View" />
     </data>

@@ -11,7 +11,7 @@ import retrofit2.http.Path
 
 interface RoomApi {
     @GET("/room")
-    suspend fun getListListRoom(
+    suspend fun getListRoom(
     ): List<ListRoomItem>
 
     @GET("/room/{id}")
@@ -21,12 +21,12 @@ interface RoomApi {
     suspend fun deleteRoom(@Path("id") i: Int): Int
 
     @POST("/room")
-    suspend fun creatMark(
+    suspend fun creatRoom(
         @Body itemRoom: ListRoomItem
     ): ListRoomItem
 
     @PUT("/room/{id}")
-    suspend fun updateMark(
+    suspend fun updateRoom(
         @Path("id") i: Int,
         @Body itemRoom: ListRoomItem
     ): ListRoomItem

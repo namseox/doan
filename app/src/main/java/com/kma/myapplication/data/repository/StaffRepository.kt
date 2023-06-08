@@ -13,7 +13,15 @@ class StaffRepository(val context: Context) {
     private var apiHelper = ApiHelper.getInstance(context)
     suspend fun getListStaff(): List<StaffItem>? = withContext(Dispatchers.Default){
         try {
-            apiHelper.staffApi.getStaff()
+            apiHelper.staffApi.getListStaff()
+        }catch (e: Exception){
+            Log.d("TAG", "getListStaff: "+e)
+            null
+        }
+    }
+    suspend fun getStaff(id:Int,year_id:Int): UserX? = withContext(Dispatchers.Default){
+        try {
+            apiHelper.staffApi.getStaff(id,year_id)
         }catch (e: Exception){
             Log.d("TAG", "getListStaff: "+e)
             null

@@ -16,12 +16,9 @@ import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.kma.myapplication.data.model.ArticleItem
-import com.kma.myapplication.data.model.Book
 import com.kma.myapplication.data.model.ListArticleItem
-import com.kma.myapplication.data.model.ListBookItem
 import com.kma.myapplication.data.model.Staff
 import com.kma.myapplication.databinding.FragmentBottomSheetDialogArticleBinding
-import com.kma.myapplication.databinding.FragmentBottomSheetDialogBookBinding
 import com.kma.myapplication.utils.SharedPreferenceUtils
 
 class ArticleBottomSheetDialogFragment(

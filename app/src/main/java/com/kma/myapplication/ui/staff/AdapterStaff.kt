@@ -59,10 +59,10 @@ class AdapterStaff(var onCLick: onCLick) : RecyclerView.Adapter<RecyclerView.Vie
         if (holder is ViewHolder) {
             holder.bind(position)
             holder.binding.iv3dot.setOnClickListener {
-                onCLick.click3Dot(data[position], holder.binding)
+                onCLick.click3Dot(data[position], holder.binding,0)
             }
             holder.binding.clStaff.setOnClickListener {
-                onCLick.clickItem(data[position], holder.binding)
+                onCLick.clickItem(data[position], holder.binding,0)
             }
         }
     }
@@ -76,6 +76,6 @@ class AdapterStaff(var onCLick: onCLick) : RecyclerView.Adapter<RecyclerView.Vie
 }
 
 interface onCLick {
-    fun click3Dot(staff: StaffItem, binding: ItemStaffBinding)
-    fun clickItem(staff: StaffItem, binding: ItemStaffBinding)
+    fun click3Dot(staff: StaffItem, binding: ItemStaffBinding,year_id: Int)
+    fun clickItem(staff: StaffItem, binding: ItemStaffBinding,year_id:Int)
 }

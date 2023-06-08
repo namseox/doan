@@ -11,7 +11,7 @@ import retrofit2.http.Path
 
 interface MarkApi {
     @GET("/mark")
-    suspend fun getListListMark(
+    suspend fun getListMark(
     ): List<ListMarkItem>
 
     @GET("/mark/{id}")

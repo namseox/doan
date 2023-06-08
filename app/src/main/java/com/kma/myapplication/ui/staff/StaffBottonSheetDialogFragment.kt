@@ -23,7 +23,7 @@ import com.kma.myapplication.databinding.FragmentBottomSheetDialogStaffBinding
 class StaffBottonSheetDialogFragment(
     var onClick: onClickBottomSheet,
     var status: String,
-    var staff: StaffItem
+    var staff: UserX
 ) :
     BottomSheetDialogFragment(), AdapterView.OnItemSelectedListener {
     lateinit var binding: FragmentBottomSheetDialogStaffBinding
@@ -106,8 +106,6 @@ class StaffBottonSheetDialogFragment(
                 "11/11/2000",
                 binding.tvIdStaff.text.toString(),
                 "",
-                "",
-                "",
                 binding.spDepartment.selectedItem.toString().toInt(),
                 binding.tvEmailStaff.text.toString(),
                 0,
@@ -118,8 +116,7 @@ class StaffBottonSheetDialogFragment(
                 binding.spPositionStaff.selectedItem.toString(),
                 "",
                 0,
-                0,
-                ""
+                0
             )
             onClick.onClickText("updateStaff", staff)
             destroy()
@@ -129,8 +126,6 @@ class StaffBottonSheetDialogFragment(
                 "",
                 "11/11/2000",
                 binding.tvIdStaffb.text.toString(),
-                "",
-                "",
                 "",
                 binding.spDepartmentb.selectedItem.toString().toInt(),
                 binding.tvEmailStaffb.text.toString(),
@@ -142,8 +137,7 @@ class StaffBottonSheetDialogFragment(
                 binding.spPositionStaffb.selectedItem.toString(),
                 "",
                 0,
-                0,
-                ""
+                0
             )
             onClick.onClickText("addStaff", staff)
             destroy()
