@@ -14,8 +14,6 @@ data class UserX(
     val password: String="1",
     val position: String,
     val salt: String,
-    val time_per_year: Int,
-    val time_reserve: Int,
     val timeScient: Int=0,
     val timeTeach: Int=0,
     val departmentName: String="",

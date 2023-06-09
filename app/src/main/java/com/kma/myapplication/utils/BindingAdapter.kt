@@ -99,4 +99,24 @@ fun TextView.setTypeArticle(type: Int){
             else->{"Tạp chí trong nước có chỉ số ISSN"}
         }
 }
+@BindingAdapter("setDepartmenStaff")
+fun TextView.setDepartmenStaff(type: Int){
+    this.text =
+        when(type){
+            0 ->{"Khoa điện tử viễn thông"}
+            1->{"Khoa mật mã"}
+            2->{"Phòng đào tạo"}
+            3->{"Khoa an toàn thông tin"}
+            else->{"Khoa công nghệ thông tin"}
+
+        }
+}@BindingAdapter("setPositionStaff")
+fun TextView.setPositionStaff(type: String){
+    this.text =
+        when(type){
+            "0" ->{"Trưởng khoa"}
+            "1"->{"Phó khoa"}
+            else->{"Giảng viên"}
+        }
+}
 

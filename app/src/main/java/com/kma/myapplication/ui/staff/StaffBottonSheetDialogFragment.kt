@@ -27,7 +27,7 @@ class StaffBottonSheetDialogFragment(
 ) :
     BottomSheetDialogFragment(), AdapterView.OnItemSelectedListener {
     lateinit var binding: FragmentBottomSheetDialogStaffBinding
-    var departmet_it = arrayOf("1", "2", "3", "4", "5", "6")
+    var departmet_it = arrayOf("Khoa điện tử viễn thông","Khoa mật mã","Phòng đào tạo","Khoa an toàn thông tin","Khoa công nghệ thông tin")
     var position_staff = arrayOf("Trưởng khoa","Phó khoa","Giảng viên")
     val NEW_SPINNER_ID = 1
 
@@ -84,7 +84,6 @@ class StaffBottonSheetDialogFragment(
         spinner.id = NEW_SPINNER_ID
         when (status) {
             "UpdateStaff" -> {
-
                 binding.clStaff.visibility = VISIBLE
 
             }
@@ -106,14 +105,14 @@ class StaffBottonSheetDialogFragment(
                 "11/11/2000",
                 binding.tvIdStaff.text.toString(),
                 "",
-                binding.spDepartment.selectedItem.toString().toInt(),
+                departmet_it.indexOf(binding.spDepartment.selectedItem.toString()),
                 binding.tvEmailStaff.text.toString(),
                 0,
                 binding.tvSalaryStaff.text.toString().toInt(),
                 binding.tvNameStaff.text.toString(),
                 binding.tvStepSalary.text.toString().toInt(),
                 "1",
-                binding.spPositionStaff.selectedItem.toString(),
+                position_staff.indexOf(binding.spPositionStaff.selectedItem.toString()).toString(),
                 "",
                 0,
                 0
@@ -127,14 +126,14 @@ class StaffBottonSheetDialogFragment(
                 "11/11/2000",
                 binding.tvIdStaffb.text.toString(),
                 "",
-                binding.spDepartmentb.selectedItem.toString().toInt(),
+                departmet_it.indexOf(binding.spDepartment.selectedItem.toString()),
                 binding.tvEmailStaffb.text.toString(),
                 0,
                 binding.tvSalaryStaffb.text.toString().toInt(),
                 binding.tvNameStaffb.text.toString(),
                 binding.tvStepSalaryb.text.toString().toInt(),
                 "1",
-                binding.spPositionStaffb.selectedItem.toString(),
+                position_staff.indexOf(binding.spPositionStaff.selectedItem.toString()).toString(),
                 "",
                 0,
                 0
