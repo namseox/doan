@@ -33,7 +33,7 @@ fun TextView.setTimeCreatBook(time:Int){
 }
 @BindingAdapter("setTimeStartClass")
 fun TextView.setTimeStartClass(time:String){
-    this.text = "Thời gian bắt đầu: " +time
+    this.text = "Thời gian bắt đầu: " +time.substring(0,10)
 }
 @BindingAdapter("setTextIDStaff")
 fun TextView.setTextIDStaff(id:Int){

@@ -17,14 +17,13 @@
         app:strokeColor="#1F50EC"
         app:strokeWidth="0.75dp"
         android:layoutAnimation="@anim/layout_animation"
-
+        android:elevation="@dimen/dp_24"
         android:layout_marginTop="@dimen/dp_4"
         android:layout_marginBottom="@dimen/dp_4">
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/clBook"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/bg_edittext_login"
             android:layout_marginTop="@dimen/dp_4"
             android:layout_marginBottom="@dimen/dp_4"
             android:foreground="?attr/selectableItemBackground"
