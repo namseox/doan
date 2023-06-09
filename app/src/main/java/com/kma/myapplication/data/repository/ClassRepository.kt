@@ -4,6 +4,7 @@ import android.content.Context
 import android.util.Log
 import com.kma.myapplication.data.api.retrofit.apihelper.ApiHelper
 import com.kma.myapplication.data.model.ClassItem
+import com.kma.myapplication.data.model.DashboardClass
 import com.kma.myapplication.data.model.ListArticleItem
 import com.kma.myapplication.data.model.ListClassItem
 import kotlinx.coroutines.Dispatchers
@@ -14,6 +15,15 @@ class ClassRepository (val context: Context) {
     suspend fun getListClass(): List<ListClassItem>? = withContext(Dispatchers.Default) {
         try {
             apiHelper.classApi.getListClass()
+
+        }catch (ex: Exception){
+            Log.d("TAG", "getListBook: "+ex)
+            null
+        }
+    }
+    suspend fun getListDashboardClass(year_id :Int,user_id :Int): List<DashboardClass>? = withContext(Dispatchers.Default) {
+        try {
+            apiHelper.classApi.getListDashboardClass(year_id,user_id)
 
         }catch (ex: Exception){
             Log.d("TAG", "getListBook: "+ex)

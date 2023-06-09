@@ -9,6 +9,7 @@ import com.hola360.m3uplayer.data.response.DataResponse
 import com.hola360.m3uplayer.data.response.LoadingStatus
 
 import com.kma.myapplication.data.model.ClassItem
+import com.kma.myapplication.data.model.DashboardClass
 
 import com.kma.myapplication.data.model.ListClassItem
 import com.kma.myapplication.data.repository.ClassRepository
@@ -38,6 +39,7 @@ class ViewModelClassFragment(app: Application): ViewModel() {
 
         }
     }
+
 
     fun deleteClass(id: Int){
         viewModelScope.launch {

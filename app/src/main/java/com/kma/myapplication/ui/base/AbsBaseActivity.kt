@@ -20,8 +20,10 @@ abstract class AbsBaseActivity<V : ViewDataBinding> : AppCompatActivity() {
             supportFragmentManager.findFragmentById(getFragmentID()) as NavHostFragment
         navController = navHostFragment.navController
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+        init()
     }
 
     abstract fun getFragmentID(): Int
     abstract fun getLayoutId(): Int
+    abstract fun init()
 }

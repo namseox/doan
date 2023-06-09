@@ -1,36 +1,87 @@
 package com.kma.myapplication.ui.main
 
-import android.app.Application
+import android.os.Handler
+import android.os.Looper
+import android.util.Log
+import android.view.Gravity
+import android.view.View
+import android.widget.AdapterView
+import android.widget.ArrayAdapter
 import android.widget.ExpandableListView
-import android.widget.TextView
-import androidx.fragment.app.Fragment
-import androidx.navigation.Navigation.findNavController
+import android.widget.Toast
+import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.hola360.m3uplayer.data.response.DataResponse
+import com.hola360.m3uplayer.data.response.LoadingStatus
 
 import com.kma.myapplication.R
+import com.kma.myapplication.data.model.DashboardClass
+import com.kma.myapplication.data.model.ListBookItem
+import com.kma.myapplication.data.model.ListClassItem
+import com.kma.myapplication.data.model.TopicItemMainItem
+import com.kma.myapplication.data.model.Year
 import com.kma.myapplication.databinding.FragmentMainBinding
-import com.kma.myapplication.ui.ExpandabletListView.Adapter
+import com.kma.myapplication.ui.expandabletlistview.Adapter
 import com.kma.myapplication.ui.base.AbsBaseFragment
-import com.kma.myapplication.ui.splash.ConfirmFragment
-import com.kma.myapplication.ui.splash.onClick
-import com.kma.myapplication.utils.SharedPreferenceUtils
+import com.kma.myapplication.ui.managerclass.AdapterClass
+import com.kma.myapplication.utils.SharedViewModel
 import com.kma.myapplication.utils.Utils.hideKeyboard
 
-class MainFragment : AbsBaseFragment<FragmentMainBinding>() {
+class MainFragment : AbsBaseFragment<FragmentMainBinding>(), AdapterView.OnItemSelectedListener {
     private lateinit var listViewAdapter: Adapter
     private lateinit var chapterList: List<String>
     private lateinit var topicList: HashMap<String, List<String>>
+    private lateinit var sharedViewModel: SharedViewModel
+    private lateinit var viewModelMainFragment: ViewModelMainFragment
+    private lateinit var adapter: AdapterDashbroadClass
+    private lateinit var adapter2: AdapterlistTopicItemMainItem
+    var listDashboardClass = listOf<DashboardClass>()
+    var listTopicItemMainItem = listOf<TopicItemMainItem>()
+    var id_year = 0
+    var listYear2 = listOf<Year>()
+
+
     override fun getLayout(): Int {
         return R.layout.fragment_main
     }
 
     override fun initView() {
+        viewModelMainFragment = ViewModelMainFragment(requireContext())
+        sharedViewModel = SharedViewModel.getInstance(requireContext())
+        sharedViewModel.getListYear()
+        var listYear = arrayListOf<String>()
+        SharedViewModel.getInstance(requireContext()).listYear.observe(this) {
+            it?.let {
+                listYear2 = it
+                id_year = it[0].id
+                for (i in it) {
+                    listYear.add(i.name)
+                }
+                sharedViewModel.arrayYear = listYear
+                var aa = ArrayAdapter(
+                    requireContext(),
+                    android.R.layout.simple_spinner_item,
+                    sharedViewModel.arrayYear
+                )
+                aa.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+                with(binding.spYear) {
+                    adapter = aa
+                    setSelection(0, false)
+                    onItemSelectedListener = this@MainFragment
+                    prompt = "Select your favourite language"
+                    gravity = android.view.Gravity.CENTER
+                }
+            }
+        }
         show()
+        runView()
         binding.topAppBar.setNavigationOnClickListener {
             it.hideKeyboard()
             binding.drawerlayout.open()
         }
-
 
 
         var idELV = binding.root.findViewById<ExpandableListView>(R.id.ELVMain)
@@ -52,31 +103,36 @@ class MainFragment : AbsBaseFragment<FragmentMainBinding>() {
                         parent.setOnChildClickListener { parent, _, groupPosition, childPosition, _ ->
                             when (childPosition) {
                                 0 -> {
-                                    val action = MainFragmentDirections.actionMainFragmentToSubjectFragment()
+                                    val action =
+                                        MainFragmentDirections.actionMainFragmentToSubjectFragment()
                                     findNavController().navigate(action)
                                     binding.drawerlayout.close()
                                 }
 
                                 1 -> {
-                                    val action = MainFragmentDirections.actionMainFragmentToClassFragment()
+                                    val action =
+                                        MainFragmentDirections.actionMainFragmentToClassFragment()
                                     findNavController().navigate(action)
                                     binding.drawerlayout.close()
                                 }
 
                                 2 -> {
-                                    val action = MainFragmentDirections.actionMainFragmentToExamFragment()
+                                    val action =
+                                        MainFragmentDirections.actionMainFragmentToExamFragment()
                                     findNavController().navigate(action)
                                     binding.drawerlayout.close()
                                 }
 
                                 3 -> {
-                                    val action = MainFragmentDirections.actionMainFragmentToMonotorExamFragment()
+                                    val action =
+                                        MainFragmentDirections.actionMainFragmentToMonotorExamFragment()
                                     findNavController().navigate(action)
                                     binding.drawerlayout.close()
                                 }
 
                                 4 -> {
-                                    val action = MainFragmentDirections.actionMainFragmentToMarkExamFragment()
+                                    val action =
+                                        MainFragmentDirections.actionMainFragmentToMarkExamFragment()
                                     findNavController().navigate(action)
                                     binding.drawerlayout.close()
                                 }
@@ -101,13 +157,15 @@ class MainFragment : AbsBaseFragment<FragmentMainBinding>() {
                 }
 
                 4 -> {
-                    val action = MainFragmentDirections.actionMainFragmentToScientificResearchFragment()
+                    val action =
+                        MainFragmentDirections.actionMainFragmentToScientificResearchFragment()
                     findNavController().navigate(action)
                     binding.drawerlayout.close()
                 }
 
                 5 -> {
-                    val action = MainFragmentDirections.actionMainFragmentToScientificArticleFragment()
+                    val action =
+                        MainFragmentDirections.actionMainFragmentToScientificArticleFragment()
                     findNavController().navigate(action)
                     binding.drawerlayout.close()
                 }
@@ -123,11 +181,14 @@ class MainFragment : AbsBaseFragment<FragmentMainBinding>() {
                     findNavController().navigate(action)
                     binding.drawerlayout.close()
                 }
+
                 8 -> {
-                    val action = MainFragmentDirections.actionMainFragmentToEducationProgramFragment()
+                    val action =
+                        MainFragmentDirections.actionMainFragmentToEducationProgramFragment()
                     findNavController().navigate(action)
                     binding.drawerlayout.close()
                 }
+
                 else -> {
                     binding.drawerlayout.close()
                 }
@@ -136,7 +197,47 @@ class MainFragment : AbsBaseFragment<FragmentMainBinding>() {
         }
     }
 
+    private fun runView() {
+        adapter = AdapterDashbroadClass()
+        adapter2 = AdapterlistTopicItemMainItem()
+//        adapterClass = AdapterClass(this)//
+//        adapterClass = AdapterClass(this)
+        upData()
+    }
 
+    private fun upData() {
+        viewModelMainFragment.getListDashboardClass(id_year, sharedViewModel.user.user.id)
+        viewModelMainFragment.getListTopicItemMainItem(sharedViewModel.user.user.id)
+        viewModelMainFragment.listDashboardClassItem.observe(this) {
+            it?.let {
+                listDashboardClass = it as List<DashboardClass>
+                Log.d("TAG", "upData:,,, " + listDashboardClass)
+                setAudioRecycleView1()
+            }
+        }
+        viewModelMainFragment.listTopicItemMainItem.observe(this) {
+            it?.let {
+                listTopicItemMainItem = it as List<TopicItemMainItem>
+                Log.d("TAG", "upData:,,,listTopicItemMainItem " + listTopicItemMainItem)
+                setAudioRecycleView2()
+            }
+        }
+    }
+
+    private fun setAudioRecycleView1() {
+        adapter.getValueData(listDashboardClass)
+
+        binding.rcv1.adapter = adapter
+        var manager = GridLayoutManager(requireContext(), 1, RecyclerView.VERTICAL, false)
+        binding.rcv1.layoutManager = manager
+    }
+
+    private fun setAudioRecycleView2() {
+        adapter2.getValueData(listTopicItemMainItem)
+        binding.rcv2.adapter = adapter2
+        var manager = GridLayoutManager(requireContext(), 1, RecyclerView.VERTICAL, false)
+        binding.rcv2.layoutManager = manager
+    }
 
     private fun show() {
         chapterList = ArrayList()
@@ -160,6 +261,15 @@ class MainFragment : AbsBaseFragment<FragmentMainBinding>() {
 
         topicList[chapterList[1]] = topic2
 
+    }
+
+    override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+        id_year = listYear2[position].id
+        viewModelMainFragment.getListDashboardClass(id_year, sharedViewModel.user.user.id)
+    }
+
+    override fun onNothingSelected(parent: AdapterView<*>?) {
+        Toast.makeText(requireContext(), "ko chon gi", Toast.LENGTH_SHORT)
     }
 
 

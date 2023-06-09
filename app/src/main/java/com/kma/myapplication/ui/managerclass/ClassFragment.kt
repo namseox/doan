@@ -35,7 +35,6 @@ class ClassFragment:AbsBaseFragment<FragmentManagerClassBinding>(),onCLickClass,
 
     override fun initView() {
         viewModelClass = ViewModelClassFragment(Application())
-
         handler.postDelayed(runnable, 1000)
         binding.toolbar.setOnClickListener {
             findNavController().navigateUp()

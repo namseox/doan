@@ -8,4 +8,7 @@ class SplashActivity: AbsBaseActivity<ActivitySplashBinding>() {
     override fun getFragmentID(): Int = R.id.navContainerViewSplash
 
     override fun getLayoutId(): Int = R.layout.activity_splash
+    override fun init() {
+
+    }
 }
