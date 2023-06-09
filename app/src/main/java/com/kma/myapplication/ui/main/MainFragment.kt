@@ -45,6 +45,7 @@ class MainFragment : AbsBaseFragment<FragmentMainBinding>(), AdapterView.OnItemS
     var listArticle = listOf<ListArticleItem>()
     var id_year = 0
     var listYear2 = listOf<Year>()
+    val handler = Handler(Looper.myLooper()!!)
 
 
     override fun getLayout(): Int {
@@ -52,9 +53,20 @@ class MainFragment : AbsBaseFragment<FragmentMainBinding>(), AdapterView.OnItemS
     }
 
     override fun initView() {
+        handler.postDelayed(runnable, 1000)
         viewModelMainFragment = ViewModelMainFragment(requireContext())
         sharedViewModel = SharedViewModel.getInstance(requireContext())
         sharedViewModel.getListYear()
+
+    }
+
+    private val runnable = Runnable {
+        loadExpandableListView()
+        showExpandableListView()
+        runView()
+    }
+
+    private fun showExpandableListView() {
         var listYear = arrayListOf<String>()
         SharedViewModel.getInstance(requireContext()).listYear.observe(this) {
             it?.let {
@@ -80,8 +92,7 @@ class MainFragment : AbsBaseFragment<FragmentMainBinding>(), AdapterView.OnItemS
                 }
             }
         }
-        show()
-        runView()
+
         binding.topAppBar.setNavigationOnClickListener {
             it.hideKeyboard()
             binding.drawerlayout.open()
@@ -234,6 +245,7 @@ class MainFragment : AbsBaseFragment<FragmentMainBinding>(), AdapterView.OnItemS
                 setAudioRecycleView3()
             }
         }
+        binding.cpiLoading.visibility = View.GONE
     }
 
     private fun setAudioRecycleView1() {
@@ -258,7 +270,7 @@ class MainFragment : AbsBaseFragment<FragmentMainBinding>(), AdapterView.OnItemS
         binding.rcv3.layoutManager = manager
     }
 
-    private fun show() {
+    private fun loadExpandableListView() {
         chapterList = ArrayList()
         topicList = HashMap()
         (chapterList as ArrayList<String>).add("Nhân viên")
@@ -283,7 +295,7 @@ class MainFragment : AbsBaseFragment<FragmentMainBinding>(), AdapterView.OnItemS
     }
 
     override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
-        Log.d("TAG", "onItemSelected:00 "+listYear2[position].id +"     "+position)
+        Log.d("TAG", "onItemSelected:00 " + listYear2[position].id + "     " + position)
         id_year = listYear2[position].id
         sharedViewModel.yearId = id_year
         viewModelMainFragment.getListDashboardClass(id_year, sharedViewModel.user.user.id)
