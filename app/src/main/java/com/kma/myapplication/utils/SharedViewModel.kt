@@ -15,14 +15,17 @@ import javax.inject.Inject
 class SharedViewModel@Inject constructor(context: Context): ViewModel() {
     companion object : SingletonHolder<SharedViewModel, Context>(::SharedViewModel)
     lateinit var user :User
+    var listYearGetId = ArrayList<Year>()
     var listYear = MutableLiveData<List<Year>>()
     var yearApi = YearRepository(context)
     var arrayYear = arrayListOf<String>()
 
     fun getListYear(){
         viewModelScope.launch {
-            Log.d("TAG", "getListYear: "+yearApi.getListYear()!!.size)
-            listYear.postValue(yearApi.getListYear())
+            listYearGetId = yearApi.getListYear() as ArrayList<Year>
+                Log.d("TAG", "getListYear: "+listYearGetId.size)
+            listYear.postValue(listYearGetId)
+
         }
     }
 }

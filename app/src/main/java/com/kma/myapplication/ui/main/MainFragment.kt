@@ -19,6 +19,7 @@ import com.hola360.m3uplayer.data.response.LoadingStatus
 
 import com.kma.myapplication.R
 import com.kma.myapplication.data.model.DashboardClass
+import com.kma.myapplication.data.model.ListArticleItem
 import com.kma.myapplication.data.model.ListBookItem
 import com.kma.myapplication.data.model.ListClassItem
 import com.kma.myapplication.data.model.TopicItemMainItem
@@ -38,8 +39,10 @@ class MainFragment : AbsBaseFragment<FragmentMainBinding>(), AdapterView.OnItemS
     private lateinit var viewModelMainFragment: ViewModelMainFragment
     private lateinit var adapter: AdapterDashbroadClass
     private lateinit var adapter2: AdapterlistTopicItemMainItem
+    private lateinit var adapter3: AdapterArticle
     var listDashboardClass = listOf<DashboardClass>()
     var listTopicItemMainItem = listOf<TopicItemMainItem>()
+    var listArticle = listOf<ListArticleItem>()
     var id_year = 0
     var listYear2 = listOf<Year>()
 
@@ -200,6 +203,7 @@ class MainFragment : AbsBaseFragment<FragmentMainBinding>(), AdapterView.OnItemS
     private fun runView() {
         adapter = AdapterDashbroadClass()
         adapter2 = AdapterlistTopicItemMainItem()
+        adapter3 = AdapterArticle()
 //        adapterClass = AdapterClass(this)//
 //        adapterClass = AdapterClass(this)
         upData()
@@ -208,6 +212,7 @@ class MainFragment : AbsBaseFragment<FragmentMainBinding>(), AdapterView.OnItemS
     private fun upData() {
         viewModelMainFragment.getListDashboardClass(id_year, sharedViewModel.user.user.id)
         viewModelMainFragment.getListTopicItemMainItem(sharedViewModel.user.user.id)
+        viewModelMainFragment.getListArticle()
         viewModelMainFragment.listDashboardClassItem.observe(this) {
             it?.let {
                 listDashboardClass = it as List<DashboardClass>
@@ -220,6 +225,12 @@ class MainFragment : AbsBaseFragment<FragmentMainBinding>(), AdapterView.OnItemS
                 listTopicItemMainItem = it as List<TopicItemMainItem>
                 Log.d("TAG", "upData:,,,listTopicItemMainItem " + listTopicItemMainItem)
                 setAudioRecycleView2()
+            }
+        }
+        viewModelMainFragment.listArticle.observe(this) {
+            it?.let {
+                listArticle = it as List<ListArticleItem>
+                setAudioRecycleView3()
             }
         }
     }
@@ -237,6 +248,13 @@ class MainFragment : AbsBaseFragment<FragmentMainBinding>(), AdapterView.OnItemS
         binding.rcv2.adapter = adapter2
         var manager = GridLayoutManager(requireContext(), 1, RecyclerView.VERTICAL, false)
         binding.rcv2.layoutManager = manager
+    }
+
+    private fun setAudioRecycleView3() {
+        adapter3.getValueData(listArticle)
+        binding.rcv3.adapter = adapter3
+        var manager = GridLayoutManager(requireContext(), 1, RecyclerView.VERTICAL, false)
+        binding.rcv3.layoutManager = manager
     }
 
     private fun show() {

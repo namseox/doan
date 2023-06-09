@@ -35,6 +35,19 @@ fun TextView.setTimeCreatBook(time:Int){
 fun TextView.setTimeStartClass(time:String){
     this.text = "Thời gian bắt đầu: " +time.substring(0,10)
 }
+@BindingAdapter("setTimeStartArticle")
+fun TextView.setTimeStartArticle(id:Int){
+    var listYear = SharedViewModel.getInstance(context).listYearGetId
+    for (i in listYear){
+        if (id == i.id){
+            this.text = "Năm: " +i.name
+            break
+        }else{
+            this.text = "Lỗi thông tin"
+        }
+    }
+
+}
 @BindingAdapter("setTextIDStaff")
 fun TextView.setTextIDStaff(id:Int){
     this.text = "ID: " +id

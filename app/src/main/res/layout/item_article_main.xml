@@ -6,8 +6,8 @@
     <data>
 
         <variable
-            name="classModel"
-            type="com.kma.myapplication.data.model.TopicItemMainItem" />
+            name="articModel"
+            type="com.kma.myapplication.data.model.ListArticleItem" />
 
         <import type="android.view.View" />
     </data>
@@ -58,18 +58,18 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:singleLine="true"
-                    android:text="@{classModel.code}" />
+                    android:text="@{articModel.code}" />
 
                 <TextView
                     android:id="@+id/tv_name"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:singleLine="true"
-                    android:text="@{classModel.name}" />
+                    android:text="@{articModel.name}" />
 
                 <TextView
                     android:id="@+id/tv_email"
-                    setTimeStartClass="@{classModel.startDate}"
+                    setTimeStartArticle="@{articModel.year_id}"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:singleLine="true" />
