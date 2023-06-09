@@ -14,6 +14,7 @@ import com.hola360.m3uplayer.data.response.DataResponse
 import com.hola360.m3uplayer.data.response.LoadingStatus
 import com.kma.myapplication.R
 import com.kma.myapplication.data.model.Book
+import com.kma.myapplication.data.model.ClassItem
 import com.kma.myapplication.data.model.ListBookItem
 import com.kma.myapplication.databinding.FragmentBookBinding
 import com.kma.myapplication.databinding.ItemBookBinding
@@ -21,6 +22,7 @@ import com.kma.myapplication.ui.base.AbsBaseFragment
 import com.kma.myapplication.ui.dialog.DeleteDialog
 import com.kma.myapplication.utils.SharedPreferenceUtils
 import com.kma.myapplication.utils.Utils.actions
+import com.kma.myapplication.utils.Utils.setSafeMenuClickListener
 
 class BookFragment : AbsBaseFragment<FragmentBookBinding>(), onCLickBook, onClickBottomSheetBook {
     private val listActionPopup by lazy { ListActionPopup(requireActivity()) }
@@ -36,8 +38,18 @@ class BookFragment : AbsBaseFragment<FragmentBookBinding>(), onCLickBook, onClic
         viewModelBook = ViewModelBookFragment(Application())
 
         handler.postDelayed(runnable, 1000)
-        binding.toolbar.setOnClickListener {
+        binding.topAppBar.setOnClickListener {
             findNavController().navigateUp()
+        }
+        binding.appBar.addLiftOnScrollListener { _, backgroundColor ->
+            requireActivity().window.statusBarColor = backgroundColor
+        }
+        binding.topAppBar.setSafeMenuClickListener {
+            when(it!!.itemId){
+                R.id.ic_add ->{
+                    showButtonSheetAdd(Book())
+                }
+            }
         }
     }
 

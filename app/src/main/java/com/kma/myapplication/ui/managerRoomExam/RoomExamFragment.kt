@@ -15,6 +15,7 @@ import com.hola360.m3uplayer.data.response.LoadingStatus
 import com.kma.myapplication.R
 import com.kma.myapplication.data.model.ListRoomItem
 import com.kma.myapplication.data.model.RoomItem
+import com.kma.myapplication.data.model.UserX
 import com.kma.myapplication.databinding.FragmentManagerRoomExamBinding
 import com.kma.myapplication.databinding.ItemRoomBinding
 import com.kma.myapplication.ui.base.AbsBaseFragment
@@ -22,6 +23,7 @@ import com.kma.myapplication.ui.dialog.DeleteDialog
 import com.kma.myapplication.ui.staff.StaffBottonSheetDialogFragment
 import com.kma.myapplication.utils.SharedPreferenceUtils
 import com.kma.myapplication.utils.Utils
+import com.kma.myapplication.utils.Utils.setSafeMenuClickListener
 
 class RoomExamFragment:AbsBaseFragment<FragmentManagerRoomExamBinding>(),onCLickRoom,onClickBottomSheetRoom {
     private val listActionPopup by lazy { ListActionPopup(requireActivity()) }
@@ -37,8 +39,18 @@ class RoomExamFragment:AbsBaseFragment<FragmentManagerRoomExamBinding>(),onCLick
         viewModelRoom = ViewModelRoomFragment(Application())
 
         handler.postDelayed(runnable, 1000)
-        binding.toolbar.setOnClickListener {
+        binding.topAppBar.setOnClickListener {
             findNavController().navigateUp()
+        }
+        binding.appBar.addLiftOnScrollListener { _, backgroundColor ->
+            requireActivity().window.statusBarColor = backgroundColor
+        }
+        binding.topAppBar.setSafeMenuClickListener {
+            when(it!!.itemId){
+                R.id.ic_add ->{
+                    showButtonSheetAdd(RoomItem())
+                }
+            }
         }
     }
     private val runnable = Runnable {

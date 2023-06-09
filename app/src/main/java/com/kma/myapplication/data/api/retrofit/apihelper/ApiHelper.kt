@@ -22,7 +22,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 
 class ApiHelper private constructor(context: Context) : BaseRetrofitHelper(context) {
-        private val BASE_URL = "http://172.16.24.186:8001/"
+        private val BASE_URL = "http://192.130.15.109:8001/"
 //    private val BASE_URL = "http://127.0.0.1:5173"
     var loginApi: LoginApi
     var staffApi: StaffApi

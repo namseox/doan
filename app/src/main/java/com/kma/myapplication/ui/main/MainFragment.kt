@@ -60,6 +60,7 @@ class MainFragment : AbsBaseFragment<FragmentMainBinding>(), AdapterView.OnItemS
             it?.let {
                 listYear2 = it
                 id_year = it[0].id
+                sharedViewModel.yearId = id_year
                 for (i in it) {
                     listYear.add(i.name)
                 }
@@ -284,6 +285,7 @@ class MainFragment : AbsBaseFragment<FragmentMainBinding>(), AdapterView.OnItemS
     override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
         Log.d("TAG", "onItemSelected:00 "+listYear2[position].id +"     "+position)
         id_year = listYear2[position].id
+        sharedViewModel.yearId = id_year
         viewModelMainFragment.getListDashboardClass(id_year, sharedViewModel.user.user.id)
     }
 

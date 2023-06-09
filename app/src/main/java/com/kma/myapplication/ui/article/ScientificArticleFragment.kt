@@ -15,6 +15,7 @@ import com.hola360.m3uplayer.data.response.LoadingStatus
 import com.kma.myapplication.R
 import com.kma.myapplication.data.model.ArticleItem
 import com.kma.myapplication.data.model.Book
+import com.kma.myapplication.data.model.ClassItem
 import com.kma.myapplication.data.model.ListArticleItem
 import com.kma.myapplication.data.model.ListBookItem
 import com.kma.myapplication.databinding.FragmentScientificArticleBinding
@@ -28,6 +29,7 @@ import com.kma.myapplication.ui.staff.StaffBottonSheetDialogFragment
 import com.kma.myapplication.ui.staff.onClickBottomSheet
 import com.kma.myapplication.utils.SharedPreferenceUtils
 import com.kma.myapplication.utils.Utils
+import com.kma.myapplication.utils.Utils.setSafeMenuClickListener
 
 class ScientificArticleFragment: AbsBaseFragment<FragmentScientificArticleBinding>(),onCLickArticle,onClickBottomSheetArticle {
     private val listActionPopup by lazy { ListActionPopup(requireActivity()) }
@@ -43,8 +45,18 @@ class ScientificArticleFragment: AbsBaseFragment<FragmentScientificArticleBindin
         viewModelArticle = ViewModelArticleFragment(Application())
 
         handler.postDelayed(runnable, 1000)
-        binding.toolbar.setOnClickListener {
+        binding.topAppBar.setOnClickListener {
             findNavController().navigateUp()
+        }
+        binding.appBar.addLiftOnScrollListener { _, backgroundColor ->
+            requireActivity().window.statusBarColor = backgroundColor
+        }
+        binding.topAppBar.setSafeMenuClickListener {
+            when(it!!.itemId){
+                R.id.ic_add ->{
+                    showButtonSheetAdd(ArticleItem())
+                }
+            }
         }
     }
     private val runnable = Runnable {

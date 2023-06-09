@@ -65,7 +65,7 @@ class StaffFragment : AbsBaseFragment<FragmentStaffBinding>(), onCLick, onClickB
     }
 
     private fun runView() {
-        adapterStaff = AdapterStaff(this)
+        adapterStaff = AdapterStaff(this,requireContext())
         upData()
     }
 

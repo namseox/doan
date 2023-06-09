@@ -15,6 +15,7 @@ import com.hola360.m3uplayer.data.response.LoadingStatus
 import com.kma.myapplication.R
 import com.kma.myapplication.data.model.ClassItem
 import com.kma.myapplication.data.model.ListClassItem
+import com.kma.myapplication.data.model.MarkItem
 import com.kma.myapplication.databinding.FragmentManagerClassBinding
 import com.kma.myapplication.databinding.ItemClassBinding
 import com.kma.myapplication.ui.base.AbsBaseFragment
@@ -22,6 +23,7 @@ import com.kma.myapplication.ui.dialog.DeleteDialog
 import com.kma.myapplication.ui.staff.StaffBottonSheetDialogFragment
 import com.kma.myapplication.utils.SharedPreferenceUtils
 import com.kma.myapplication.utils.Utils
+import com.kma.myapplication.utils.Utils.setSafeMenuClickListener
 
 class ClassFragment:AbsBaseFragment<FragmentManagerClassBinding>(),onCLickClass,onClickBottomSheetClass {
     private val listActionPopup by lazy { ListActionPopup(requireActivity()) }
@@ -36,8 +38,18 @@ class ClassFragment:AbsBaseFragment<FragmentManagerClassBinding>(),onCLickClass,
     override fun initView() {
         viewModelClass = ViewModelClassFragment(Application())
         handler.postDelayed(runnable, 1000)
-        binding.toolbar.setOnClickListener {
+        binding.topAppBar.setOnClickListener {
             findNavController().navigateUp()
+        }
+        binding.appBar.addLiftOnScrollListener { _, backgroundColor ->
+            requireActivity().window.statusBarColor = backgroundColor
+        }
+        binding.topAppBar.setSafeMenuClickListener {
+            when(it!!.itemId){
+                R.id.ic_add ->{
+                    showButtonSheetAdd(ClassItem())
+                }
+            }
         }
     }
     private val runnable = Runnable {

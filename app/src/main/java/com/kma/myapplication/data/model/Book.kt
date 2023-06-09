@@ -10,8 +10,6 @@ data class Book(
     val total_time: Int = -1,
     val type: Int = -1,
     val updatedAt: String = "",
-    val users: List<UserXX>,
-//    val year: Int = -1,
-
+    val users: List<UserXX> = listOf(),
     val year_id: Int = -1
 )

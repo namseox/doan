@@ -19,11 +19,11 @@ class SharedViewModel@Inject constructor(context: Context): ViewModel() {
     var listYear = MutableLiveData<List<Year>>()
     var yearApi = YearRepository(context)
     var arrayYear = arrayListOf<String>()
+    var yearId :Int = 0
 
     fun getListYear(){
         viewModelScope.launch {
             listYearGetId = yearApi.getListYear() as ArrayList<Year>
-                Log.d("TAG", "getListYear: "+listYearGetId.size)
             listYear.postValue(listYearGetId)
 
         }

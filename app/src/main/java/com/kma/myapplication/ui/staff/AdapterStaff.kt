@@ -1,5 +1,6 @@
 package com.kma.myapplication.ui.staff
 
+import android.content.Context
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -8,8 +9,9 @@ import com.kma.myapplication.data.model.Staff
 import com.kma.myapplication.data.model.StaffItem
 import com.kma.myapplication.data.model.UserX
 import com.kma.myapplication.databinding.ItemStaffBinding
+import com.kma.myapplication.utils.SharedViewModel
 
-class AdapterStaff(var onCLick: onCLick) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+class AdapterStaff(var onCLick: onCLick,var context:Context) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     var data = mutableListOf<StaffItem>()
     fun getData(isUpdate: Boolean, listStaff: List<StaffItem>) {
         if (isUpdate) {
@@ -59,10 +61,10 @@ class AdapterStaff(var onCLick: onCLick) : RecyclerView.Adapter<RecyclerView.Vie
         if (holder is ViewHolder) {
             holder.bind(position)
             holder.binding.iv3dot.setOnClickListener {
-                onCLick.click3Dot(data[position], holder.binding,1)
+                onCLick.click3Dot(data[position], holder.binding,SharedViewModel.getInstance(context).yearId)
             }
-            holder.binding.clStaff.setOnClickListener {
-                onCLick.clickItem(data[position], holder.binding,1)
+            holder.binding.clBook.setOnClickListener {
+                onCLick.clickItem(data[position], holder.binding,SharedViewModel.getInstance(context).yearId)
             }
         }
     }
