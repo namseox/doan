@@ -56,7 +56,6 @@
                     android:layout_gravity="center"
                     android:ellipsize="end"
                     android:singleLine="true"
-                    android:text="@{bookModel.name}"
                     android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
             </LinearLayout>
 
@@ -85,7 +84,6 @@
                     android:layout_gravity="center"
                     android:ellipsize="middle"
                     android:singleLine="true"
-                    android:text="@{bookModel.code}"
                     android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
             </LinearLayout>
 
@@ -143,16 +141,6 @@
                     android:singleLine="true"
                     android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
 
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/tv_emailType"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:ellipsize="middle"
-                    android:singleLine="true"
-                    setTextInt="@{bookModel.type}"
-                    android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
             </LinearLayout>
 
             <LinearLayout
@@ -180,7 +168,6 @@
                     android:layout_gravity="center"
                     android:ellipsize="middle"
                     android:singleLine="true"
-                    setTextInt="@{bookModel.num_page}"
                     android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
             </LinearLayout>
 
@@ -209,7 +196,6 @@
                     android:layout_gravity="center"
                     android:ellipsize="middle"
                     android:singleLine="true"
-                    setTextInt="@{bookModel.num_publish}"
                     android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
             </LinearLayout>
 
@@ -309,7 +295,7 @@
                     android:layout_width="120dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:text="ID :"
+                    android:text="Code :"
                     android:textSize="@dimen/dp_16" />
 
                 <androidx.appcompat.widget.AppCompatTextView
@@ -319,7 +305,7 @@
                     android:layout_gravity="center"
                     android:ellipsize="middle"
                     android:singleLine="true"
-                    setTextInt="@{bookModel.id}"
+                    android:text="@{bookModel.code}"
                     android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
             </LinearLayout>
 

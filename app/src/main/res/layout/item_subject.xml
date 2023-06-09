@@ -65,7 +65,7 @@
                     android:id="@+id/tv_date"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    setTextDate="@{subjectModel.form_exam}"/>
+                    android:text="@{subjectModel.form_exam}"/>
             </LinearLayout>
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/iv_3dot"

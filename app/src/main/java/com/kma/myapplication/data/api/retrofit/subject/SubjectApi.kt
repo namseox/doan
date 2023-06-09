@@ -10,22 +10,22 @@ import retrofit2.http.PUT
 import retrofit2.http.Path
 
 interface SubjectApi {
-    @GET("/room")
-    suspend fun getListListSubject(
+    @GET("/subject")
+    suspend fun getListSubject(
     ): List<ListSubjectItem>
 
-    @GET("/room/{id}")
+    @GET("/subject/{id}")
     suspend fun getItemSubject(@Path("id") i: Int): SubjectItem
 
-    @DELETE("/room/{id}")
+    @DELETE("/subject/{id}")
     suspend fun deleteSubject(@Path("id") i: Int): Int
 
-    @POST("/room")
+    @POST("/subject")
     suspend fun creatSubject(
         @Body itemSubject: ListSubjectItem
     ): ListSubjectItem
 
-    @PUT("/room/{id}")
+    @PUT("/subject/{id}")
     suspend fun updateSubject(
         @Path("id") i: Int,
         @Body itemSubject: ListSubjectItem

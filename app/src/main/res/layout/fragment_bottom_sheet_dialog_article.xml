@@ -62,7 +62,6 @@
                         android:layout_gravity="center"
                         android:ellipsize="middle"
                         android:singleLine="true"
-                        android:text="@{articleModel.name}"
                         android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
                 </LinearLayout>
                 <LinearLayout
@@ -85,7 +84,6 @@
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/tv_idArticle"
-                        android:text="@{articleModel.code}"
                         android:layout_width="260dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -140,7 +138,6 @@
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/tv_indexArticle"
-                        setTextInt="@{articleModel.index_article}"
                         android:layout_width="260dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -387,33 +384,6 @@
                         android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
                 </LinearLayout>
 
-                <LinearLayout
-                    android:id="@+id/ll_5a"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="12dp"
-                    android:layout_marginTop="@dimen/dp_16"
-                    android:layout_marginEnd="12dp"
-                    android:orientation="horizontal"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/ll_4a">
-
-                    <androidx.appcompat.widget.AppCompatTextView
-                        android:layout_width="120dp"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:text="Loại tạp chí:"
-                        android:textSize="@dimen/dp_16" />
-
-                    <androidx.appcompat.widget.AppCompatTextView
-                        android:id="@+id/tv_type_articlescientifica"
-                        android:layout_width="260dp"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:ellipsize="middle"
-                        android:singleLine="true"
-                        android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
-                </LinearLayout>
 
                 <LinearLayout
                     android:id="@+id/ll_6a"
@@ -424,7 +394,7 @@
                     android:layout_marginEnd="12dp"
                     android:orientation="horizontal"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/ll_5a">
+                    app:layout_constraintTop_toBottomOf="@id/ll_4a">
 
                     <androidx.appcompat.widget.AppCompatTextView
                         android:layout_width="120dp"

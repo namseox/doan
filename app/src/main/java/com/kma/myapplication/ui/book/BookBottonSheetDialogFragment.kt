@@ -29,7 +29,7 @@ class BookBottonSheetDialogFragment(
 ) :
     BottomSheetDialogFragment(), AdapterView.OnItemSelectedListener {
     lateinit var binding: FragmentBottomSheetDialogBookBinding
-    var a : Staff = SharedPreferenceUtils.getInstance(ct).getObjModel()!!
+    var a: Staff = SharedPreferenceUtils.getInstance(ct).getObjModel()!!
 
     var listAuthor = ArrayList<String>()
     val NEW_SPINNER_ID = 1
@@ -46,7 +46,7 @@ class BookBottonSheetDialogFragment(
         (dialog as BottomSheetDialog).behavior.state =
             BottomSheetBehavior.STATE_EXPANDED
         binding = FragmentBottomSheetDialogBookBinding.inflate(layoutInflater, container, false)
-        (a.a ).forEach{
+        (a.a).forEach {
             listAuthor.add(it.name)
         }
 
@@ -55,9 +55,10 @@ class BookBottonSheetDialogFragment(
         aa.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
 
 
-        var positionAuthor_1 = listAuthor.indexOf(itemBook.users[0].name)
+        var positionAuthor_1 = -1
         var positionAuthor_2 = -1
         try {
+            positionAuthor_1 = listAuthor.indexOf(itemBook.users[0].name)
             positionAuthor_2 = listAuthor.indexOf(itemBook.users[1].name)
         } catch (e: Exception) {
             null
@@ -71,7 +72,7 @@ class BookBottonSheetDialogFragment(
         }
         with(binding.spAuthor2) {
             adapter = aa
-            if (positionAuthor_2 != -1){
+            if (positionAuthor_2 != -1) {
                 setSelection(positionAuthor_2, false)
             }
 
@@ -88,7 +89,7 @@ class BookBottonSheetDialogFragment(
         }
         with(binding.spAuthor2B) {
             adapter = aa
-            if (positionAuthor_2 != -1){
+            if (positionAuthor_2 != -1) {
                 setSelection(positionAuthor_2, false)
             }
 
@@ -127,10 +128,10 @@ class BookBottonSheetDialogFragment(
                 0,
                 0,
                 1,
-                binding.spAuthor1.selectedItem.toString()+","+binding.spAuthor2.selectedItem.toString()
+                binding.spAuthor1.selectedItem.toString() + "," + binding.spAuthor2.selectedItem.toString()
             )
 
-            onClickl.onClickText("updateBook",itemListBook)
+            onClickl.onClickText("updateBook", itemListBook)
             destroy()
         }
         binding.btnAdd.setOnClickListener {
@@ -144,10 +145,10 @@ class BookBottonSheetDialogFragment(
                 0,
                 0,
                 1,
-                binding.spAuthor1B.selectedItem.toString()+","+binding.spAuthor2B.selectedItem.toString()
+                binding.spAuthor1B.selectedItem.toString() + "," + binding.spAuthor2B.selectedItem.toString()
             )
 
-            onClickl.onClickText("addBook",itemListBook)
+            onClickl.onClickText("addBook", itemListBook)
             destroy()
         }
         return binding.root

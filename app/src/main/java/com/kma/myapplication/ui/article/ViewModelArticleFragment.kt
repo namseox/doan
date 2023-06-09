@@ -7,6 +7,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.hola360.m3uplayer.data.response.DataResponse
 import com.hola360.m3uplayer.data.response.LoadingStatus
+import com.kma.myapplication.data.model.ArticleCreat
 import com.kma.myapplication.data.model.ArticleItem
 import com.kma.myapplication.data.model.ListArticleItem
 import com.kma.myapplication.data.repository.ArticRepository
@@ -43,14 +44,14 @@ class ViewModelArticleFragment(app: Application): ViewModel() {
         }
     }
 
-    fun creatBook(item: ListArticleItem){
+    fun creatBook(item: ArticleCreat){
         viewModelScope.launch {
             value_creat.postValue(repository.creatArtic(item))
 //            Log.d("TAG", "deleteStaff: "+)
         }
     }
 
-    fun updateBook(id:Int,item: ListArticleItem){
+    fun updateBook(id:Int,item: ArticleCreat){
         viewModelScope.launch {
             value_updtae.postValue(repository.updateBook(id,item))
             Log.d("TAG", "upData0000: "+value_updtae)

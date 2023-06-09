@@ -117,7 +117,7 @@ class ExamBottomSheetDialogFragment (
                 binding.clExam.visibility = View.VISIBLE
             }
         }
-//        binding.btnUpdate.setOnClickListener {
+        binding.btnUpdate.setOnClickListener {
 //            var itemList = ListExamItem(
 //
 //            )
@@ -128,15 +128,20 @@ class ExamBottomSheetDialogFragment (
 //        binding.btnAdd.setOnClickListener {
 //            var itemList = ListExamItem(
 //                binding.tvIdExam.text.toString(),
-//                binding.tvEndDate.text.toString(),
-//                "1",
-//                ""
+//                0.0,
+//                1,
+//                binding.tvSubjectId.text.toString(),
+//                binding.tvNumExam.text.toString().toInt(),
+//                binding.tvNumQuestion.text.toString().toInt(),
+//                listHocKy.indexOf(binding.spSemester.selectedItem.toString()),
+//                1,
+//                1,
+//
 //
 //            )
-//
 //            onClickl.onClickText("addExam", itemList)
 //            destroy()
-//        }
+        }
         return binding.root
     }
 
@@ -149,7 +154,6 @@ class ExamBottomSheetDialogFragment (
             1 -> {
 
             }
-
             else -> {
 
             }

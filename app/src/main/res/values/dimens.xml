@@ -16,5 +16,8 @@
     <dimen name="dp_4">4dp</dimen>
     <dimen name="dp_1">1dp</dimen>
     <dimen name="popup_dialog_width">180dp</dimen>
+    <dimen name="dp_12">12dp</dimen>
+    <dimen name="dp_48">48dp</dimen>
+    <dimen name="dp_64">64dp</dimen>
 
 </resources>

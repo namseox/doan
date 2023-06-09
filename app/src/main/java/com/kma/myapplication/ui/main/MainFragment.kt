@@ -3,33 +3,26 @@ package com.kma.myapplication.ui.main
 import android.os.Handler
 import android.os.Looper
 import android.util.Log
-import android.view.Gravity
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.ExpandableListView
+import android.widget.TextView
 import android.widget.Toast
-import androidx.fragment.app.activityViewModels
-import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.hola360.m3uplayer.data.response.DataResponse
-import com.hola360.m3uplayer.data.response.LoadingStatus
-
-import com.kma.myapplication.R
+import com.google.android.material.navigation.NavigationView
 import com.kma.myapplication.data.model.DashboardClass
 import com.kma.myapplication.data.model.ListArticleItem
-import com.kma.myapplication.data.model.ListBookItem
-import com.kma.myapplication.data.model.ListClassItem
 import com.kma.myapplication.data.model.TopicItemMainItem
 import com.kma.myapplication.data.model.Year
 import com.kma.myapplication.databinding.FragmentMainBinding
-import com.kma.myapplication.ui.expandabletlistview.Adapter
 import com.kma.myapplication.ui.base.AbsBaseFragment
-import com.kma.myapplication.ui.managerclass.AdapterClass
+import com.kma.myapplication.ui.expandabletlistview.Adapter
 import com.kma.myapplication.utils.SharedViewModel
 import com.kma.myapplication.utils.Utils.hideKeyboard
+
 
 class MainFragment : AbsBaseFragment<FragmentMainBinding>(), AdapterView.OnItemSelectedListener {
     private lateinit var listViewAdapter: Adapter
@@ -49,7 +42,7 @@ class MainFragment : AbsBaseFragment<FragmentMainBinding>(), AdapterView.OnItemS
 
 
     override fun getLayout(): Int {
-        return R.layout.fragment_main
+        return com.kma.myapplication.R.layout.fragment_main
     }
 
     override fun initView() {
@@ -92,14 +85,17 @@ class MainFragment : AbsBaseFragment<FragmentMainBinding>(), AdapterView.OnItemS
                 }
             }
         }
-
+        val navigationView: NavigationView = binding.navView
+        val headerView = navigationView.getHeaderView(0)
+        val navUsername = headerView.findViewById<View>(com.kma.myapplication.R.id.tv_userName) as TextView
+        navUsername.text = SharedViewModel.getInstance(requireContext()).user.user.name
         binding.topAppBar.setNavigationOnClickListener {
             it.hideKeyboard()
             binding.drawerlayout.open()
         }
 
 
-        var idELV = binding.root.findViewById<ExpandableListView>(R.id.ELVMain)
+        var idELV = binding.root.findViewById<ExpandableListView>(com.kma.myapplication.R.id.ELVMain)
         listViewAdapter = Adapter(requireContext(), chapterList, topicList, idELV)
         idELV.setAdapter(listViewAdapter)
         idELV.setOnGroupClickListener { parent, _, groupPosition, _ ->

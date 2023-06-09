@@ -56,12 +56,20 @@
                     android:id="@+id/tv_id"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@{articModel.code}"/>
+                    android:text="@{articModel.code}"
+                    android:singleLine="true"/>
                 <TextView
                     android:id="@+id/tv_name"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@{articModel.name}"/>
+                    android:text="@{articModel.name}"
+                    android:singleLine="true"/>
+                <TextView
+                    android:id="@+id/tv_email"
+                    setTimeStartArticle="@{articModel.year_id}"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:singleLine="true" />
             </LinearLayout>
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/iv_3dot"

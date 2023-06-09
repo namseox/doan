@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
+
     <data>
+
         <variable
             name="subjectModel"
             type="com.kma.myapplication.data.model.SubjectItem" />
@@ -63,6 +65,7 @@
                         android:text="@{subjectModel.name}"
                         android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
                 </LinearLayout>
+
                 <LinearLayout
                     android:id="@+id/ll_2"
                     android:layout_width="match_parent"
@@ -83,15 +86,15 @@
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/tv_idSubject"
-                        android:text="@{subjectModel.code}"
                         android:layout_width="260dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:ellipsize="middle"
                         android:singleLine="true"
+                        android:text="@{subjectModel.code}"
                         android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
                 </LinearLayout>
-                
+
                 <LinearLayout
                     android:id="@+id/ll_3"
                     android:layout_width="match_parent"
@@ -112,13 +115,32 @@
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/tv_indexSubject"
-                        android:text="@{subjectModel.form_exam}"
                         android:layout_width="260dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:ellipsize="middle"
                         android:singleLine="true"
                         android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginTop="@dimen/dp_32"
+                    android:layout_marginEnd="12dp"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/ll_3">
+
+                    <Button
+                        android:id="@+id/btn_add"
+                        style="@style/Widget.Material3.Button.ElevatedButton"
+                        android:layout_width="124dp"
+                        android:layout_height="48dp"
+                        android:layout_margin="@dimen/dp_16"
+                        android:text="Thêm"
+                        android:textSize="@dimen/dp_16" />
                 </LinearLayout>
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -192,12 +214,12 @@
 
                     <androidx.appcompat.widget.AppCompatTextView
                         android:id="@+id/tv_idSubjecta"
-                        android:text="@{subjectModel.name}"
                         android:layout_width="260dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:ellipsize="middle"
                         android:singleLine="true"
+                        android:text="@{subjectModel.name}"
                         android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
                 </LinearLayout>
 
@@ -246,6 +268,7 @@
                     android:text="CẬP NHẬT MÔN HỌC"
                     android:textSize="@dimen/dp_24"
                     app:layout_constraintTop_toTopOf="parent" />
+
                 <LinearLayout
                     android:id="@+id/ll_1b"
                     android:layout_width="match_parent"
@@ -274,6 +297,7 @@
                         android:text="@{subjectModel.name}"
                         android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
                 </LinearLayout>
+
                 <LinearLayout
                     android:id="@+id/ll_2b"
                     android:layout_width="match_parent"
@@ -294,45 +318,37 @@
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/tv_idSubjectb"
-                        android:text="@{subjectModel.code}"
                         android:layout_width="260dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:ellipsize="middle"
                         android:singleLine="true"
+                        android:text="@{subjectModel.code}"
                         android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
                 </LinearLayout>
 
                 <LinearLayout
-                    android:id="@+id/ll_3b"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="12dp"
-                    android:layout_marginTop="@dimen/dp_16"
+                    android:layout_marginTop="@dimen/dp_32"
                     android:layout_marginEnd="12dp"
+                    android:gravity="center"
                     android:orientation="horizontal"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/ll_2b">
 
-                    <androidx.appcompat.widget.AppCompatTextView
-                        android:layout_width="120dp"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:text="Hình thức thi:"
+                    <Button
+                        android:id="@+id/btn_update"
+                        style="@style/Widget.Material3.Button.ElevatedButton"
+                        android:layout_width="124dp"
+                        android:layout_height="48dp"
+                        android:layout_margin="@dimen/dp_16"
+                        android:text="Cập nhật"
                         android:textSize="@dimen/dp_16" />
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/tv_indexSubjectb"
-                        android:text="@{subjectModel.form_exam}"
-                        android:layout_width="260dp"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:ellipsize="middle"
-                        android:singleLine="true"
-                        android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
                 </LinearLayout>
-            </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
-    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
 
-</layout>
+    </layout>

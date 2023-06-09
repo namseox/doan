@@ -3,6 +3,7 @@ package com.kma.myapplication.data.repository
 import android.content.Context
 import android.util.Log
 import com.kma.myapplication.data.api.retrofit.apihelper.ApiHelper
+import com.kma.myapplication.data.model.ArticleCreat
 import com.kma.myapplication.data.model.ArticleItem
 import com.kma.myapplication.data.model.Book
 import com.kma.myapplication.data.model.ListArticleItem
@@ -22,8 +23,9 @@ class ArticRepository(val context: Context) {
         }
     }
 
-    suspend fun creatArtic(item: ListArticleItem): ListArticleItem? = withContext(Dispatchers.Default) {
+    suspend fun creatArtic(item: ArticleCreat): ListArticleItem? = withContext(Dispatchers.Default) {
         try {
+            Log.d("TAG", "creatArtic000: "+item)
             apiHelper.articApi.creatArticle(item)
 
         }catch (ex: Exception){
@@ -49,9 +51,9 @@ class ArticRepository(val context: Context) {
             null
         }
     }
-    suspend fun updateBook(id:Int,item: ListArticleItem): ListArticleItem? = withContext(Dispatchers.Default) {
+    suspend fun updateBook(id:Int,item: ArticleCreat): ListArticleItem? = withContext(Dispatchers.Default) {
         try {
-
+            Log.d("TAG", "creatArtic000: "+item)
             apiHelper.articApi.updateArticle(id,item)
 
         }catch (ex: Exception){

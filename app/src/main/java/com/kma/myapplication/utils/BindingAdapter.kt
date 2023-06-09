@@ -57,9 +57,9 @@ fun TextView.setTextIDStaff(id:Int){
 fun TextView.setTextUser(listUser: List<UserXX>){
     var text : String =""
     for (i in listUser){
-        text = text+i+", "
+        text = text+i.name+", "
     }
-        this.text = text.substring(0,text.length-2)
+        this.text = text
 
 }
 

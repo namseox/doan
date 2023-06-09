@@ -23,7 +23,7 @@
                 android:id="@+id/cl_Exam"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:visibility="gone">
+                android:visibility="visible">
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/tv_title"
@@ -192,8 +192,7 @@
                         android:textSize="@dimen/dp_16" />
 
                     <com.google.android.material.textfield.TextInputEditText
-                        android:text="@+id/tv_num_exam"
-                        setTextInt="@{examModel.num_exam}"
+                        android:id="@+id/tv_num_exam"
                         android:layout_width="260dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -352,7 +351,7 @@
                         android:layout_gravity="center"
                         android:ellipsize="middle"
                         android:singleLine="true"
-                        android:text="@{examModel.subject_id}"
+                        android:text="@{examModel.name}"
                         android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
                 </LinearLayout>
                 <LinearLayout

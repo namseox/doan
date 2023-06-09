@@ -29,7 +29,7 @@ class ClassBottomSheetDialogFragment(
 ) : BottomSheetDialogFragment(), AdapterView.OnItemSelectedListener {
     lateinit var binding: FragmentBottomSheetDialogClassBinding
     var a: Staff = SharedPreferenceUtils.getInstance(ct).getObjModel()!!
-    var listTypeExam = arrayListOf<String>("Tự luận", "Trắc nghiệm","Vấn đáp")
+    var listTypeExam = arrayListOf<String>("Tự luận", "Trắc nghiệm", "Vấn đáp")
     var listHocKy = arrayListOf<String>(
         "Học kỳ 1",
         "Học Kỳ 2"
@@ -57,8 +57,12 @@ class ClassBottomSheetDialogFragment(
         spUser.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         var spHocKy = ArrayAdapter(requireContext(), R.layout.simple_spinner_item, listHocKy)
         spHocKy.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        var positionAuthor = listAuthor.indexOf(itemClass.user.name)
+        var positionAuthor = 0
+        try {
+            positionAuthor = listAuthor.indexOf(itemClass.user.name)
+        } catch (e: Exception) {
 
+        }
         with(binding.spFormExam) {
             adapter = spTypeExam
             setSelection(0, false)
@@ -103,6 +107,7 @@ class ClassBottomSheetDialogFragment(
         }
         val spinner = Spinner(requireContext())
         spinner.id = NEW_SPINNER_ID
+
         binding.classModel = itemClass
         when (status) {
             "UpdateClass" -> {
@@ -119,6 +124,7 @@ class ClassBottomSheetDialogFragment(
         }
 //        binding.btnUpdate.setOnClickListener {
 //            var itemList = ListClassItem(
+//                binding.tvIdClass,
 //
 //            )
 //
@@ -133,7 +139,6 @@ class ClassBottomSheetDialogFragment(
 //                ""
 //
 //            )
-//
 //            onClickl.onClickText("addClass", itemList)
 //            destroy()
 //        }

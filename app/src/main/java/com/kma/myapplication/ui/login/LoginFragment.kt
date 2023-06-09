@@ -25,17 +25,17 @@ class LoginFragment : AbsBaseFragment<FragmentLoginBinding>(),onClick {
         mViewModel = LoginViewModel(Application())
 
         binding.btnLogin.setOnClickListener {
-            if (binding.etUsername.text.isNullOrBlank()) {
+            if (binding.edtEmail.text.isNullOrBlank()) {
                 Toast.makeText(requireContext(), "Chưa điền tài khoản", Toast.LENGTH_SHORT).show()
             } else {
 
 
-                if (binding.etPassword.text.isNullOrBlank()) {
+                if (binding.edtPassword.text.isNullOrBlank()) {
                     Toast.makeText(requireContext(), "Chưa điền mật khẩu", Toast.LENGTH_SHORT).show()
                 } else {
                     mViewModel.getUser(
-                        binding.etUsername.text.toString(),
-                        binding.etPassword.text.toString()
+                        binding.edtEmail.text.toString(),
+                        binding.edtPassword.text.toString()
                     )
                 }
             }

@@ -8,4 +8,6 @@
     <string name="txt_submit">Login</string>
     <string name="test">test</string>
     <string name="login_success">login_success</string>
+    <string name="password">password</string>
+    <string name="user_name">username</string>
 </resources>

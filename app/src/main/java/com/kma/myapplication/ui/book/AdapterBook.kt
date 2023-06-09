@@ -28,8 +28,8 @@ class AdapterBook(var onCLick: onCLickBook) : RecyclerView.Adapter<RecyclerView.
         }
         Log.d("TAG", "updateBook000: "+position)
         data[position]=item
-        notifyItemChanged(position)
-//        notifyDataSetChanged()
+//        notifyItemChanged(position)
+        notifyDataSetChanged()
     }
 
     fun deleteBook(item: Book) {
@@ -43,8 +43,8 @@ class AdapterBook(var onCLick: onCLickBook) : RecyclerView.Adapter<RecyclerView.
             j++
         }
         data.removeAt(position)
-        notifyItemRemoved(position)
-//        notifyDataSetChanged()
+//        notifyItemRemoved(position)
+        notifyDataSetChanged()
     }
 
     fun creatBook(item:ListBookItem) {

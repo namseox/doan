@@ -1,6 +1,7 @@
 package com.kma.myapplication.data.api.retrofit.artic
 
 
+import com.kma.myapplication.data.model.ArticleCreat
 import com.kma.myapplication.data.model.ArticleItem
 import com.kma.myapplication.data.model.ListArticleItem
 import retrofit2.http.Body
@@ -23,12 +24,12 @@ interface ArticApi {
 
     @POST("/article")
     suspend fun creatArticle(
-        @Body itemArticle: ListArticleItem
+        @Body itemArticle: ArticleCreat
     ): ListArticleItem
 
     @PUT("/article/{id}")
     suspend fun updateArticle(
         @Path("id") i: Int,
-        @Body itemBook: ListArticleItem
+        @Body itemBook: ArticleCreat
     ): ListArticleItem
 }

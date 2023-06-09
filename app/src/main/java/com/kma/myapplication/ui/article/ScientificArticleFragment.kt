@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.hola360.m3uplayer.data.response.DataResponse
 import com.hola360.m3uplayer.data.response.LoadingStatus
 import com.kma.myapplication.R
+import com.kma.myapplication.data.model.ArticleCreat
 import com.kma.myapplication.data.model.ArticleItem
 import com.kma.myapplication.data.model.Book
 import com.kma.myapplication.data.model.ClassItem
@@ -58,16 +59,15 @@ class ScientificArticleFragment: AbsBaseFragment<FragmentScientificArticleBindin
                 }
             }
         }
-    }
-    private val runnable = Runnable {
-        runView()
-    }
-    private fun runView() {
-        adapterArticle = AdapterArticle(this)
-        upData()
-    }
-    private fun upData() {
-        viewModelArticle.getListBook()
+        viewModelArticle.article.observe(this) {
+            val bottomSheetActionDialog =
+                ArticleBottomSheetDialogFragment(this, "Article", it, requireContext())
+            SharedPreferenceUtils.getInstance(requireContext()).setObjModel(it)
+            bottomSheetActionDialog.show(
+                requireActivity().supportFragmentManager,
+                StaffBottonSheetDialogFragment.TAG
+            )
+        }
         viewModelArticle.listArticleItem.observe(viewLifecycleOwner) {
             it?.let {
                 if (it.loadingStatus == LoadingStatus.Loading) {
@@ -106,8 +106,8 @@ class ScientificArticleFragment: AbsBaseFragment<FragmentScientificArticleBindin
             }
         }
         viewModelArticle.value_creat.observe(viewLifecycleOwner) {
-                adapterArticle.creatBook(it)
-                Toast.makeText(requireContext(), "Tạo thành công", Toast.LENGTH_SHORT).show()
+            adapterArticle.creatBook(it)
+            Toast.makeText(requireContext(), "Tạo thành công", Toast.LENGTH_SHORT).show()
 
         }
         viewModelArticle.value_updtae.observe(viewLifecycleOwner) {
@@ -117,6 +117,25 @@ class ScientificArticleFragment: AbsBaseFragment<FragmentScientificArticleBindin
                 .show()
 
         }
+        viewModelArticle.article2.observe(viewLifecycleOwner) {
+            Log.d("TAG", "onItemActionClick: ...........")
+            showButtonSheetAdd(it)
+        }
+        viewModelArticle.article3.observe(viewLifecycleOwner) {
+            showButtonSheetUpdate(it)
+        }
+    }
+    private val runnable = Runnable {
+        runView()
+    }
+    private fun runView() {
+        adapterArticle = AdapterArticle(this)
+        upData()
+    }
+    private fun upData() {
+        viewModelArticle.getListBook()
+
+
     }
     private fun setAudioRecycleView() {
         adapterArticle.getData(listArticle)
@@ -135,17 +154,12 @@ class ScientificArticleFragment: AbsBaseFragment<FragmentScientificArticleBindin
                     when (position) {
                         0 -> {
                             viewModelArticle.getItemBook2(id)
-                            viewModelArticle.article2.observe(viewLifecycleOwner) {
-                                Log.d("TAG", "onItemActionClick: ...........")
-                                showButtonSheetAdd(it)
-                            }
+
                         }
 
                         1 -> {
-                            viewModelArticle.getItemBook2(id)
-                            viewModelArticle.article2.observe(viewLifecycleOwner) {
-                                showButtonSheetUpdate(it)
-                            }
+                            viewModelArticle.getItemBook3(id)
+
                         }
 
                         else -> {
@@ -191,18 +205,10 @@ class ScientificArticleFragment: AbsBaseFragment<FragmentScientificArticleBindin
     }
     override fun clickItem(id: Int, binding: ItemArticleBinding) {
         viewModelArticle.getItemBook(id)
-        viewModelArticle.article.observe(this) {
-            val bottomSheetActionDialog =
-                ArticleBottomSheetDialogFragment(this, "Article", it, requireContext())
-            SharedPreferenceUtils.getInstance(requireContext()).setObjModel(it)
-            bottomSheetActionDialog.show(
-                requireActivity().supportFragmentManager,
-                StaffBottonSheetDialogFragment.TAG
-            )
-        }
+
     }
 
-    override fun onClickText(text: String, item: ListArticleItem) {
+    override fun onClickText(text: String, item: ArticleCreat) {
         when (text) {
             "updateArticle" -> {
                 viewModelArticle.updateBook(viewModelArticle.itemBook.id, item)

@@ -5,6 +5,7 @@ import android.content.Context
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.util.Log
 import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
@@ -15,6 +16,7 @@ import android.widget.Spinner
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
+import com.kma.myapplication.data.model.ArticleCreat
 import com.kma.myapplication.data.model.ArticleItem
 import com.kma.myapplication.data.model.Book
 import com.kma.myapplication.data.model.ListArticleItem
@@ -23,6 +25,7 @@ import com.kma.myapplication.data.model.Staff
 import com.kma.myapplication.databinding.FragmentBottomSheetDialogArticleBinding
 import com.kma.myapplication.databinding.FragmentBottomSheetDialogBookBinding
 import com.kma.myapplication.utils.SharedPreferenceUtils
+import com.kma.myapplication.utils.SharedViewModel
 
 class ArticleBottomSheetDialogFragment(
     var onClickl: onClickBottomSheetArticle,
@@ -30,9 +33,12 @@ class ArticleBottomSheetDialogFragment(
     var itemArticle: ArticleItem,
     var ct: Context
 ) : BottomSheetDialogFragment(), AdapterView.OnItemSelectedListener {
+    var sharedViewModel = SharedViewModel.getInstance(ct)
     lateinit var binding: FragmentBottomSheetDialogArticleBinding
     var a: Staff = SharedPreferenceUtils.getInstance(ct).getObjModel()!!
     var listTypeAricle = arrayListOf<String>("Tạp chí", "Hôi nghị")
+    var listYear = sharedViewModel.arrayYear
+    var listYearId = sharedViewModel.listYearGetId
     var listType = arrayListOf<String>(
         "Tạp chí Nature, AAAS",
         "Thuộc hệ thống ISI/Scopus(Q1)",
@@ -61,6 +67,7 @@ class ArticleBottomSheetDialogFragment(
         }
 
 
+        Log.d(TAG, "onCreateView: 11111")
         var aa = ArrayAdapter(requireContext(), R.layout.simple_spinner_item, listTypeAricle)
         aa.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         var bb = ArrayAdapter(requireContext(), R.layout.simple_spinner_item, listAuthor)
@@ -68,6 +75,22 @@ class ArticleBottomSheetDialogFragment(
         var cc = ArrayAdapter(requireContext(), R.layout.simple_spinner_item, listType)
         cc.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         var positionAuthor = listAuthor.indexOf(itemArticle.users[0].name)
+        var dd = ArrayAdapter(requireContext(), R.layout.simple_spinner_item, listYear)
+        dd.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        with(binding.spYear) {
+            adapter = dd
+            setSelection(0, false)
+            onItemSelectedListener = this@ArticleBottomSheetDialogFragment
+            prompt = "Chọn tác giả"
+            gravity = Gravity.CENTER
+        }
+        with(binding.spYearb) {
+            adapter = dd
+            setSelection(listYear.indexOf(itemArticle.year.name), false)
+            onItemSelectedListener = this@ArticleBottomSheetDialogFragment
+            prompt = "Chọn tác giả"
+            gravity = Gravity.CENTER
+        }
 
         with(binding.spType) {
             adapter = aa
@@ -113,7 +136,19 @@ class ArticleBottomSheetDialogFragment(
         }
         val spinner = Spinner(requireContext())
         spinner.id = NEW_SPINNER_ID
-        binding.articleModel = itemArticle
+
+        Log.d(TAG, "onCreateView000: "+itemArticle)
+
+
+        if (itemArticle.name.isNullOrBlank()){
+            Log.d(TAG, "onCreateView: 11111")
+            itemArticle= ArticleItem()
+        }else{
+
+        }
+            binding.articleModel = itemArticle
+
+
         when (status) {
             "UpdateArticle" -> {
                 binding.clArticleb.visibility = View.VISIBLE
@@ -128,34 +163,35 @@ class ArticleBottomSheetDialogFragment(
             }
         }
         binding.btnUpdate.setOnClickListener {
-            var itemList = ListArticleItem(
-                binding.tvIdArticleb.text.toString(),
-                0,
-                listType.indexOf(binding.spTypeArticlescientificb.selectedItem.toString()),
+            var id = 0
+
+            var itemList = ArticleCreat(
                 binding.tvNameArticleb.text.toString(),
-                1,
+                binding.tvIdArticleb.text.toString(),
+                a.a[binding.spUserb.selectedItemId.toInt()].id.toString(),
+                "1",
+                listTypeAricle.indexOf(binding.spTypeb.selectedItem.toString()).toString(),
                 "1",
                 "1",
-                0,
-                listTypeAricle.indexOf(binding.spTypeb.selectedItem.toString()),
-                1
+                listType.indexOf(binding.spTypeArticlescientificb.selectedItem).toString(),
+                listYearId[binding.spYearb.selectedItemId.toInt()].id.toString()
             )
 
             onClickl.onClickText("updateArticle", itemList)
             destroy()
         }
         binding.btnAdd.setOnClickListener {
-            var itemList = ListArticleItem(
-                binding.tvIdArticle.text.toString(),
-                0,
-                listType.indexOf(binding.spTypeArticlescientific.selectedItem.toString()),
+
+            var itemList = ArticleCreat(
                 binding.tvNameArticle.text.toString(),
-                1,
+                binding.tvIdArticle.text.toString(),
+                a.a[binding.spUser.selectedItemId.toInt()].id.toString(),
+                "1",
+                listTypeAricle.indexOf(binding.spType.selectedItem.toString()).toString(),
                 "1",
                 "1",
-                0,
-                listTypeAricle.indexOf(binding.spType.selectedItem.toString()),
-                1
+                listType.indexOf(binding.spTypeArticlescientific.selectedItem).toString(),
+                listYearId[binding.spYear.selectedItemId.toInt()].id.toString()
             )
 
             onClickl.onClickText("addArticle", itemList)
@@ -189,5 +225,5 @@ class ArticleBottomSheetDialogFragment(
 }
 
 interface onClickBottomSheetArticle {
-    fun onClickText(text: String, item: ListArticleItem)
+    fun onClickText(text: String, item: ArticleCreat)
 }
