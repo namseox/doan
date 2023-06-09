@@ -16,8 +16,9 @@ data class UserX(
     val salt: String="",
     val time_per_year: Int=0,
     val time_reserve: Int=0,
+
     val timeScient: Int=0,
     val timeTeach: Int=0,
-    val departmentName: String="",
+    val departmentName: String=""
 
 )

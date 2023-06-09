@@ -140,9 +140,9 @@ class StaffFragment : AbsBaseFragment<FragmentStaffBinding>(), onCLick, onClickB
         viewModelStaff.getItemUser2.observe(this) {
             it?.let {
                 showButtonSheetAdd(it)
-            }
-        }
-        viewModelStaff.getItemUser2.observe(this) {
+
+            }}
+        viewModelStaff.getItemUser3.observe(this) {
             it?.let {
                 showButtonSheetUpdate(it)
             }

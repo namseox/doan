@@ -34,7 +34,7 @@
             android:layout_height="wrap_content"
             app:navigationIcon="@drawable/ic_back"
             android:background="@color/white"
-            app:title="Sách, giáo trình suất bản"
+            app:title="Sách, giáo trình xuất bản"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"/>
         <androidx.recyclerview.widget.RecyclerView
