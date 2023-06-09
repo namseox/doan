@@ -17,6 +17,7 @@ import android.provider.MediaStore
 import android.provider.Settings
 import android.text.InputFilter
 import android.util.TypedValue
+import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import android.view.WindowInsetsController
@@ -25,6 +26,7 @@ import android.view.inputmethod.InputMethodManager
 import android.webkit.MimeTypeMap
 import android.widget.Toast
 import androidx.annotation.RequiresApi
+import androidx.appcompat.widget.Toolbar
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
@@ -36,6 +38,12 @@ import java.io.File
 
 object Utils {
     val actions = arrayListOf<String>("Add", "Edit", "Delete")
+    fun Toolbar.setSafeMenuClickListener(onSafeClick: (MenuItem?) -> Unit) {
+        val safeMenuClickListener = SafeMenuClickListener(defaultInterval = 1000, onSafeClick = ({
+            onSafeClick(it)
+        }))
+        setOnMenuItemClickListener(safeMenuClickListener)
+    }
     private var STORAGE_PERMISSION_UNDER_STORAGE_SCOPE = arrayOf(
         Manifest.permission.READ_EXTERNAL_STORAGE,
         Manifest.permission.WRITE_EXTERNAL_STORAGE,

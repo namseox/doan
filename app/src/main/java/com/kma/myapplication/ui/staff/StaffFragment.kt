@@ -6,6 +6,9 @@ import android.app.Application
 import android.os.Handler
 import android.os.Looper
 import android.util.Log
+import android.view.Menu
+import android.view.MenuInflater
+import android.view.MenuItem
 import android.view.View.GONE
 import android.view.View.VISIBLE
 import android.widget.Toast
@@ -26,6 +29,7 @@ import com.kma.myapplication.ui.base.AbsBaseFragment
 import com.kma.myapplication.ui.dialog.DeleteDialog
 import com.kma.myapplication.utils.SharedPreferenceUtils
 import com.kma.myapplication.utils.Utils.actions
+import com.kma.myapplication.utils.Utils.setSafeMenuClickListener
 import java.util.ArrayList
 
 class StaffFragment : AbsBaseFragment<FragmentStaffBinding>(), onCLick, onClickBottomSheet {
@@ -36,12 +40,23 @@ class StaffFragment : AbsBaseFragment<FragmentStaffBinding>(), onCLick, onClickB
     val handler = Handler(Looper.myLooper()!!)
     override fun getLayout(): Int = R.layout.fragment_staff
 
+
     override fun initView() {
         viewModelStaff = ViewModelStaffFragment(Application())
 
         handler.postDelayed(runnable, 1000)
-        binding.toolbar.setOnClickListener {
+        binding.topAppBar.setOnClickListener {
             findNavController().navigateUp()
+        }
+        binding.appBar.addLiftOnScrollListener { _, backgroundColor ->
+            requireActivity().window.statusBarColor = backgroundColor
+        }
+        binding.topAppBar.setSafeMenuClickListener {
+            when(it!!.itemId){
+                R.id.ic_add ->{
+                    showButtonSheetAdd(UserX())
+                }
+            }
         }
     }
 
@@ -108,27 +123,30 @@ class StaffFragment : AbsBaseFragment<FragmentStaffBinding>(), onCLick, onClickB
         viewModelStaff.value_updtae.observe(this) {
             it?.let {
                 Log.d("TAG", "upData00: ")
-                    adapterStaff.updateStaff(it)
-                    Toast.makeText(requireContext(), "Cập nhật thành công", Toast.LENGTH_SHORT)
-                        .show()
+                adapterStaff.updateStaff(it)
+                Toast.makeText(requireContext(), "Cập nhật thành công", Toast.LENGTH_SHORT)
+                    .show()
             }
         }
         viewModelStaff.getItemUser.observe(this) {
             it?.let {
-            val bottomSheetActionDialog = StaffBottonSheetDialogFragment(this, "Staff", it)
-            bottomSheetActionDialog.show(
-                requireActivity().supportFragmentManager,
-                StaffBottonSheetDialogFragment.TAG
-            )
-        }}
+                val bottomSheetActionDialog = StaffBottonSheetDialogFragment(this, "Staff", it)
+                bottomSheetActionDialog.show(
+                    requireActivity().supportFragmentManager,
+                    StaffBottonSheetDialogFragment.TAG
+                )
+            }
+        }
         viewModelStaff.getItemUser2.observe(this) {
             it?.let {
                 showButtonSheetAdd(it)
-            }}
+            }
+        }
         viewModelStaff.getItemUser2.observe(this) {
             it?.let {
                 showButtonSheetUpdate(it)
-            }}
+            }
+        }
     }
 
     private fun setAudioRecycleView() {
@@ -144,7 +162,7 @@ class StaffFragment : AbsBaseFragment<FragmentStaffBinding>(), onCLick, onClickB
     }
 
 
-    override fun click3Dot(staff: StaffItem, binding: ItemStaffBinding,year_id: Int) {
+    override fun click3Dot(staff: StaffItem, binding: ItemStaffBinding, year_id: Int) {
         listActionPopup.showPopup(
             binding.iv3dot,
             actions,
@@ -153,11 +171,11 @@ class StaffFragment : AbsBaseFragment<FragmentStaffBinding>(), onCLick, onClickB
                     viewModelStaff.itemStaff = staff
                     when (position) {
                         0 -> {
-                            viewModelStaff.getStaff2(staff.id,year_id)
+                            viewModelStaff.getStaff2(staff.id, year_id)
                         }
 
                         1 -> {
-                            viewModelStaff.getStaff3(staff.id,year_id)
+                            viewModelStaff.getStaff3(staff.id, year_id)
                         }
 
                         else -> {
@@ -203,7 +221,7 @@ class StaffFragment : AbsBaseFragment<FragmentStaffBinding>(), onCLick, onClickB
 
     override fun clickItem(staff: StaffItem, binding: ItemStaffBinding, year_id: Int) {
         viewModelStaff.itemStaff = staff
-        viewModelStaff.getStaff(staff.id,year_id)
+        viewModelStaff.getStaff(staff.id, year_id)
     }
 
     override fun onClickText(text: String, staff: UserX) {

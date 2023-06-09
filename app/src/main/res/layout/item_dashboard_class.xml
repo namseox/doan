@@ -14,12 +14,14 @@
     <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:strokeColor="#1F50EC"
-        app:strokeWidth="0.75dp"
-        android:layoutAnimation="@anim/layout_animation"
-        android:elevation="@dimen/dp_24"
         android:layout_marginTop="@dimen/dp_4"
-        android:layout_marginBottom="@dimen/dp_4">
+        android:layout_marginBottom="@dimen/dp_4"
+        app:cardElevation="4dp"
+        android:elevation="@dimen/dp_24"
+        android:layoutAnimation="@anim/layout_animation"
+        app:strokeColor="#1F50EC"
+        app:strokeWidth="0.75dp">
+
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/clBook"
             android:layout_width="match_parent"
@@ -27,9 +29,11 @@
             android:layout_marginTop="@dimen/dp_4"
             android:layout_marginBottom="@dimen/dp_4"
             android:foreground="?attr/selectableItemBackground"
-            android:clickable="true">
+            android:clickable="true"
+            android:theme="@style/SelectableItemTheme">
 
-            <TextView
+
+        <TextView
                 android:id="@+id/tv_stt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

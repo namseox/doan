@@ -9,7 +9,11 @@
         android:label="LoginFragment" >
         <action
             android:id="@+id/action_loginFragment_to_mainFragment"
-            app:destination="@id/mainFragment" />
+            app:destination="@id/mainFragment"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@android:anim/fade_in"
+            app:popExitAnim="@anim/slide_out_left"/>
     </fragment>
     <fragment
         android:id="@+id/mainFragment"
@@ -17,40 +21,88 @@
         android:label="MainFragment" >
         <action
             android:id="@+id/action_mainFragment_to_bookFragment"
-            app:destination="@id/bookFragment" />
+            app:destination="@id/bookFragment"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@android:anim/fade_in"
+            app:popExitAnim="@anim/slide_out_left"/>
         <action
             android:id="@+id/action_mainFragment_to_educationProgramFragment"
-            app:destination="@id/educationProgramFragment" />
+            app:destination="@id/educationProgramFragment"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@android:anim/fade_in"
+            app:popExitAnim="@anim/slide_out_left"/>
         <action
             android:id="@+id/action_mainFragment_to_prizeFragment"
-            app:destination="@id/prizeFragment" />
+            app:destination="@id/prizeFragment"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@android:anim/fade_in"
+            app:popExitAnim="@anim/slide_out_left"/>
         <action
             android:id="@+id/action_mainFragment_to_scientificArticleFragment"
-            app:destination="@id/scientificArticleFragment" />
+            app:destination="@id/scientificArticleFragment"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@android:anim/fade_in"
+            app:popExitAnim="@anim/slide_out_left"/>
         <action
             android:id="@+id/action_mainFragment_to_scientificResearchFragment"
-            app:destination="@id/scientificResearchFragment" />
+            app:destination="@id/scientificResearchFragment"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@android:anim/fade_in"
+            app:popExitAnim="@anim/slide_out_left"/>
         <action
             android:id="@+id/action_mainFragment_to_staffFragment"
-            app:destination="@id/staffFragment" />
+            app:destination="@id/staffFragment"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@android:anim/fade_in"
+            app:popExitAnim="@anim/slide_out_left"/>
         <action
             android:id="@+id/action_mainFragment_to_classFragment"
-            app:destination="@id/classFragment" />
+            app:destination="@id/classFragment"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@android:anim/fade_in"
+            app:popExitAnim="@anim/slide_out_left"/>
         <action
             android:id="@+id/action_mainFragment_to_examFragment"
-            app:destination="@id/examFragment" />
+            app:destination="@id/examFragment"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@android:anim/fade_in"
+            app:popExitAnim="@anim/slide_out_left"/>
         <action
             android:id="@+id/action_mainFragment_to_markExamFragment"
-            app:destination="@id/markExamFragment" />
+            app:destination="@id/markExamFragment"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@android:anim/fade_in"
+            app:popExitAnim="@anim/slide_out_left"/>
         <action
             android:id="@+id/action_mainFragment_to_monotorExamFragment"
-            app:destination="@id/monotorExamFragment" />
+            app:destination="@id/monotorExamFragment"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@android:anim/fade_in"
+            app:popExitAnim="@anim/slide_out_left"/>
         <action
             android:id="@+id/action_mainFragment_to_subjectFragment"
-            app:destination="@id/subjectFragment" />
+            app:destination="@id/subjectFragment"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@android:anim/fade_in"
+            app:popExitAnim="@anim/slide_out_left"/>
         <action
             android:id="@+id/action_mainFragment_to_policyAndTermFragment"
-            app:destination="@id/policyAndTermFragment" />
+            app:destination="@id/policyAndTermFragment"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@android:anim/fade_in"
+            app:popExitAnim="@anim/slide_out_left"/>
     </fragment>
     <fragment
         android:id="@+id/bookFragment"

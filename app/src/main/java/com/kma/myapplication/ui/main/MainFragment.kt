@@ -282,6 +282,7 @@ class MainFragment : AbsBaseFragment<FragmentMainBinding>(), AdapterView.OnItemS
     }
 
     override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+        Log.d("TAG", "onItemSelected:00 "+listYear2[position].id +"     "+position)
         id_year = listYear2[position].id
         viewModelMainFragment.getListDashboardClass(id_year, sharedViewModel.user.user.id)
     }
