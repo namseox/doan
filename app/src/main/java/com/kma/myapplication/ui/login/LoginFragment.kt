@@ -2,21 +2,20 @@ package com.kma.myapplication.ui.login
 
 import android.app.Application
 import android.widget.Toast
+import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.kma.myapplication.R
-import com.kma.myapplication.ViewModelActivityMain
-import com.kma.myapplication.data.model.User
-import com.kma.myapplication.data.model.UserX
 import com.kma.myapplication.databinding.FragmentLoginBinding
 import com.kma.myapplication.ui.base.AbsBaseFragment
 import com.kma.myapplication.ui.main.MainFragmentDirections
 import com.kma.myapplication.ui.splash.ConfirmFragment
 import com.kma.myapplication.ui.splash.onClick
 import com.kma.myapplication.utils.SharedPreferenceUtils
+import com.kma.myapplication.utils.SharedViewModel
 
 class LoginFragment : AbsBaseFragment<FragmentLoginBinding>(),onClick {
     lateinit var mViewModel: LoginViewModel
-    lateinit var mViewMdelMain: ViewModelActivityMain
     override fun getLayout(): Int {
         return R.layout.fragment_login
     }
@@ -24,7 +23,7 @@ class LoginFragment : AbsBaseFragment<FragmentLoginBinding>(),onClick {
     override fun initView() {
         showButtonSheet()
         mViewModel = LoginViewModel(Application())
-        mViewMdelMain = ViewModelActivityMain()
+
         binding.btnLogin.setOnClickListener {
             if (binding.etUsername.text.isNullOrBlank()) {
                 Toast.makeText(requireContext(), "Chưa điền tài khoản", Toast.LENGTH_SHORT).show()
@@ -44,8 +43,8 @@ class LoginFragment : AbsBaseFragment<FragmentLoginBinding>(),onClick {
         mViewModel.user.observe(this) {
             it?.let {
                 if (it.success) {
+                    SharedViewModel.getInstance(requireContext()).user = it
                     SharedPreferenceUtils.getInstance(requireContext()).setObjModel(it)
-                    mViewMdelMain.getUser(it)
                     SharedPreferenceUtils.getInstance(requireContext()).putBooleanValue("login_success",true)
                     val action = LoginFragmentDirections.actionLoginFragmentToMainFragment()
                     findNavController().navigate(action)

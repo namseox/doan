@@ -1,10 +1,10 @@
 package com.kma.myapplication.data.api.retrofit.apihelper
 
 import android.content.Context
-import android.util.Log
 import com.google.gson.GsonBuilder
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import com.kma.myapplication.data.api.base.BaseRetrofitHelper
+import com.kma.myapplication.data.api.retrofit.year.YearApi
 import com.kma.myapplication.data.api.retrofit.artic.ArticApi
 import com.kma.myapplication.data.api.retrofit.book.BookApi
 import com.kma.myapplication.data.api.retrofit.classs.ClassApi
@@ -15,14 +15,14 @@ import com.kma.myapplication.data.api.retrofit.mark.MarkApi
 import com.kma.myapplication.data.api.retrofit.room.RoomApi
 import com.kma.myapplication.data.api.retrofit.staff.StaffApi
 import com.kma.myapplication.data.api.retrofit.subject.SubjectApi
+import com.kma.myapplication.data.api.retrofit.topic.TopicApi
 import com.kma.myapplication.data.api.retrofit.user.LoginApi
 import com.kma.myapplication.utils.SingletonHolder
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
-import retrofit2.create
 
 class ApiHelper private constructor(context: Context) : BaseRetrofitHelper(context) {
-        private val BASE_URL = "http://192.130.15.102:8001/"
+        private val BASE_URL = "http://172.16.24.186:8001/"
 //    private val BASE_URL = "http://127.0.0.1:5173"
     var loginApi: LoginApi
     var staffApi: StaffApi
@@ -35,6 +35,8 @@ class ApiHelper private constructor(context: Context) : BaseRetrofitHelper(conte
     var markApi:MarkApi
     var roomApi: RoomApi
     var subjectApi :SubjectApi
+    var apiYear : YearApi
+    var topicApi :TopicApi
 
     init {
         GsonBuilder().setLenient().create()
@@ -54,7 +56,8 @@ class ApiHelper private constructor(context: Context) : BaseRetrofitHelper(conte
         markApi = retrofit.create(MarkApi::class.java)
         roomApi = retrofit.create(RoomApi::class.java)
         subjectApi = retrofit.create(SubjectApi::class.java)
-
+        apiYear = retrofit.create(YearApi::class.java)
+        topicApi = retrofit.create(TopicApi::class.java)
     }
 
     companion object : SingletonHolder<ApiHelper, Context>(::ApiHelper)

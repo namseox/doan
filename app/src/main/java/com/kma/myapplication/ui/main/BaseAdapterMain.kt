@@ -1,5 +1,6 @@
 package com.kma.myapplication.ui.main
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
@@ -14,8 +15,15 @@ abstract class BaseAdapterMain<T, V : ViewDataBinding>() :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     lateinit var binding: V
     var data = mutableListOf<T>()
+    lateinit var dataUpdate: List<T>
+    fun getData(){
+        this.data.clear()
+        this.data.addAll(dataUpdate)
+        notifyDataSetChanged()
+        Log.d("TAG", "g--etData: "+data)
+    }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
-        binding = DataBindingUtil.inflate(LayoutInflater.from(parent.context), parent.id, parent, false)
+
         return ViewHolder(binding)
     }
 
@@ -34,4 +42,5 @@ abstract class BaseAdapterMain<T, V : ViewDataBinding>() :
     }
 
     abstract fun creatViewHolder(position : Int)
+
 }

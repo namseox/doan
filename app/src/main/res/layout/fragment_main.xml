@@ -17,7 +17,6 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-
             <com.google.android.material.appbar.AppBarLayout
                 android:id="@+id/abll_main"
                 style="@style/Widget.MaterialComponents.AppBarLayout.PrimarySurface"
@@ -73,7 +72,7 @@
                     <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/rcv1"
                         android:layout_width="match_parent"
-                        android:layout_height="300dp"
+                        android:layout_height="wrap_content"
                         android:layout_marginStart="20dp"
                         android:layout_marginTop="4dp"
                         android:layout_marginEnd="20dp"
@@ -86,7 +85,7 @@
                         android:id="@+id/tv2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Lớp học đang dạy"
+                        android:text="Danh sách nghiên cứu khoa học"
                         android:ellipsize="middle"
                         android:singleLine="true"
                         app:layout_constraintTop_toBottomOf="@id/rcv1"
@@ -98,7 +97,7 @@
                     <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/rcv2"
                         android:layout_width="match_parent"
-                        android:layout_height="300dp"
+                        android:layout_height="wrap_content"
                         android:layout_marginStart="20dp"
                         android:layout_marginTop="12dp"
                         android:layout_marginEnd="20dp"
@@ -109,7 +108,7 @@
                         android:id="@+id/tv3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Lớp học đang dạy"
+                        android:text="Danh sách bài báo khoa học"
                         android:ellipsize="middle"
                         android:singleLine="true"
                         app:layout_constraintTop_toBottomOf="@id/rcv2"
@@ -121,7 +120,7 @@
                     <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/rcv3"
                         android:layout_width="match_parent"
-                        android:layout_height="300dp"
+                        android:layout_height="wrap_content"
                         android:layout_marginStart="20dp"
                         android:layout_marginTop="12dp"
                         android:layout_marginEnd="20dp"

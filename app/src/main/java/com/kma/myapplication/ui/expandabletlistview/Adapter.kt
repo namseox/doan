@@ -1,4 +1,4 @@
-package com.kma.myapplication.ui.ExpandabletListView
+package com.kma.myapplication.ui.expandabletlistview
 
 import android.content.Context
 import android.view.LayoutInflater
